@@ -217,22 +217,6 @@ CREATE TABLE `usuario_rol` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `solicitud_aval`
---
-
-CREATE TABLE `solicitud_aval` (
-  `idSolicitudAval` bigint(20) NOT NULL,
-  `idEvento` bigint(20) NOT NULL,
-  `fechaSolicitud` datetime NOT NULL,
-  `tokenSolicitud` varchar(200) NOT NULL,
-  `fechaRevision` datetime DEFAULT NULL,
-  `avalado` tinyint(1) DEFAULT NULL,
-  `validador` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `pregunta`
 --
 

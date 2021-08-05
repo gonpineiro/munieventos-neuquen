@@ -10,7 +10,7 @@ Tener en cuenta que este proceso va a tardar un poco la primera vez que lo corra
     - `docker-compose up --build -d`
     + `docker-compose run backend composer update`
     + `docker-compose run backend composer install`
-    * `docker-compose run backend php /app/init` (Seleccionar ambiente para Development (Elegir `0` luego `yes`) y continuar)
+    * `docker-compose run backend php /app/init` o  (Seleccionar ambiente para Development (Elegir `0` luego `yes`) y continuar)
 
  - Ajustar la config. de components['db'] en `common/config/main-local.php` acorde a la DB que quieras sincronizar al proyecto.\
 En este ejemplo usamos la DB creada durante el primer comando que corrimos, cuya config. inicial se encuentra en el archivo *docker-compose.yml*
