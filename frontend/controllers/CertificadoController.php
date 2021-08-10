@@ -174,11 +174,15 @@ class CertificadoController extends Controller
      */
     private function commonData($id, $type, $certificate, $idPresentation = null)
     {
+        // echo "<pre>";
+        // print_r($certificate->event[0]);
+        // echo "</pre>";
+        // die();
         $organizer = Usuario::findOne($certificate->event[0]->idUsuario);
         $userData = Usuario::findOne(Yii::$app->user->identity->id);
         $eventData = $certificate->event;
 
-        if ($eventData[0]->solicitudAval['avalado'] == 1) {
+        if (isset($eventData[0]->solicitudAval['avalado']) && $eventData[0]->solicitudAval['avalado'] == 1) {
             $footer = 'Facultad de Informática - UNComa';
             $isOficial = true;
         } else {
