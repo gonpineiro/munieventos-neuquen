@@ -31,7 +31,6 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap mt-5">
-    prueba
     <?php if (Yii::$app->requestedRoute == 'site/index' || Yii::$app->requestedRoute == null): ?>
         <!--<header class="darkish_bg">-->
         <div class="row">
