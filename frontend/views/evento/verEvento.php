@@ -78,6 +78,7 @@ $estadoEvento = $evento->idEstadoEvento0->descripcionEstado;
 
 $organizadorEvento = $evento->idUsuario0->nombre . " " . $evento->idUsuario0->apellido;
 $organizadorEmailEvento = $evento->idUsuario0->email;
+
 ?>
 <div class="evento-view ">
 

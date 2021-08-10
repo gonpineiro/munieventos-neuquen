@@ -7,6 +7,7 @@ themes/classic/views/
 frontend/web/eventos/images/flyers/*
 frontend/web/eventos/images/logos/*
 frontend/web/eventos/images/qrcodes/*
+frontend/web/eventos/formularios/archivos/*
 frontend/web/profile/images/*
 
 # yii console commands
