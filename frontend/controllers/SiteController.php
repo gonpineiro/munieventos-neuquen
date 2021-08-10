@@ -394,11 +394,11 @@ class SiteController extends Controller
                 Yii::$app->session->setFlash('success', '<h2> ¡Confirmación exitosa! </h2>'
                     . '<p> Su dirección de correo ha sido confirmada exitosamente. Ya puede acceder al contenido de la plataforma </p>');
 
-                if (!Yii::$app->user->can("Organizador")) {
+                if (!Yii::$app->user->can("Registrado")) {
                     //iniciamos authManager
                     $auth = Yii::$app->authManager;
                     //indicamos el rol que deseamos asignarle al usuario
-                    $usuarioRegistrado = $auth->createRole('Organizador');
+                    $usuarioRegistrado = $auth->createRole('Registrado');
                     // Asignamos el rol al usuario registrado
                     $auth->assign($usuarioRegistrado, (Yii::$app->user->id));
                     //destruimos la referencha al authManager
