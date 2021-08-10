@@ -12,7 +12,7 @@ use yii\helpers\Html;
             <div class="row m-2 ">
                 <div class="col-12 col-md-6">
                     <?php if ($attendanceCertificate) {
-                        echo '<label>Asistencia</label></br>' . Html::a($iconsPdf, ['certificado/preview-attendance', 'id' => $idEvent], ['class' => 'btn btn-primary']);
+                        echo '<label>Asistencia</label></br>' . Html::a($iconsPdf, ['certificado/preview-attendance', 'id' => $idEvent], ['class' => 'btn btn-primary', 'target' => "_blank"]);
                     } ?>
                 </div>
                 <div class="col-12 col-md-6">
