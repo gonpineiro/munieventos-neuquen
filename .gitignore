@@ -4,8 +4,10 @@ protected/runtime/*
 !protected/runtime/.gitignore
 protected/data/*.db
 themes/classic/views/
-frontend/web/eventos/
-frontend/web/profile/
+frontend/web/eventos/images/flyers/*
+frontend/web/eventos/images/logos/*
+frontend/web/eventos/images/qrcodes/*
+frontend/web/profile/images/*
 
 # yii console commands
 /yii
