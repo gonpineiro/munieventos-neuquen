@@ -15,36 +15,33 @@ $this->title = 'Proyecto Juntar';
                 <div class="card">
                     <h5 class="card-header text-center pinkish_bg text-white"> QR Evento: </h5>
                     <div class="card-body">
-                        <?php if ((@getimagesize($imageEventoQR))): ?>
+                        <?php if ($imageEventoQR != '' || $imageEventoQR != null) : ?>
                             <p> El siguiente código QR permite visualizar el evento creado en Juntar: </p>
-                            <img class="mt-2 full_width" src="<?= Html::encode($imageEventoQR) ?>"
-                                 title="<?= Html::encode($slug); ?>">
+                            <img class="mt-2 full_width" src="<?= Html::encode($imageEventoQR) ?>" title="<?= Html::encode($slug); ?>">
                             <br>
                             <br>
                             <a href="<?= Html::encode($imageEventoQR) ?>" class="btn btn-secondary" download>
                                 Descargar </a>
-                        <?php else: ?>
+                        <?php else : ?>
                             <small> Lo sentimos, no pudimos encontrar la imagen solicitada ): </small>
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
 
-            <?php if ($imageAcreditacionEventoQR != null && $imageAcreditacionEventoQR != ''): ?>
+            <?php if ($imageAcreditacionEventoQR != null && $imageAcreditacionEventoQR != '') : ?>
                 <div class="col-md-7 col-sm-12 m-auto p-0 text-center">
                     <div class="card mt-3">
                         <h5 class="card-header text-center pinkish_bg text-white"> QR Acreditación Evento: </h5>
                         <div class="card-body">
-                            <?php if ((@getimagesize($imageAcreditacionEventoQR))): ?>
+                            <?php if ($imageAcreditacionEventoQR != null && $imageAcreditacionEventoQR != '') : ?>
                                 <p> El siguiente código QR permite a un usuario inscripto acreditarse al evento en
                                     Juntar: </p>
-                                <img class="mt-2 full_width" src="<?= Html::encode($imageAcreditacionEventoQR) ?>"
-                                     title="<?= Html::encode($slug); ?>">
+                                <img class="mt-2 full_width" src="<?= Html::encode($imageAcreditacionEventoQR) ?>" title="<?= Html::encode($slug); ?>">
                                 <br>
                                 <br>
-                                <a href="<?= Html::encode($imageAcreditacionEventoQR) ?>" class="btn btn-secondary"
-                                   download> Descargar </a>
-                            <?php else: ?>
+                                <a href="<?= Html::encode($imageAcreditacionEventoQR) ?>" class="btn btn-secondary" download> Descargar </a>
+                            <?php else : ?>
                                 <small> Lo sentimos, no pudimos encontrar la imagen solicitada ): </small>
                             <?php endif; ?>
                         </div>
@@ -52,6 +49,4 @@ $this->title = 'Proyecto Juntar';
                 </div>
             <?php endif; ?>
         </div>
-        <!--</div>-->
-        <!--</div>-->
     </div>

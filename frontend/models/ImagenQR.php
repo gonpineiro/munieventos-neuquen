@@ -134,8 +134,7 @@ class ImagenQR extends Model
     private function generarQR($url, $pathImage, $label)
     {
         $qrCode = (new QrCode($url))
-            ->setLogo("../web/images/juntar-logo/png/juntar-avatar-bg-b.png")
-            ->setEncoding('UTF-8')
+            ->useLogo("../web/images/juntar-logo/png/juntar-avatar-bg-b.png")
             ->setLogoWidth(45)
             ->setSize(400)
             ->setMargin(5)
