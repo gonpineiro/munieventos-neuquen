@@ -19,14 +19,19 @@ class UploadFormLogo extends Model
         ];
     }
 
-    public function upload()
+    public function upload($folder = null)
     {
         if ($this->validate()) {
-            //'../web/eventos/images/logos/'
-            //$rutaGuardarLogo = (Yii::getAlias('@rutaLogo'));
-            // $ruta = Yii::getPathOfAlias('webroot').'/images/fotocarnet/';
-            //$rutaLogo = Yii::getPathOfAlias('webroot').'/eventos/images/logos/';
-            $this->imageLogo->saveAs('../web/eventos/images/logos/' . $this->imageLogo->baseName . '.' . $this->imageLogo->extension);
+            if ($folder != null) {
+                $path = '../web/eventos/images/logos/' . $folder;
+                if (!file_exists($path)) {
+                    mkdir($path, 0755, true);
+                };
+                $this->imageLogo->saveAs($path . '/' . $this->imageLogo->baseName . '.' . $this->imageLogo->extension);
+            } else {
+                $this->imageLogo->saveAs('../web/eventos/images/logos/' . $this->imageLogo->baseName . '.' . $this->imageLogo->extension);
+            }
+
             return true;
         } else {
             return false;

@@ -138,11 +138,15 @@ class EventoController extends Controller
                 'sort' => ['attributes' => ['name', 'description']]
             ]);
             //Se retorna los datos a la vista
-            return $this->render('respuestasFormulario',
-                ["preinscriptos" => $usuariosPreinscriptosDataProvider,
+            return $this->render(
+                'respuestasFormulario',
+                [
+                    "preinscriptos" => $usuariosPreinscriptosDataProvider,
                     "inscriptos" => $usuariosInscriptosDataProvider,
                     "evento" => $evento, 'cantidadInscriptos' => $cantidadInscriptos,
-                    "hayPreguntas" => $hayPreguntas]);
+                    "hayPreguntas" => $hayPreguntas
+                ]
+            );
         } else {
             throw new NotFoundHttpException('La página solicitada no existe.');
         }
@@ -166,22 +170,21 @@ class EventoController extends Controller
         $rutaFlyer = (Yii::getAlias("@rutaFlyer"));
 
         $model->idEstadoEvento = 4; //FLag - Por defecto los eventos quedan en estado "Borrador"
-//        $model->avalado = 0; // Flag - Por defecto
+        //        $model->avalado = 0; // Flag - Por defecto
         $model->fechaCreacionEvento = date('Y-m-d'); // Fecha de hoy
-
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
             $modelLogo->imageLogo = UploadedFile::getInstance($modelLogo, 'imageLogo');
             $modelFlyer->imageFlyer = UploadedFile::getInstance($modelFlyer, 'imageFlyer');
 
             if ($modelLogo->imageLogo != null) {
-                if ($modelLogo->upload()) {
-                    $model->imgLogo = $rutaLogo . '/' . $modelLogo->imageLogo->baseName . '.' . $modelLogo->imageLogo->extension;
+                if ($modelLogo->upload($model->nombreCortoEvento)) {
+                    $model->imgLogo = $rutaLogo . '/' . $model->nombreCortoEvento . '/' . $modelLogo->imageLogo->baseName . '.' . $modelLogo->imageLogo->extension;
                 }
             }
             if ($modelFlyer->imageFlyer != null) {
-                if ($modelFlyer->upload()) {
-                    $model->imgFlyer = $rutaFlyer . '/' . $modelFlyer->imageFlyer->baseName . '.' . $modelFlyer->imageFlyer->extension;
+                if ($modelFlyer->upload($model->nombreCortoEvento)) {
+                    $model->imgFlyer = $rutaFlyer . '/' . $model->nombreCortoEvento . '/' . $modelFlyer->imageFlyer->baseName . '.' . $modelFlyer->imageFlyer->extension;
                 }
             }
             //necesita variables, porque sino hace referencia al objeto model y la referencia pierde el valor si crea una nueva instancia
@@ -284,9 +287,13 @@ class EventoController extends Controller
                 'sort' => ['attributes' => ['name', 'description']]
             ]);
 
-            return $this->render('crearFormularioDinamico',
-                ["preguntas" => $preguntasDataProvider,
-                    "evento" => $evento]);
+            return $this->render(
+                'crearFormularioDinamico',
+                [
+                    "preguntas" => $preguntasDataProvider,
+                    "evento" => $evento
+                ]
+            );
         } else {
             throw new NotFoundHttpException('La página solicitada no existe.');
         }
@@ -350,13 +357,17 @@ class EventoController extends Controller
                 return $this->redirect(Url::toRoute(["eventos/ver-evento/" . $evento->nombreCortoEvento]));
             }
 
-            return $this->render('responderFormulario',
-                ["preguntas" => $preguntas,
+            return $this->render(
+                'responderFormulario',
+                [
+                    "preguntas" => $preguntas,
                     "evento" => $evento,
                     "idInscripcion" => $inscripcion->idInscripcion,
                     "respuestaYaHechas" => $respuestaYaHechas,
                     "todasRespuestasHechas" => $todasRespuestasHechas,
-                    "model" => $model,]);
+                    "model" => $model,
+                ]
+            );
         } else {
             return $this->goHome();
         }
@@ -615,7 +626,7 @@ class EventoController extends Controller
                             $QrAcreditacion->updateQRAcreditacion($codAcre, $nombreCortoEvento, $idEvento);
                         }
                     }
-//                $this->actionGenerarQREvento($nombreCortoEvento);
+                    //                $this->actionGenerarQREvento($nombreCortoEvento);
                     if ($model->codigoAcreditacion != null && $codigoAcredInicial != $model->codigoAcreditacion) {
                         //si se ingreso codigo de acreditación, se genera el correspondiente codigo qr para acreditarse
                         $codAcre = $model->codigoAcreditacion;
@@ -732,7 +743,8 @@ class EventoController extends Controller
 
         $base = Inscripcion::find();
         $base->innerJoin('usuario', 'usuario.idUsuario=inscripcion.idUsuario');
-        $base->select(['user_estado' => 'inscripcion.estado',
+        $base->select([
+            'user_estado' => 'inscripcion.estado',
             'user_acreditacion' => 'inscripcion.acreditacion',
             'user_idInscripcion' => 'inscripcion.idInscripcion',
             'user_apellido' => 'usuario.apellido',
@@ -743,7 +755,8 @@ class EventoController extends Controller
             'user_localidad' => 'usuario.localidad',
             'user_email' => 'usuario.email',
             'user_fechaPreInscripcion' => 'inscripcion.fechaPreInscripcion',
-            'user_fechaInscripcion' => 'inscripcion.fechaInscripcion']);
+            'user_fechaInscripcion' => 'inscripcion.fechaInscripcion'
+        ]);
 
 
         $participantes = $base->where(['inscripcion.idEvento' => $idEvento])->orderBy('usuario.apellido ASC')->asArray()->all();
@@ -765,9 +778,13 @@ class EventoController extends Controller
         }
 
 
-        return $this->renderPartial('listaParticipantes',
-            ['datosDelEvento' => $datosDelEvento,
-                'preguntas' => $preguntas, 'listaRepuesta' => $listaRepuesta, 'extension' => $extension]);
+        return $this->renderPartial(
+            'listaParticipantes',
+            [
+                'datosDelEvento' => $datosDelEvento,
+                'preguntas' => $preguntas, 'listaRepuesta' => $listaRepuesta, 'extension' => $extension
+            ]
+        );
     }
 
     public function actionEnviarEmailInscriptos()
@@ -777,7 +794,7 @@ class EventoController extends Controller
 
         $evento = Evento::findOne(['idEvento' => $idEvento]);
 
-///        $base->select(['user_email'=>'usuario.email','user_apellido'=>'usuario.apellido','user_nombre'=>'usuario.nombre']);
+        ///        $base->select(['user_email'=>'usuario.email','user_apellido'=>'usuario.apellido','user_nombre'=>'usuario.nombre']);
 
         $base = Inscripcion::find();
         $base->innerJoin('usuario', 'usuario.idUsuario=inscripcion.idUsuario');
@@ -1129,5 +1146,4 @@ class EventoController extends Controller
             return $evento;
         }
     }
-
 }
