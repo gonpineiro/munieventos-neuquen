@@ -5,7 +5,7 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
-    'name' => 'Juntar',
+    'name' => 'Eventos Neuquén',
     'language' => "es_AR",
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [

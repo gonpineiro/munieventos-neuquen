@@ -36,32 +36,28 @@ $this->title = 'Juntar';
     <div class="body-content">
         <header class="hero gradient-hero">
             <div class="center-content padding_hero">
-                <?= Html::img('@web/images/logo-14.svg', ['class' => 'img-fluid padding_logo']); ?>
-                <br>
-                <h5 class="text-white text-uppercase">Sistema Gestión de Eventos</h5>
+                <!-- Html::img('@web/images/logo-14.svg', ['class' => 'img-fluid padding_logo']); -->
+                <h1 class="text-white">Eventos Neuquén</h1>
                 <br>
                 <a href="#events" class="btn btn-primary btn-lg">Empezar</a>
             </div>
         </header>
-        <section class="darkish_bg" id="events">
+        <section class="bg_muni_azul_1" id="events">
             <div class="container padding_select">
                 <form action="#events">
                     <div class="form-group row">
 
                         <div class="col-sm-12 col-md-4 mb-3">
                             <select name="orden" class="custom-select custom-select-lg" onchange="this.form.submit()">
-                                <option <?= (isset($_GET["orden"]) && $_GET["orden"] == 0) ? "selected" : "" ?>
-                                        value="0">Fecha de inicio del evento
+                                <option <?= (isset($_GET["orden"]) && $_GET["orden"] == 0) ? "selected" : "" ?> value="0">Fecha de inicio del evento
                                 </option>
-                                <option <?= (isset($_GET["orden"]) && $_GET["orden"] == 1) ? "selected" : "" ?>
-                                        value="1">Fecha de creación
+                                <option <?= (isset($_GET["orden"]) && $_GET["orden"] == 1) ? "selected" : "" ?> value="1">Fecha de creación
                                 </option>
                             </select>
                         </div>
 
                         <div class="col-sm-12 col-md-4 mb-3">
-                            <input class="form-control-lg full_width" type="search" placeholder="Buscar" name="s"
-                                   value="<?= isset($_GET["s"]) ? $_GET["s"] : "" ?>">
+                            <input class="form-control-lg full_width" type="search" placeholder="Buscar" name="s" value="<?= isset($_GET["s"]) ? $_GET["s"] : "" ?>">
                         </div>
 
                         <div class="col-sm-12 col-md-2 mb-3">
@@ -76,48 +72,48 @@ $this->title = 'Juntar';
             </div>
         </section>
 
-        <section class="dark_bg">
+        <section class="">
             <div class="container padding_section">
                 <?php if (count($eventos) != 0) : ?>
-                <div class="row">
-                    <?php foreach ($eventos as $evento) : ?>
-                        <div class="col-sm-12 col-md-4 mb-5">
-                            <div class='card'>
-                                <div class='card bg-light'>
-                                    <?= Html::a(Html::img(Url::base('') . '/' . Html::encode($evento["imgLogo"]), ["class" => "card-img-top"]), ['/eventos/ver-evento/' . $evento->nombreCortoEvento]) ?>
-                                    <div class='card-body'>
-                                        <h4 class='card-title'><?= Html::encode($evento["nombreEvento"]) ?></h4>
-                                        <h5 class='card-title'><?= Html::encode("Organizador: " . $evento["idUsuario0"]["nombre"] . " " . $evento["idUsuario0"]["apellido"]) ?></h5>
-                                        <h5 class='card-title'><?= Html::encode(date('d/m/Y', strtotime($evento["fechaInicioEvento"]))) ?></h5>
-                                        <hr>
-                                        <p class='card-text'><?= Html::encode($evento["lugar"]) ?></p>
-                                        <p class='card-text'><?= Html::decode(strtok(wordwrap(strip_tags($evento["descripcionEvento"]), 250, "...\n"), "\n")) ?> </p>
-                                        <?= Html::a('Más Información', ['/eventos/ver-evento/' . $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']); ?>
+                    <div class="row">
+                        <?php foreach ($eventos as $evento) : ?>
+                            <div class="col-sm-12 col-md-4 mb-5">
+                                <div class='card shadow'>
+                                    <div class='card bg-light'>
+                                        <?= Html::a(Html::img(Url::base('') . '/' . Html::encode($evento["imgLogo"]), ["class" => "card-img-top"]), ['/eventos/ver-evento/' . $evento->nombreCortoEvento]) ?>
+                                        <div class='card-body'>
+                                            <h4 class='card-title'><?= Html::encode($evento["nombreEvento"]) ?></h4>
+                                            <h5 class='card-title'><?= Html::encode("Organizador: " . $evento["idUsuario0"]["nombre"] . " " . $evento["idUsuario0"]["apellido"]) ?></h5>
+                                            <h5 class='card-title'><?= Html::encode(date('d/m/Y', strtotime($evento["fechaInicioEvento"]))) ?></h5>
+                                            <hr>
+                                            <p class='card-text'><?= Html::encode($evento["lugar"]) ?></p>
+                                            <p class='card-text'><?= Html::decode(strtok(wordwrap(strip_tags($evento["descripcionEvento"]), 250, "...\n"), "\n")) ?> </p>
+                                            <?= Html::a('Más Información', ['/eventos/ver-evento/' . $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']); ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+                        <?php endforeach; ?>
+                    </div>
 
-                <div class="row py-5 pagination-lg pagination_center">
-                    <?=
-                    // display pagination
-                    LinkPager::widget([
-                        'pagination' => $pages,
-                        "disableCurrentPageButton" => true,
-                    ]);
-                    ?>
+                    <div class="row py-5 pagination-lg pagination_center">
+                        <?=
+                        // display pagination
+                        LinkPager::widget([
+                            'pagination' => $pages,
+                            "disableCurrentPageButton" => true,
+                        ]);
+                        ?>
+                    </div>
+            </div>
+        <?php else : ?>
+            <div class="container">
+                <div class="row">
+                    <h2 class="text-white text-uppercase padding_section">No se encontraron eventos, vuelva a
+                        intentar.</h2><br>
                 </div>
             </div>
-            <?php else : ?>
-                <div class="container">
-                    <div class="row">
-                        <h2 class="text-white text-uppercase padding_section">No se encontraron eventos, vuelva a
-                            intentar.</h2><br>
-                    </div>
-                </div>
-            <?php endif; ?>
+        <?php endif; ?>
 
         </section>
     </div>
