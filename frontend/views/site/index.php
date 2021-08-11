@@ -36,11 +36,11 @@ $this->title = 'Juntar';
     <div class="body-content">
         <header class="hero gradient-hero">
             <div class="center-content padding_hero">
-                <?= Html::img('@web/images/juntar-logo/svg/juntar-logo-w.svg', ['class' => 'img-fluid padding_logo']); ?>
+                <?= Html::img('@web/images/logo-14.svg', ['class' => 'img-fluid padding_logo']); ?>
                 <br>
                 <h5 class="text-white text-uppercase">Sistema Gestión de Eventos</h5>
                 <br>
-                <a href="#events" class="btn btn-primary btn-lg text-uppercase">Empezar</a>
+                <a href="#events" class="btn btn-primary btn-lg">Empezar</a>
             </div>
         </header>
         <section class="darkish_bg" id="events">
