@@ -13,7 +13,7 @@ $this->title = 'Proyecto Juntar';
             <div class="col-md-7 col-sm-12 m-auto p-0 text-center">
                 <!--<div class="w-50 m-auto p-0 text-center">-->
                 <div class="card">
-                    <h5 class="card-header text-center pinkish_bg text-white"> QR Evento: </h5>
+                    <h5 class="card-header text-center bg_muni_azul_45 text-white"> QR Evento: </h5>
                     <div class="card-body">
                         <?php if ($imageEventoQR != '' || $imageEventoQR != null) : ?>
                             <p> El siguiente código QR permite visualizar el evento creado en Juntar: </p>
@@ -32,7 +32,7 @@ $this->title = 'Proyecto Juntar';
             <?php if ($imageAcreditacionEventoQR != null && $imageAcreditacionEventoQR != '') : ?>
                 <div class="col-md-7 col-sm-12 m-auto p-0 text-center">
                     <div class="card mt-3">
-                        <h5 class="card-header text-center pinkish_bg text-white"> QR Acreditación Evento: </h5>
+                        <h5 class="card-header text-center bg_muni_azul_45 text-white"> QR Acreditación Evento: </h5>
                         <div class="card-body">
                             <?php if ($imageAcreditacionEventoQR != null && $imageAcreditacionEventoQR != '') : ?>
                                 <p> El siguiente código QR permite a un usuario inscripto acreditarse al evento en

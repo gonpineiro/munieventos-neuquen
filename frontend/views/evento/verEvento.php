@@ -5,7 +5,7 @@ use yii\bootstrap4\Modal;
 use yii\grid\GridView;
 use yii\helpers\Url;
 
-$this->title = $evento->nombreEvento . " - Juntar";
+$this->title = $evento->nombreEvento . " - Eventos Neuquén";
 
 $openGraph = Yii::$app->opengraph;
 
@@ -13,7 +13,7 @@ $openGraph->getBasic()
     ->setUrl(Yii::$app->request->hostInfo . Yii::$app->request->url)
     ->setTitle(Html::encode($evento->nombreEvento))
     ->setDescription(Html::encode(strtok(wordwrap($evento["descripcionEvento"], 100, "...\n"))))
-    ->setSiteName("Juntar")
+    ->setSiteName("Eventos Neuquén")
     ->setLocale('es_AR')
     ->render();
 
@@ -50,7 +50,7 @@ if ($evento->imgLogo != null) {
 if ($evento->preInscripcion == 0) {
     $preInscripcion = "No requiere preinscipción";
 } else {
-    $preInscripcion = "<b style='color:#ff0000;'>*Requiere preinscipción*</b>";
+    $preInscripcion = "<b style='color:#000;'>*Requiere preinscipción*</b>";
 }
 if ($evento->codigoAcreditacion != null) {
     $codAcreditacion = $evento->codigoAcreditacion;
@@ -87,8 +87,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
             <h1 class="text-white text-uppercase"><?= $evento->nombreEvento ?></h1>
             <div class="row padding_section">
                 <div class="col text-center">
-                    <h4 class="text-white"><i
-                                class="material-icons large align-middle">date_range</i> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?>
+                    <h4 class="text-white"><i class="material-icons large align-middle">date_range</i> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?>
                     </h4>
                     <h4><i class="material-icons large align-middle">location_on</i> <?= $evento->lugar ?></h4>
                     <?php if ($esFai == 1) : ?>
@@ -101,8 +100,8 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
         </div>
     </header>
 
-    <div class="container-fluid darkish_bg">
-        <div id="evento" class="dark_light_bg padding_hero">
+    <div class="container-fluid bg_muni_azul_45">
+        <div id="evento" class=" bg_muni_azul_45 padding_hero">
             <div class="container">
                 <?php if ($evento->fechaFinEvento < date("Y-m-d") || $evento->idEstadoEvento == 3) { ?>
                     <div class="alert alert-warning text-center" role="alert">
@@ -110,41 +109,33 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                     </div>
                 <?php } ?>
                 <div class="card bg-white">
-                    <?php
-                    if ($esDueño) {
-                        ?>
-                        <div class="card-header pinkish_bg">
+                    <?php if ($esDueño) { ?>
+                        <div class="card-header bg_muni_azul_4">
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                                <div class="btn-group mr-2  clearfix" role="group" aria-label="First group">
-                                    <?= Html::a(' <i class="material-icons" style="padding-top:7px">edit</i>', ['/eventos/editar-evento/' . $evento->nombreCortoEvento], ['class' => 'text-light btn']) ?>
+                                <div class="btn-group mr-2 clearfix" role="group" aria-label="First group">
+                                    <?= Html::a(' <i class="material-icons" style="padding-top:7px">edit</i>', ['/eventos/editar-evento/' . $evento->nombreCortoEvento], ['class' => 'text-light btn btn-light']) ?>
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Second group">
-                                    <button type="button" class="btn btn-txt">
+                                    <button type="button" class="btn btn-light">
                                         Evento <?php echo $estadoEvento ?></button>
                                 </div>
 
                                 <?php
                                 if (($evento->idEstadoEvento) == 4) {
-                                    ?>
+                                ?>
                                     <div class="btn-group" role="group" aria-label="Third group">
-                                        <button type="button" class="btn  estado_negrita float-right"
-                                                data-toggle="modal" data-target="#finalizar">Finalizar
-                                        </button>
-                                        <button type="button" class="btn  estado_negrita float-right"
-                                                data-toggle="modal" data-target="#publicar">Publicar
-                                        </button>
+                                        <button type="button" class="btn btn-light float-right" data-toggle="modal" data-target="#finalizar">Finalizar</button>
+                                        <button type="button" class="btn btn-light float-right" data-toggle="modal" data-target="#publicar">Publicar</button>
                                     </div>
                                     <!-- Button trigger modal -->
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="finalizar" tabindex="-1" role="dialog"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="finalizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Atención</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -153,12 +144,11 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                     <p>No será visible en los lanzamientos de la plataforma, dejará de
                                                         estar disponible para las inscripciones y no podrá volver a
                                                         publicarlo</p>
-                                                    <span class="float-right font-weight-bold">Juntar</span>
+                                                    <!-- <span class="float-right font-weight-bold">Juntar</span> -->
                                                 </div>
                                                 <div class="modal-footer">
                                                     <?= Html::a('Si', ['eventos/finalizar-evento/' . $evento->nombreCortoEvento], ['class' => 'btn']) ?>
-                                                    <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">No
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No
                                                     </button>
                                                 </div>
                                             </div>
@@ -168,14 +158,12 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     <!-- Button trigger modal -->
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="publicar" tabindex="-1" role="dialog"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="publicar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Atención</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -183,27 +171,24 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                     <p>¿Está seguro de querer publicar su evento?</p>
                                                     <p>Será visible en los lanzamientos de la plataforma y pasará a
                                                         estar disponible para las inscripciones</p>
-                                                    <span class="float-right font-weight-bold">Juntar</span>
+                                                    <!-- <span class="float-right font-weight-bold">Juntar</span> -->
                                                 </div>
                                                 <div class="modal-footer">
                                                     <?= Html::a('Si', ['eventos/publicar-evento/' . $evento->nombreCortoEvento], ['class' => 'btn']) ?>
-                                                    <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">No
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
+                                <?php
                                 } elseif (($evento->idEstadoEvento) == 1) {
-                                    ?>
+                                ?>
                                     <div class="btn-group" role="group" aria-label="Fourth group">
-                                        <button type="button" class="btn  estado_negrita float-right"
-                                                data-toggle="modal" data-target="#finalizar">Finalizar
+                                        <button type="button" class="btn btn-light float-right" data-toggle="modal" data-target="#finalizar">Finalizar
                                         </button>
                                         <?php if ($evento->fechaFinEvento > date("Y-m-d")) : ?>
-                                            <button type="button" class="btn  estado_negrita float-right"
-                                                    data-toggle="modal" data-target="#publicar">Suspender
+                                            <button type="button" class="btn btn-light float-right" data-toggle="modal" data-target="#publicar">Suspender
                                             </button>
                                         <?php endif; ?>
                                     </div>
@@ -211,14 +196,12 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
 
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="finalizar" tabindex="-1" role="dialog"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="finalizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Atención</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -227,31 +210,28 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                     <p>No será visible en los lanzamientos de la plataforma, dejará de
                                                         estar disponible para las inscripciones y no podrá volver a
                                                         publicarlo</p>
-                                                    <span class="float-right font-weight-bold">Juntar</span>
+                                                    <!-- <span class="float-right font-weight-bold">Juntar</span> -->
                                                 </div>
                                                 <div class="modal-footer">
                                                     <?= Html::a('Si', ['eventos/finalizar-evento/' . $evento->nombreCortoEvento], ['class' => 'btn']) ?>
-                                                    <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">No
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
+                                <?php
                                 }
                                 ?>
                                 <!-- Button trigger modal -->
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="publicar" tabindex="-1" role="dialog"
-                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="publicar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Atención</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -277,25 +257,21 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                             <?= Html::a('Solicitar Aval', ['evento/enviar-solicitud-evento', 'id' => $evento->idEvento], ['class' => 'btn btn_publish d-flex align-items-center']) ?>
                                         </div>
 
-                                    <?php else : ?>
-                                        <?php if ($estadoAval->avalado != '0' && $estadoAval->avalado != '1') : ?>
-                                            <div class="btn-group" role="group" aria-label="Sixth group">
-                                                <button type="button" class="btn float-right disabled"
-                                                        data-toggle="modal" data-target="#aval-solicitado">Solicitar
+                                        <?php /* else : */ ?>
+                                        <?php /* if ($estadoAval->avalado != '0' && $estadoAval->avalado != '1') : */ ?>
+                                        <!-- <div class="btn-group" role="group" aria-label="Sixth group">
+                                                <button type="button" class="btn float-right disabled" data-toggle="modal" data-target="#aval-solicitado">Solicitar
                                                     aval
                                                 </button>
                                             </div>
 
-                                            <!-- modal aval-->
-                                            <div class="modal fade" id="aval-solicitado" tabindex="-1" role="dialog"
-                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="aval-solicitado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title">Usted ya ha solicitado el aval el
                                                                 día <?= Yii::$app->formatter->asDatetime($estadoAval->fechaSolicitud, 'dd/MM/yyyy') ?></h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
@@ -308,8 +284,8 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        <?php endif; ?>
+                                            </div> -->
+                                        <?php /* endif; */ ?>
                                     <?php endif; ?>
                                 <?php endif; ?>
                                 <?php if ($estadoAval != 'no solicitado' && $estadoAval->avalado == '0') : ?>
@@ -321,7 +297,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <?php
+                    <?php
                     } elseif (Yii::$app->user->isGuest || !Yii::$app->user->isGuest) { // Para mostrar a los user invitados
 
                         echo '<div class="card-header pinkish_bg text-center">';
@@ -344,16 +320,15 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                 <?PHP
                                 if ($esDueño && ($evento->fechaFinEvento > date("Y-m-d"))) {
                                     if ($evento->preInscripcion == 1) {
-                                        echo '<div class="row mx-0 darkish_bg card-header">';
-                                        echo '<div class=" col-md-6 mx-0">' . Html::a('<i class="material-icons large align-middle link">question_answer</i>', ['eventos/crear-formulario/' . $evento->nombreCortoEvento], ['class' => 'text-light text-uppercase']) . '<span class="text-white align-middle"> Crear Formulario de Preinscipción </span> </div>';
-                                        echo '<div class=" col-md-6 mx-0">' . Html::a('<i class="material-icons large align-middle link">account_circle</i>', ['eventos/respuestas-formulario/' . $evento->nombreCortoEvento], ['class' => 'text-light text-uppercase']) . '<span class="text-white align-middle"> Ver Respuestas a Formulario </span> </div>';
+                                        echo '<div class="row mx-0 bg_muni_azul_45 card-header">';
+                                        echo '<div class=" col-md-6 mx-0">' . Html::a('<i class="material-icons large align-middle link">question_answer</i><span class="text-white align-middle"> Crear Formulario de Preinscipción </span>', ['eventos/crear-formulario/' . $evento->nombreCortoEvento], ['class' => 'text-light', 'style' => 'text-decoration:none']) . ' </div>';
+                                        echo '<div class=" col-md-6 mx-0">' . Html::a('<i class="material-icons large align-middle link">account_circle</i><span class="text-white align-middle"> Ver Respuestas a Formulario </span>', ['eventos/respuestas-formulario/' . $evento->nombreCortoEvento], ['class' => 'text-light', 'style' => 'text-decoration:none']) . ' </div>';
                                         echo '</div>';
                                     }
                                 }
                                 ?>
                                 <div class="padding_section">
-                                    <i class="material-icons align-middle">today</i><span
-                                            class=" align-middle"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
+                                    <i class="material-icons align-middle">today</i><span class=" align-middle"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
                                     <br>
                                     <?php if ($esDueño || $esAdministrador) { ?>
                                         <i class="material-icons align-middle">email</i>
@@ -387,7 +362,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                         ]);
                                     }
                                     ?>
-                                    <?php if ($esDueño): ?>
+                                    <?php if ($esDueño) : ?>
                                         <?= Html::a('Visualizar QR', ['/evento/mostrar-qr-evento/', 'slug' => $evento->nombreCortoEvento], ['class' => 'btn btn-secondary ml-2 visualizarQR']); ?>
                                     <?php endif; ?>
                                     <!--</span>-->
@@ -500,54 +475,54 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                             </div>
                             <div class="col-sm-12 col-md-4 padding_section white-text">
                                 <ul class="list-group">
-                                    <li class="list-group-item darkish_bg text-white">
+                                    <li class="list-group-item bg_muni_azul_5 text-white">
                                         <p><b>Fecha de Inicio: </b></p>
                                         <span><?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
                                     </li>
-                                    <li class="list-group-item darkish_bg text-white">
+                                    <li class="list-group-item bg_muni_azul_5 text-white">
                                         <p><b>Fecha de Finalización: </b></p>
                                         <span><?= date("d-m-Y", strtotime($evento->fechaFinEvento)) ?></span>
                                     </li>
-                                    <li class="list-group-item darkish_bg text-white">
+                                    <li class="list-group-item bg_muni_azul_5 text-white">
                                         <p><b>Fecha Límite de Inscripción: </b></p>
                                         <span><?php
-                                            if ($evento->fechaLimiteInscripcion == null || $evento->fechaLimiteInscripcion == '1969-12-31') {
-                                                echo "Sin fecha límite"; ////
-                                            } else {
-                                                echo date("d-m-Y", strtotime($evento->fechaLimiteInscripcion));
-                                            } ?></span>
+                                                if ($evento->fechaLimiteInscripcion == null || $evento->fechaLimiteInscripcion == '1969-12-31') {
+                                                    echo "Sin fecha límite"; ////
+                                                } else {
+                                                    echo date("d-m-Y", strtotime($evento->fechaLimiteInscripcion));
+                                                } ?></span>
                                     </li>
-                                    <li class="list-group-item darkish_bg text-white">
+                                    <li class="list-group-item bg_muni_azul_5 text-white">
                                         <p><b>Lugar: </b></p>
                                         <span class="font-weight-light"><?= $evento->lugar ?></span>
                                     </li>
-                                    <li class="list-group-item darkish_bg text-white">
+                                    <li class="list-group-item bg_muni_azul_5 text-white">
                                         <p><b>Modalidad: </b></p>
                                         <span class="font-weight-light"><?= $modalidadEvento ?></span>
                                     </li>
-                                    <li class="list-group-item darkish_bg text-white">
+                                    <li class="list-group-item bg_muni_azul_5 text-white">
                                         <p><b>Capacidad: </b></p>
                                         <span class="font-weight-light"><?= ($evento->capacidad != null) ? $evento->capacidad : "Sin limite" ?></span>
                                     </li>
-                                    <li class="list-group-item darkish_bg text-white">
+                                    <li class="list-group-item bg_muni_azul_5 text-white">
                                         <p><b>Fecha Publicación: </b></p>
                                         <span><?= date("d-m-Y", strtotime($fechaPublicacion)) ?></span>
                                     </li>
                                     <?php if ($esDueño || $esAdministrador) { ?>
-                                        <li class="list-group-item darkish_bg text-white">
+                                        <li class="list-group-item bg_muni_azul_5 text-white">
                                             <p><b> Lista de participantes: </b></p>
                                             <span>
                                                 <?php
                                                 echo Html::a(
                                                     '<i class="material-icons align-middle" style="color:#00ff00">file_download</i>
-                                                     <span class=" align-middle"  style="color:#00ff00"> ListaDeParticipantes.ods  </span>',
+                                                     <span class=" align-middle"  style="color:#926C33"> ListaDeParticipantes.ods  </span>',
                                                     ['evento/lista-participantes', 'idEvento' => $evento->idEvento, 'extension' => 'ods']
                                                 ); ?>
                                                 <br>
                                                 <?php
                                                 echo Html::a(
                                                     '<i class="material-icons align-middle" style="color:#00ff00">file_download</i>
-                                                    <span class=" align-middle"  style="color:#00ff00"> ListaDeParticipantes.csv  </span>',
+                                                    <span class=" align-middle"  style="color:#926C33"> ListaDeParticipantes.csv  </span>',
                                                     ['evento/lista-participantes', 'idEvento' => $evento->idEvento, 'extension' => 'csv']
                                                 );
                                                 ?>
@@ -687,7 +662,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     <?php
                                     $celularPresentaciones = $evento->presentacions;
                                     foreach ($celularPresentaciones as $unaPresentacion) {
-                                        ?>
+                                    ?>
                                         <div class="card border my-2">
                                             <div class="card-header dark_bg text-light rounded">
                                                 <div class="col-12 d-flex justify-content-center align-items-center">
@@ -701,15 +676,13 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                     <!--<div class="col-6 d-flex align-items-center">-->
                                                     <tr>
                                                         <td class="align-middle">
-													<span class="d-flex justify-content-center align-items-center"><i
-                                                                class="material-icons">today</i>&nbsp;&nbsp;<?= date('d/m/Y', strtotime($unaPresentacion->diaPresentacion)); ?><span>
+                                                            <span class="d-flex justify-content-center align-items-center"><i class="material-icons">today</i>&nbsp;&nbsp;<?= date('d/m/Y', strtotime($unaPresentacion->diaPresentacion)); ?><span>
                                                         </td>
                                                         <!--</div>-->
 
                                                         <!--<div class="col-6 d-flex align-items-center">-->
                                                         <td class="align-middle">
-                                                            <span class="d-flex justify-content-center align-items-center"><i
-                                                                        class="material-icons">access_time</i>&nbsp;&nbsp;<?= date('H:i', strtotime($unaPresentacion->horaInicioPresentacion)); ?></span>
+                                                            <span class="d-flex justify-content-center align-items-center"><i class="material-icons">access_time</i>&nbsp;&nbsp;<?= date('H:i', strtotime($unaPresentacion->horaInicioPresentacion)); ?></span>
                                                         </td>
                                                     </tr>
                                                     <!--</div>-->
@@ -757,29 +730,29 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                         <td class="align-middle text-center"><?= $cargarExpositores; ?></td>
                                                     </tr>
                                                 <?php } ?>
+                                                </tr>
+
+                                                <!--</div>-->
+                                                <!--<div class="col-6">-->
+                                                <?php
+                                                //$acciones = "Acciones: &nbsp;&nbsp;&nbsp;&nbsp;";
+                                                ?>
+                                                <!--</div>-->
+                                                <!--<div class="col-6">-->
+                                                <?php if (!Yii::$app->user->isGuest && $unaPresentacion->idEvento0->idUsuario == Yii::$app->user->identity->idUsuario) {
+                                                    $accionEditar = Html::a('<i class="material-icons">edit</i>', Url::to(['/presentacion/update', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon btn-outline-success editarPresentacion']);
+                                                    $accionBorrar = Html::a('<i class="material-icons">remove_circle_outline</i>', Url::to(['/presentacion/borrar', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon btn-outline-success borrarPresentacion']);
+                                                ?>
+                                                    <tr>
+                                                        <td rowspan="2" class="align-middle">Acciones:</td>
+                                                        <td class="align-middle text-center"><?= $accionEditar; ?></td>
+                                                    <tr>
+                                                        <td class="align-middle text-center"><?= $accionBorrar; ?></td>
                                                     </tr>
+                                                    </tr>
+                                                <?php } ?>
 
-                                                    <!--</div>-->
-                                                    <!--<div class="col-6">-->
-                                                    <?php
-                                                    //$acciones = "Acciones: &nbsp;&nbsp;&nbsp;&nbsp;";
-                                                    ?>
-                                                    <!--</div>-->
-                                                    <!--<div class="col-6">-->
-                                                    <?php if (!Yii::$app->user->isGuest && $unaPresentacion->idEvento0->idUsuario == Yii::$app->user->identity->idUsuario) {
-                                                        $accionEditar = Html::a('<i class="material-icons">edit</i>', Url::to(['/presentacion/update', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon btn-outline-success editarPresentacion']);
-                                                        $accionBorrar = Html::a('<i class="material-icons">remove_circle_outline</i>', Url::to(['/presentacion/borrar', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon btn-outline-success borrarPresentacion']);
-                                                        ?>
-                                                        <tr>
-                                                            <td rowspan="2" class="align-middle">Acciones:</td>
-                                                            <td class="align-middle text-center"><?= $accionEditar; ?></td>
-                                                        <tr>
-                                                            <td class="align-middle text-center"><?= $accionBorrar; ?></td>
-                                                        </tr>
-                                                        </tr>
-                                                    <?php } ?>
-
-                                                    <!--</div>-->
+                                                <!--</div>-->
                                                 </table>
                                             </div>
                                         </div>
@@ -794,8 +767,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="flyerModal" tabindex="-1" role="dialog" aria-labelledby="flyerModalLabel"
-     aria-hidden="true">
+<div class="modal fade" id="flyerModal" tabindex="-1" role="dialog" aria-labelledby="flyerModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
