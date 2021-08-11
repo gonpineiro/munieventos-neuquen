@@ -37,10 +37,11 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
         NavBar::begin([
-            'brandLabel' => Html::img('@web/images/juntar-logo/svg/juntar-icon-w.svg', ['style' => 'width:30px']),
+            'brandLabel' => Html::img('@web/images/logo-03.svg', ['style' => 'height:30px']),
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar navbar-expand-md navbar-dark fixed-top',
+                'class' => 'navbar navbar-expand-md fixed-top',
+                'style' => 'background-color: white',
             ],
         ]);
         $menuItems = [
@@ -117,7 +118,7 @@ AppAsset::register($this);
             </div>
             <div class="row">
                 <div class="col-12 col-md-8">
-                    <h5 class="white-text">Juntar</h5>
+                    <h5 class="white-text">Municipalidad de Neuquén</h5>
 
                     <p class="grey-text">Algo de texto describiendo? o información de contacto?</p>
 
