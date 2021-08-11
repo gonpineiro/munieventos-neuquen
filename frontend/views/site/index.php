@@ -9,9 +9,9 @@ $openGraph = Yii::$app->opengraph;
 
 $openGraph->getBasic()
     ->setUrl(Yii::$app->request->hostInfo . Yii::$app->request->url)
-    ->setTitle("Juntar")
+    ->setTitle("Eventos Neuquén")
     ->setDescription("Somos una plataforma web para gestión de eventos libre y gratuita. El sitio permite a los usuarios navegar, crear y participar de eventos. Nació como un desafío universitario y podemos asegurar que hemos llegado a la meta que teníamos como objetivo e incluso la hemos superado gracias a un gran equipo de trabajo. Licencia GNU GPL version 3")
-    ->setSiteName("Juntar")
+    ->setSiteName("Eventos Neuquén")
     ->setLocale('es_AR')
     ->render();
 
@@ -30,7 +30,7 @@ $openGraph->getImage()
     ])
     ->render();
 
-$this->title = 'Juntar';
+$this->title = 'Eventos Neuquén';
 ?>
 <div class="site-index">
     <div class="body-content">
