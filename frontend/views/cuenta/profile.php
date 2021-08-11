@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container-fluid padding_section dark_light_bg" style="min-height: 100vh;">
     <div class="container">
         <div class="card">
-            <div class="card-header pinkish_bg">
+            <div class="card-header bg_muni_azul_4">
                 <h2 class="text-center text-white">Información de la Cuenta</h2>
             </div>
             <div class="card-body">
