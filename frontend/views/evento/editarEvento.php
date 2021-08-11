@@ -134,7 +134,7 @@ $this->title = "Editar Evento - " . $model->nombreCortoEvento;
                             </div>
 
                             <!-- select requiere preInscripcion -->
-                            <?= $form->field($model, 'preInscripcion')->radioList([0 => 'No', 1 => 'Si'])->label('¿Requiere preinscripción? *') ?>
+                            <?= $form->field($model, 'preInscripcion')->radioList([0 => 'No', 1 => 'Si'])->label('¿Requiere preinscripción? * Necesita un límite de participantes') ?>
 
                             <!-- calendar -->
                             <div id="fechaLimite">

@@ -116,7 +116,7 @@ $this->title = "Cargar Evento";
                                 <?= $form->field($model, 'capacidad')->input('number', ['min' => 1, 'max' => 10000])->label('Ingrese número de participantes *') ?>
                             </div>
                             <!-- select requiere preInscripcion -->
-                            <?= $form->field($model, 'preInscripcion')->radioList([0 => 'No', 1 => 'Si'])->label('¿Requiere preinscripción? *') ?>
+                            <?= $form->field($model, 'preInscripcion')->radioList([0 => 'No', 1 => 'Si'])->label('¿Requiere preinscripción? * Necesita un límite de participantes ') ?>
 
                             <!-- calendar -->
                             <div id="fechaLimite">
