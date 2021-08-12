@@ -80,9 +80,9 @@ $this->title = 'Eventos Neuquén';
                         <div class='card shadow bg-light mb-5'>
                             <?= Html::a(Html::img(Url::base('') . '/' . Html::encode($evento["imgLogo"]), ["class" => "card-img-top"]), ['/eventos/ver-evento/' . $evento->nombreCortoEvento]) ?>
                             <div class='card-body'>
-                                <h4 class='card-title text_muni_azul_5'><?= Html::encode($evento["nombreEvento"]) ?></h4>
+                                <h4 class='card-title font-weight-bold text_muni_azul_5'><?= Html::encode($evento["nombreEvento"]) ?></h4>
                                 <h5 class='card-title text-dark'><?= Html::encode("Organizador: " . $evento["idUsuario0"]["nombre"] . " " . $evento["idUsuario0"]["apellido"]) ?></h5>
-                                <h5 class='card-title text-dark'><?= Html::encode(date('d/m/Y', strtotime($evento["fechaInicioEvento"]))) ?></h5>
+                                <h5 class='card-title text-muted'><?= Html::encode(date('d/m/Y', strtotime($evento["fechaInicioEvento"]))) ?></h5>
                                 <hr>
                                 <p class='card-text font-weight-light'><?= Html::encode($evento["lugar"]) ?></p>
                                 <p class='card-text font-weight-light'><?= Html::decode(strtok(wordwrap(strip_tags($evento["descripcionEvento"]), 250, "...\n"), "\n")) ?> </p>
