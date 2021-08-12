@@ -9,9 +9,9 @@ $openGraph = Yii::$app->opengraph;
 
 $openGraph->getBasic()
     ->setUrl(Yii::$app->request->hostInfo . Yii::$app->request->url)
-    ->setTitle("Eventos Neuquén")
+    ->setTitle("Eventos Muni Neuquén")
     ->setDescription("Somos una plataforma web para gestión de eventos libre y gratuita. El sitio permite a los usuarios navegar, crear y participar de eventos. Nació como un desafío universitario y podemos asegurar que hemos llegado a la meta que teníamos como objetivo e incluso la hemos superado gracias a un gran equipo de trabajo. Licencia GNU GPL version 3")
-    ->setSiteName("Eventos Neuquén")
+    ->setSiteName("Eventos Muni Neuquén")
     ->setLocale('es_AR')
     ->render();
 
@@ -37,7 +37,7 @@ $this->title = 'Eventos Neuquén';
         <header class="hero gradient-hero">
             <div class="center-content padding_hero">
                 <!-- Html::img('@web/images/logo-14.svg', ['class' => 'img-fluid padding_logo']); -->
-                <h1 class="text-white">Eventos Neuquén</h1>
+                <h1 class="text-white">Eventos Muni Neuquén</h1>
                 <br>
                 <a href="#events" class="btn btn-primary btn-lg">Empezar</a>
             </div>
@@ -77,7 +77,7 @@ $this->title = 'Eventos Neuquén';
             <?php if (count($eventos) != 0) : ?>
                 <div class="card-columns">
                     <?php foreach ($eventos as $evento) : ?>
-                        <div class='card shadow bg-light'>
+                        <div class='card shadow bg-light mb-5'>
                             <?= Html::a(Html::img(Url::base('') . '/' . Html::encode($evento["imgLogo"]), ["class" => "card-img-top"]), ['/eventos/ver-evento/' . $evento->nombreCortoEvento]) ?>
                             <div class='card-body'>
                                 <h4 class='card-title text_muni_azul_5'><?= Html::encode($evento["nombreEvento"]) ?></h4>
