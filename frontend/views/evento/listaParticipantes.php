@@ -6,14 +6,11 @@ use PhpOffice\PhpSpreadsheet\Writer\Ods;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-
 $template = new Spreadsheet();
 
 $nombreDelLibro = $datosDelEvento['idEvento'] . "_Participantes_" . $datosDelEvento['idEvento'];
 
-
 $fila = $template->setActiveSheetIndex(0);
-
 
 // Datos del Evento
 if ($extension == 'ods') {
@@ -25,26 +22,26 @@ if ($extension == 'ods') {
     $fila->setCellValueByColumnAndRow(10, 7, 'Modalidad: ' . $datosDelEvento['modalidad']);
 }
 
-$row = 12;    // $row: los datos son insertado a partir de la fila 10
+$row = 1;    // $row: los datos son insertado a partir de la fila 10
 $i = 1;    // $i: enumera la cantidad las filas de la tabla
 
 // Encabezado  datos del usuario
 
-$fila->setCellValueByColumnAndRow(1, 11, '#');
-$fila->setCellValueByColumnAndRow(2, 11, 'Estado');
-$fila->setCellValueByColumnAndRow(3, 11, 'Fecha');
-$fila->setCellValueByColumnAndRow(4, 11, 'Apellido');
-$fila->setCellValueByColumnAndRow(5, 11, 'Nombre');
-$fila->setCellValueByColumnAndRow(6, 11, 'Dni');
-$fila->setCellValueByColumnAndRow(7, 11, 'Pais');
-$fila->setCellValueByColumnAndRow(8, 11, 'Provincia');
-$fila->setCellValueByColumnAndRow(9, 11, 'Localidad');
-$fila->setCellValueByColumnAndRow(10, 11, 'Email');
+$fila->setCellValueByColumnAndRow(1, $row, '#');
+$fila->setCellValueByColumnAndRow(2, $row, 'Estado');
+$fila->setCellValueByColumnAndRow(3, $row, 'Fecha');
+$fila->setCellValueByColumnAndRow(4, $row, 'Apellido');
+$fila->setCellValueByColumnAndRow(5, $row, 'Nombre');
+$fila->setCellValueByColumnAndRow(6, $row, 'Dni');
+$fila->setCellValueByColumnAndRow(7, $row, 'Pais');
+$fila->setCellValueByColumnAndRow(8, $row, 'Provincia');
+$fila->setCellValueByColumnAndRow(9, $row, 'Localidad');
+$fila->setCellValueByColumnAndRow(10, $row, 'Email');
 
 // Encabezado  preguntas del Usurio
 $i = 11;
 foreach ($preguntas as $pregunta) {
-    $fila->setCellValueByColumnAndRow($i, 11, mb_convert_encoding($pregunta['descripcion'], 'UTF-8'));
+    $fila->setCellValueByColumnAndRow($i, $row, mb_convert_encoding($pregunta['descripcion'], 'UTF-8'));
     $i++;
 }
 
@@ -52,7 +49,7 @@ foreach ($preguntas as $pregunta) {
 ///// listado de los datos de los usuarios inscripto a un evento
 $i = 1;
 
-$row = 12;// $row: los datos son insertado a partir de la fila 12
+$row = 2;// $row: los datos son insertado a partir de la fila 12
 foreach ($listaRepuesta as $datos) {
     $unParticipante = $datos['unParticipante'];
 
