@@ -506,8 +506,8 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     <?php if ($esDueño || $esAdministrador) { ?>
                                         <li class="list-group-item bg_muni_azul_5 text-white">
                                             <span>
-                                                <a class="btn btn-default" href=<?= "/evento/lista-participantes?idEvento=$evento->idEvento&extension=csv" ?>>
-                                                    Listado de Parcticipantes</a>
+                                                <a class="btn btn-default full_width" href=<?= "/evento/lista-participantes?idEvento=$evento->idEvento&extension=csv" ?>>
+                                                    <i class="material-icons align-middle">file_download</i> Listado de Parcticipantes</a>
                                             </span>
                                         </li>
                                     <?php } ?>
