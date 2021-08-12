@@ -119,8 +119,8 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                 if (($evento->idEstadoEvento) == 4) {
                                 ?>
                                     <div class="btn-group" role="group" aria-label="Third group">
-                                        <button type="button" class="btn btn-light float-right" data-toggle="modal" data-target="#finalizar">Finalizar</button>
-                                        <button type="button" class="btn btn-light float-right" data-toggle="modal" data-target="#publicar">Publicar</button>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#finalizar">Finalizar</button>
+                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#publicar">Publicar</button>
                                     </div>
                                     <!-- Button trigger modal -->
 
@@ -313,7 +313,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     }
                                     ?>
                                     <?php if ($esDueño) : ?>
-                                        <?= Html::a('Visualizar QR', ['/evento/mostrar-qr-evento/', 'slug' => $evento->nombreCortoEvento], ['class' => 'btn btn-secondary ml-2 visualizarQR']); ?>
+                                        <?= Html::a('Visualizar QR', ['/evento/mostrar-qr-evento/', 'slug' => $evento->nombreCortoEvento], ['class' => 'btn ml-2 visualizarQR']); ?>
                                     <?php endif; ?>
                                     <!--</span>-->
                                 </div>
