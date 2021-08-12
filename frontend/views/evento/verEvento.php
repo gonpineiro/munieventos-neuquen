@@ -111,7 +111,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     <?= Html::a(' <i class="material-icons" style="padding-top:7px">edit</i>', ['/eventos/editar-evento/' . $evento->nombreCortoEvento], ['class' => 'text-light btn btn-light']) ?>
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Second group">
-                                    <button type="button" class="btn btn-light">
+                                    <button type="button" class="btn btn_estado">
                                         Evento <?php echo $estadoEvento ?></button>
                                 </div>
 
