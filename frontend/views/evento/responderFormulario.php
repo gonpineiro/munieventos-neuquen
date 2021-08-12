@@ -52,7 +52,7 @@ $this->title = "Responder Formulario";
                     <?php if ($pregunta->tipo != 3): ?>
                         <span>Respuesta: <?= Html::encode($respuestaYaHechas[$i]->respuesta) ?></span>
                     <?php else: ?>
-                        <span>Respuesta: <?= Html::a("Descargar", Html::encode(Url::base('') . $respuestaYaHechas[$i]->respuesta), ['class' => 'btn btn-lg btn-outline-success', "target" => "_blank"]) ?></span>
+                        <span>Respuesta: <?= Html::a("Descargar", Html::encode(Url::base('') . $respuestaYaHechas[$i]->respuesta), ['class' => 'btn btn-lg', "target" => "_blank"]) ?></span>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>
@@ -60,9 +60,9 @@ $this->title = "Responder Formulario";
     <?php endforeach; ?>
 
     <?php if (!$todasRespuestasHechas): ?>
-        <?= Html::submitButton("Enviar", ['class' => 'btn btn-lg btn-outline-success']) ?>
+        <?= Html::submitButton("Enviar", ['class' => 'btn btn-lg']) ?>
     <?php endif; ?>
-    <?= Html::a('Volver Atrás', Url::toRoute("eventos/ver-evento/" . $evento->nombreCortoEvento), ['class' => 'btn btn-lg btn-outline-success']); ?>
+    <?= Html::a('Volver Atrás', Url::toRoute("eventos/ver-evento/" . $evento->nombreCortoEvento), ['class' => 'btn btn-lg']); ?>
     <?php ActiveForm::end() ?>
 
     <br><br>

@@ -47,7 +47,7 @@ $this->title = 'Proyecto Juntar';
                         </div>
 
                         <div class="col-sm-12 col-md-2 mb-3">
-                            <button class="btn btn-outline-success btn-lg full_width" type="submit">Buscar</button>
+                            <button class="btn btn-lg full_width" type="submit">Buscar</button>
                         </div>
                         <div class="col-sm-12 col-md-2 mb-3">
                             <?= Html::a('Restablecer', ["evento/organizar-eventos#events"], ['class' => 'btn btn-secondary btn-lg full_width']); ?>

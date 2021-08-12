@@ -43,9 +43,9 @@ $this->title = "Respuestas";
     <?php endforeach; ?>
     <div class="form-group">
         <?php if ($esAjax): ?>
-            <?= \yii\bootstrap4\Html::button("Cerrar", ["data-dismiss" => "modal", 'class' => 'btn btn-outline-success']) ?>
+            <?= \yii\bootstrap4\Html::button("Cerrar", ["data-dismiss" => "modal", 'class' => 'btn']) ?>
         <?php else: ?>
-            <?= \yii\bootstrap4\Html::a("Volver Atras", Url::previous("verRespuestas"), ['class' => 'btn btn-outline-success']) ?>
+            <?= \yii\bootstrap4\Html::a("Volver Atras", Url::previous("verRespuestas"), ['class' => 'btn']) ?>
         <?php endif; ?>
     </div>
 

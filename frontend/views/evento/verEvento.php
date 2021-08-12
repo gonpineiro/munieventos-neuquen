@@ -505,22 +505,9 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     </li>
                                     <?php if ($esDueño || $esAdministrador) { ?>
                                         <li class="list-group-item bg_muni_azul_5 text-white">
-                                            <p><b> Lista de participantes: </b></p>
                                             <span>
-                                                <?php
-                                                echo Html::a(
-                                                    '<i class="material-icons align-middle" style="color:#00ff00">file_download</i>
-                                                     <span class=" align-middle"  style="color:#926C33"> ListaDeParticipantes.ods  </span>',
-                                                    ['evento/lista-participantes', 'idEvento' => $evento->idEvento, 'extension' => 'ods']
-                                                ); ?>
-                                                <br>
-                                                <?php
-                                                echo Html::a(
-                                                    '<i class="material-icons align-middle" style="color:#00ff00">file_download</i>
-                                                    <span class=" align-middle"  style="color:#926C33"> ListaDeParticipantes.csv  </span>',
-                                                    ['evento/lista-participantes', 'idEvento' => $evento->idEvento, 'extension' => 'csv']
-                                                );
-                                                ?>
+                                                <a class="btn btn-default" href=<?= "/evento/lista-participantes?idEvento=$evento->idEvento&extension=csv" ?>>
+                                                    Listado de Parcticipantes</a>
                                             </span>
                                         </li>
                                     <?php } ?>
@@ -637,10 +624,10 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                 'buttons' => [
                                                     'update' => function ($url, $model) {
                                                         //                                                    return Html::a('<img src="' . Yii::getAlias('@web/icons/pencil.svg') . '" alt="Editar" width="20" height="20" title="Editar" role="img">', $url, ['class' => 'btn editarPresentacion']);
-                                                        return Html::a('<i class="material-icons">edit</i>', $url, ['class' => 'btn btn_icon btn-outline-success editarPresentacion']);
+                                                        return Html::a('<i class="material-icons">edit</i>', $url, ['class' => 'btn btn_icon editarPresentacion']);
                                                     },
                                                     'delete' => function ($url, $model) {
-                                                        return Html::a('<i class="material-icons">remove_circle_outline</i>', $url, ['class' => 'btn btn_icon btn-outline-success borrarPresentacion']);
+                                                        return Html::a('<i class="material-icons">remove_circle_outline</i>', $url, ['class' => 'btn btn_icon borrarPresentacion']);
                                                     }
                                                 ],
                                                 'header' => 'Acciones',
@@ -687,7 +674,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                     if ($unaPresentacion->linkARecursos == null || $unaPresentacion->linkARecursos == "") {
                                                         $recursos = ' - ';
                                                     } else {
-                                                        $recursos = '<a class="btn btn_icon btn-outline-success" style="background:#007bff;" target="_blank" href="' . $unaPresentacion->linkARecursos . '"><i class="material-icons">attachment</i></a>';
+                                                        $recursos = '<a class="btn btn_icon" style="background:#007bff;" target="_blank" href="' . $unaPresentacion->linkARecursos . '"><i class="material-icons">attachment</i></a>';
                                                     }
                                                     ?>
                                                     <tr>
@@ -701,13 +688,13 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                     $verExpositores = " - ";
                                                     if (count($unaPresentacion->presentacionExpositors) == 0) {
                                                         if (!Yii::$app->user->isGuest && $unaPresentacion->idEvento0->idUsuario == Yii::$app->user->identity->idUsuario) {
-                                                            $cargarExpositores = Html::a('<i class="material-icons">person_add</i>', ['/evento/cargar-expositor/' . $unaPresentacion->idPresentacion], ['class' => 'btn btn_icon btn-outline-success cargarExpositores', 'style' => 'background:#007bff;']);
+                                                            $cargarExpositores = Html::a('<i class="material-icons">person_add</i>', ['/evento/cargar-expositor/' . $unaPresentacion->idPresentacion], ['class' => 'btn btn_icon cargarExpositores', 'style' => 'background:#007bff;']);
                                                         }
                                                     } else {
                                                         if (!Yii::$app->user->isGuest && $unaPresentacion->idEvento0->idUsuario == Yii::$app->user->identity->idUsuario) {
-                                                            $cargarExpositores = Html::a('<i class="material-icons">person_add</i>', ['/evento/cargar-expositor/' . $unaPresentacion->idPresentacion], ['class' => 'btn btn_icon btn-outline-success cargarExpositores', 'style' => 'background:#007bff;']);
+                                                            $cargarExpositores = Html::a('<i class="material-icons">person_add</i>', ['/evento/cargar-expositor/' . $unaPresentacion->idPresentacion], ['class' => 'btn btn_icon cargarExpositores', 'style' => 'background:#007bff;']);
                                                         }
-                                                        $verExpositores = Html::a('<i class="material-icons">remove_red_eye</i>', ['/presentacion-expositor/ver-expositores/' . $unaPresentacion->idPresentacion], ['class' => 'btn btn_icon btn-outline-success verExpositores', 'style' => 'background:#007bff;']);
+                                                        $verExpositores = Html::a('<i class="material-icons">remove_red_eye</i>', ['/presentacion-expositor/ver-expositores/' . $unaPresentacion->idPresentacion], ['class' => 'btn btn_icon verExpositores', 'style' => 'background:#007bff;']);
                                                     }
                                                     ?>
                                                     <?php
@@ -735,8 +722,8 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                 <!--</div>-->
                                                 <!--<div class="col-6">-->
                                                 <?php if (!Yii::$app->user->isGuest && $unaPresentacion->idEvento0->idUsuario == Yii::$app->user->identity->idUsuario) {
-                                                    $accionEditar = Html::a('<i class="material-icons">edit</i>', Url::to(['/presentacion/update', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon btn-outline-success editarPresentacion']);
-                                                    $accionBorrar = Html::a('<i class="material-icons">remove_circle_outline</i>', Url::to(['/presentacion/borrar', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon btn-outline-success borrarPresentacion']);
+                                                    $accionEditar = Html::a('<i class="material-icons">edit</i>', Url::to(['/presentacion/update', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon editarPresentacion']);
+                                                    $accionBorrar = Html::a('<i class="material-icons">remove_circle_outline</i>', Url::to(['/presentacion/borrar', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon borrarPresentacion']);
                                                 ?>
                                                     <tr>
                                                         <td rowspan="2" class="align-middle">Acciones:</td>
