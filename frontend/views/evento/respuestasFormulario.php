@@ -12,7 +12,7 @@ $this->title = "Respuesta a el formulario";
 
 
     <div class="card mb-4">
-        <div class="card-header dark_bg text-light">
+        <div class="card-header bg_muni_azul_4 text-light">
             <h3>Usuarios Preinscriptos</h3>
         </div>
         <div class="card-body">
@@ -36,11 +36,11 @@ $this->title = "Respuesta a el formulario";
                         'format' => 'raw',
                         'value' => function ($dataProvider) use ($hayPreguntas, $evento) {
                             if ($hayPreguntas) {
-                                $return = Html::a("Ver respuestas", Url::toRoute("respuesta/ver/" . $evento->nombreCortoEvento . "/" . $dataProvider->idInscripcion), ["class" => "verRespuesta ml-2 btn btn-outline-success mb-2"]);
+                                $return = Html::a("Ver respuestas", Url::toRoute("respuesta/ver/" . $evento->nombreCortoEvento . "/" . $dataProvider->idInscripcion), ["class" => "verRespuesta ml-2 btn mb-2"]);
                             } else {
                                 $return = "No hay preguntas para responder en el evento";
                             }
-                            $return .= Html::a("Inscribir A Evento", Url::toRoute("inscripcion/inscribir-a-usuario/" . $evento->nombreCortoEvento . "/" . $dataProvider->idUsuario), ['class' => 'ml-2 btn btn-outline-success mb-2']);
+                            $return .= Html::a("Inscribir A Evento", Url::toRoute("inscripcion/inscribir-a-usuario/" . $evento->nombreCortoEvento . "/" . $dataProvider->idUsuario), ['class' => 'ml-2 btn mb-2']);
                             return $return;
                         },
                         'headerOptions' => ['style' => 'width:65%;text-align:center;', 'class' => 'text-center'],
@@ -52,7 +52,7 @@ $this->title = "Respuesta a el formulario";
         </div>
     </div>
     <div class="card mb-4">
-        <div class="card-header dark_bg text-light">
+        <div class="card-header bg_muni_azul_4 text-light">
             <h3>Usuarios Inscriptos</h3>
         </div>
         <div class="card-body">
@@ -75,8 +75,8 @@ $this->title = "Respuesta a el formulario";
                         'attribute' => 'Acciones',
                         'format' => 'raw',
                         'value' => function ($dataProvider) use ($evento) {
-                            $return = Html::a("Ver respuestas", Url::toRoute("respuesta/ver/" . $evento->nombreCortoEvento . "/" . $dataProvider->idInscripcion), ["class" => "verRespuesta ml-2 btn btn-outline-success mb-2"]);
-                            $return .= Html::a("Anular Inscripcion", Url::toRoute("inscripcion/anular-inscripcion/" . $evento->nombreCortoEvento . "/" . $dataProvider->idUsuario), ['class' => 'ml-2 btn btn-outline-success mb-2']);
+                            $return = Html::a("Ver respuestas", Url::toRoute("respuesta/ver/" . $evento->nombreCortoEvento . "/" . $dataProvider->idInscripcion), ["class" => "verRespuesta ml-2 btn mb-2"]);
+                            $return .= Html::a("Anular Inscripcion", Url::toRoute("inscripcion/anular-inscripcion/" . $evento->nombreCortoEvento . "/" . $dataProvider->idUsuario), ['class' => 'ml-2 btn mb-2']);
                             return $return;
                         },
                         'headerOptions' => ['style' => 'width:65%;text-align:center;', 'class' => 'text-center'],

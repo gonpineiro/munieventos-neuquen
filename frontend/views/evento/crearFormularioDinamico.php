@@ -14,7 +14,9 @@ $this->title = "Crear Formulario";
         <?= Html::a("Agregar Pregunta", Url::toRoute(["eventos/crear-pregunta/" . $evento->nombreCortoEvento]),
             ['class' => 'btn btn-primary agregarPregunta mb-4', "data-id" => Url::toRoute(["eventos/crear-pregunta/" . $evento->nombreCortoEvento])]) ?>
     <?php else: ?>
-        <h3>Los formularios no podran ser modificados una vez se publique el evento</h3>
+        <div class="card-header bg_muni_azul_4 text-light">
+            <h3>Los formularios no podran ser modificados una vez se publique el evento</h3>
+        </div>
     <?php endif; ?>
 
     <?=
@@ -63,13 +65,13 @@ $this->title = "Crear Formulario";
                     'update' => function ($url, $model) use ($evento) {
                         if ($evento->idEstadoEvento != 1):
 //                                                    return Html::a('<img src="' . Yii::getAlias('@web/icons/pencil.svg') . '" alt="Editar" width="20" height="20" title="Editar" role="img">', $url, ['class' => 'btn editarPresentacion']);
-                            return Html::a('<i class="material-icons">edit</i>', $url, ['class' => 'btn btn_icon btn-outline-success editarPregunta']);
+                            return Html::a('<i class="material-icons">edit</i>', $url, ['class' => 'btn btn_icon editarPregunta']);
                         endif;
                         return "No disponible";
                     },
                     'delete' => function ($url, $model) use ($evento) {
                         if ($evento->idEstadoEvento != 1):
-                            return Html::button('<i class="material-icons">remove_circle_outline</i>', ['class' => 'btn btn_icon btn-outline-success borrarPregunta', 'data-toggle' => "modal", "data-target" => "#modalEliminar"])
+                            return Html::button('<i class="material-icons">remove_circle_outline</i>', ['class' => 'btn btn_icon borrarPregunta', 'data-toggle' => "modal", "data-target" => "#modalEliminar"])
                                 . '<div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog">
                                       <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -84,7 +86,7 @@ $this->title = "Crear Formulario";
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>' .
-                                Html::a("Eliminar", $url, ["class" => "btn btn-outline-success borrarPregunta", "data-method" => "POST"])
+                                Html::a("Eliminar", $url, ["class" => "btn borrarPregunta", "data-method" => "POST"])
                                 . '</div>
                                         </div>
                                       </div>
@@ -101,7 +103,7 @@ $this->title = "Crear Formulario";
     ]);
     ?>
 
-    <?= Html::a('Volver Atras', Url::toRoute("eventos/ver-evento/" . $evento->nombreCortoEvento), ['class' => 'btn btn-outline-success']); ?>
+    <?= Html::a('Volver Atras', Url::toRoute("eventos/ver-evento/" . $evento->nombreCortoEvento), ['class' => 'btn']); ?>
 
     <?php
     Modal::begin([

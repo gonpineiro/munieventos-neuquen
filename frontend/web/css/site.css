@@ -489,6 +489,7 @@ section {
 
 .close {
     color: white;
+    /* color: #018f01; */
 }
 
 .close:hover {
