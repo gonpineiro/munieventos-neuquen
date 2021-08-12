@@ -42,7 +42,7 @@ $this->title = 'Eventos Neuquén';
                 <a href="#events" class="btn btn-primary btn-lg">Empezar</a>
             </div>
         </header>
-        <div class="bg_muni_azul_5" style="padding: 45px 15px 25px;" id="events">
+        <div class="bg_muni_azul_5" style="padding: 45px 15px 30px;" id="events">
             <div class="container">
                 <form action="#events">
                     <div class="form-group row" style="margin-bottom: 0px;">
@@ -84,8 +84,8 @@ $this->title = 'Eventos Neuquén';
                                 <h5 class='card-title text-dark'><?= Html::encode("Organizador: " . $evento["idUsuario0"]["nombre"] . " " . $evento["idUsuario0"]["apellido"]) ?></h5>
                                 <h5 class='card-title text-dark'><?= Html::encode(date('d/m/Y', strtotime($evento["fechaInicioEvento"]))) ?></h5>
                                 <hr>
-                                <p class='card-text'><?= Html::encode($evento["lugar"]) ?></p>
-                                <p class='card-text'><?= Html::decode(strtok(wordwrap(strip_tags($evento["descripcionEvento"]), 250, "...\n"), "\n")) ?> </p>
+                                <p class='card-text font-weight-light'><?= Html::encode($evento["lugar"]) ?></p>
+                                <p class='card-text font-weight-light'><?= Html::decode(strtok(wordwrap(strip_tags($evento["descripcionEvento"]), 250, "...\n"), "\n")) ?> </p>
                                 <?= Html::a('Más Información', ['/eventos/ver-evento/' . $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']); ?>
                             </div>
                         </div>

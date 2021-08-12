@@ -111,7 +111,7 @@ AppAsset::register($this);
 
     <section class="bg_muni_azul_5 text-light">
         <div class="container">
-            <div class="row mb-3">
+            <div class="row mb-5">
                 <div class="col-12 col-md-5">
                     <?= Html::img('@web/images/logo-03-negativo.svg', ['class' => 'img-fluid ', 'style' => 'width:200px;']); ?>
                 </div>
@@ -125,17 +125,10 @@ AppAsset::register($this);
                 </div>
                 <div class="col-12 col-md-4">
                     <h5 class="white-text">Contacto</h5>
-                    <ul>
-                        <li>
-                            <?= Html::a('Escribinos un mensaje', ['site/contact'], ['class' => 'link']) ?>
-                        </li>
-                    </ul>
-                    <h5 class="white-text">Sobre Nosotros</h5>
-                    <ul>
-                        <li>
-                            <?= Html::a('Sobre Nosotros', ['site/about'], ['class' => 'link']) ?>
-                        </li>
-                    </ul>
+                    <p>Avda. Argentina y Roca</p>
+                    <p>+ 54 0299 449 1200</p>
+                    <p>ciudadano@muninqn.gov.ar</p>
+                    <p>Abierto de lunes a viernes: 8.00 – 15.00 hs.</p>
                 </div>
             </div>
         </div>
