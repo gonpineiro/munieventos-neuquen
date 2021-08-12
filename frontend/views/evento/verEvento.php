@@ -87,14 +87,9 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
             <h1 class="text-white text-uppercase"><?= $evento->nombreEvento ?></h1>
             <div class="row padding_section">
                 <div class="col text-center">
-                    <h4 class="text-white"><i class="material-icons large align-middle">date_range</i> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?>
+                    <h4 class="font-weight-light"><i class="material-icons large align-middle text-white">date_range</i> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?>
                     </h4>
-                    <h4><i class="material-icons large align-middle">location_on</i> <?= $evento->lugar ?></h4>
-                    <?php if ($esFai == 1) : ?>
-                        <h5 class="text-white">Evento organizado por la FAI</h5>
-                    <?php else : ?>
-                        <h5 class="text-white">Evento no organizado por la FAI</h5>
-                    <?php endif; ?>
+                    <h4 class="font-weight-light"><i class="material-icons large align-middle text-white">location_on</i> <?= $evento->lugar ?></h4>
                 </div>
             </div>
         </div>
@@ -104,7 +99,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
         <div id="evento" class=" bg_muni_azul_45 padding_hero">
             <div class="container">
                 <?php if ($evento->fechaFinEvento < date("Y-m-d") || $evento->idEstadoEvento == 3) { ?>
-                    <div class="alert alert-warning text-center" role="alert">
+                    <div class="alert alert-warning text-center b_corners" role="alert">
                         <b>EL EVENTO SE ENCUENTRA FINALIZADO</b>
                     </div>
                 <?php } ?>
@@ -374,7 +369,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                         </div>
                         <div class="row padding_section greyish_bg  d-flex align-items-center">
                             <div class="col-sm-12 col-md-8">
-                                <div class="">
+                                <div class="cupos">
                                     <p class="align-middle">CUPOS DISPONIBLES: <?= $cupos ?> <?= $preInscripcion ?></p>
                                 </div>
                             </div>
@@ -511,8 +506,8 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     <?php if ($esDueño || $esAdministrador) { ?>
                                         <li class="list-group-item bg_muni_azul_5 text-white">
                                             <span>
-                                                <a class="btn btn-default" href=<?= "/evento/lista-participantes?idEvento=$evento->idEvento&extension=csv" ?>>
-                                                    Listado de Parcticipantes</a>
+                                                <a class="btn btn-default full_width" href=<?= "/evento/lista-participantes?idEvento=$evento->idEvento&extension=csv" ?>>
+                                                    <i class="material-icons align-middle">file_download</i> Listado de Parcticipantes</a>
                                             </span>
                                         </li>
                                     <?php } ?>
