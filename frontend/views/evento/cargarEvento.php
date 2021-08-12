@@ -11,7 +11,7 @@ use yii\helpers\Html;
 $this->title = "Cargar Evento";
 ?>
 <div class="dark_light_bg">
-    <div class="container padding_section">
+    <div class="container padding_hero">
         <div class="card shadow">
             <div class="card-header bg_muni_azul_4">
                 <h2 class="text-center text-white">Cargar Nuevo Evento</h2>
@@ -42,10 +42,12 @@ $this->title = "Cargar Evento";
                                 <div class="col-12 mt-2 nombresCortos">
                                     <!--<input type="radio" id="otro" name="shortName" value=""> <label for="otro">Otro: </label>-->
                                     <?=
-                                    $form->field($model, 'nombreCortoEvento')->textInput(['maxlength' => true, 'placeholder' => 'Ingrese  nombre corto',
+                                    $form->field($model, 'nombreCortoEvento')->textInput([
+                                        'maxlength' => true, 'placeholder' => 'Ingrese  nombre corto',
                                         'data-title' => 'Requisitos',
                                         'data-toggle' => 'popover',
-                                        'data-content' => 'Solo puede tener numeros y letras, sin caracteres especiales y los espacios deben ser guiones. Ejemplo test-evento.',])->label(false)
+                                        'data-content' => 'Solo puede tener numeros y letras, sin caracteres especiales y los espacios deben ser guiones. Ejemplo test-evento.',
+                                    ])->label(false)
                                     ?>
                                 </div>
                             </div>
@@ -53,7 +55,7 @@ $this->title = "Cargar Evento";
                             <?php
                             //minimize ckedit on escape
                             $this->registerJs(
-                                    'CKEDITOR.on("instanceCreated", function (e) {
+                                'CKEDITOR.on("instanceCreated", function (e) {
                                         e.editor.on("contentDom", function () {
                                             e.editor.document.on("keydown", function (evto) {
                                                 if (evto.data.$.keyCode === 27 || evto.data.$.key === "Escape") {
@@ -62,7 +64,8 @@ $this->title = "Cargar Evento";
                                             }
                                         );
                                     });
-                                    });');
+                                    });'
+                            );
                             ?>
 
                             <?=
@@ -118,13 +121,11 @@ $this->title = "Cargar Evento";
 
                                 <div role="radiogroup" aria-required="true">
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="espectadores-no"
-                                               name="posee-espectadores" value="-1" checked required>
+                                        <input class="custom-control-input" type="radio" id="espectadores-no" name="posee-espectadores" value="-1" checked required>
                                         <label class="custom-control-label" for="espectadores-no">No</label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="espectadores-si"
-                                               name="posee-espectadores" value="2">
+                                        <input class="custom-control-input" type="radio" id="espectadores-si" name="posee-espectadores" value="2">
                                         <label class="custom-control-label" for="espectadores-si">Si</label><br>
                                     </div>
                                 </div>

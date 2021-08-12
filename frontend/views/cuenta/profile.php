@@ -8,7 +8,7 @@ $this->title = "Perfil";
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="container-fluid padding_section dark_light_bg" style="min-height: 100vh;">
+<div class="container-fluid padding_hero dark_light_bg" style="min-height: 100vh;">
     <div class="container">
         <div class="card">
             <div class="card-header bg_muni_azul_4">
@@ -28,7 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             </li>
                             <!-- a futuro -->
                             <!--                    <li class="nav-item profile-sidebar col-12">
-                        <?php // echo Html::a('Cambiar dirección de correo', ['cuenta/cambiar-email-request'], ['class' => 'nav-link']);?>
+                        <?php // echo Html::a('Cambiar dirección de correo', ['cuenta/cambiar-email-request'], ['class' => 'nav-link']);
+                        ?>
                     </li>-->
                             <!-- a futuro -->
                             <!--                <li class="nav-item profile-sidebar col-12">
@@ -55,10 +56,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <?=
                                     Html::a(
                                         ' Editar Perfil '
-                                        . Html::img($urlPencil, [
-                                            "alt" => "Editar", "title" => "Editar", "width" => "18", "height" => "18", "role" => "img",
-                                            "class" => "ml-1 filter-white", "style" => "margin-top: -4px;", "data-id" => Url::toRoute(["editprofile"])
-                                        ]),
+                                            . Html::img($urlPencil, [
+                                                "alt" => "Editar", "title" => "Editar", "width" => "18", "height" => "18", "role" => "img",
+                                                "class" => "ml-1 filter-white", "style" => "margin-top: -4px;", "data-id" => Url::toRoute(["editprofile"])
+                                            ]),
                                         Url::toRoute(['editprofile']),
                                         ['class' => 'col-md-3 col-sm-12 btn btn-primary editProfile', "data-id" => Url::toRoute(["editprofile"])]
                                     );
@@ -73,18 +74,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                     <!-- Profile Card Body IMG -->
                                     <div class="col-md-5 col-sm-12">
-                                        <img class="card-img" width="100%" height="" src="<?php echo $profileImage ?>"
-                                             title="<?= Html::encode($dataUser['nombre']); ?>">
+                                        <img class="card-img" width="100%" height="" src="<?php echo $profileImage ?>" title="<?= Html::encode($dataUser['nombre']); ?>">
                                         <!-- Input profile image -->
                                         <div class=".text-center d-flex justify-content-center">
                                             <?php $urlUpload = Url::base(true) . '/iconos/cloud-upload.svg'; ?>
                                             <?=
                                             Html::a(
                                                 ' Subir imagen '
-                                                . Html::img($urlUpload, [
-                                                    "alt" => "Subir Imagen", "title" => "Subir Imagen", "width" => "18", "height" => "18",
-                                                    "role" => "img", "class" => "ml-1"
-                                                ]),
+                                                    . Html::img($urlUpload, [
+                                                        "alt" => "Subir Imagen", "title" => "Subir Imagen", "width" => "18", "height" => "18",
+                                                        "role" => "img", "class" => "ml-1"
+                                                    ]),
                                                 Url::toRoute(['upload-profile-image']),
                                                 ['class' => 'btn btn-primary uploadProfileImage', "data-id" => Url::toRoute(["upload-profile-image"])]
                                             );

@@ -95,8 +95,8 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
         </div>
     </header>
 
-    <div class="container-fluid bg_muni_azul_45">
-        <div id="evento" class=" bg_muni_azul_45 padding_hero">
+    <div class="container-fluid bg_muni_azul_45 pb-5">
+        <div id="evento" class="padding_hero bg_muni_half_azul_45 rounded-bottom">
             <div class="container">
                 <?php if ($evento->fechaFinEvento < date("Y-m-d") || $evento->idEstadoEvento == 3) { ?>
                     <div class="alert alert-warning text-center b_corners" role="alert">
@@ -507,7 +507,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                         <li class="list-group-item bg_muni_azul_5 text-white">
                                             <span>
                                                 <a class="btn btn-default full_width" href=<?= "/evento/lista-participantes?idEvento=$evento->idEvento&extension=csv" ?>>
-                                                    <i class="material-icons align-middle">file_download</i> Listado de Parcticipantes</a>
+                                                    <i class="material-icons align-middle">file_download</i>Listado de Parcticipantes</a>
                                             </span>
                                         </li>
                                     <?php } ?>

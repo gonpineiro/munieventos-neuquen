@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="mis-eventos-gestionados dark_light_bg" style="min-height:100vh">
-    <div class="container padding_section">
+    <div class="container padding_hero">
         <div class="card">
             <div class="card-header bg_muni_azul_4 text-white">
                 <h3><?= Html::encode($this->title) ?></h3>
