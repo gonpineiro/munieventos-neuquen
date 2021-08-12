@@ -40,7 +40,7 @@ AppAsset::register($this);
             'brandLabel' => Html::img('@web/images/logo-03.svg', ['style' => 'height:30px']),
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar navbar-expand-md fixed-top',
+                'class' => 'navbar navbar-expand-md fixed-top shadow-sm',
                 'style' => 'background-color: white',
             ],
         ]);
