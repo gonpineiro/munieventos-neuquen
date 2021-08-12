@@ -14,9 +14,9 @@ use frontend\models\ModalidadEvento;
 $this->title = "Editar Evento - " . $model->nombreCortoEvento;
 ?>
 <div class="dark_light_bg">
-    <div class="container padding_section">
+    <div class="container padding_hero">
         <div class="card shadow">
-            <div class="card-header pinkish_bg">
+            <div class="card-header bg_muni_azul_4">
                 <h2 class="text-center text-white">Editar Evento</h2>
             </div>
             <div class="card-body">
