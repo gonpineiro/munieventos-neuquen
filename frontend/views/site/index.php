@@ -103,9 +103,9 @@ $this->title = 'Eventos Neuquén';
                 </div>
         </div>
     <?php else : ?>
-        <div class="container">
-            <div class="row">
-                <h2 class="text-white text-uppercase padding_section">No se encontraron eventos, vuelva a
+        <div class="container full_width">
+            <div class="row full_width">
+                <h2 class="text-dark text-center text-uppercase padding_section full_width" style="margin">No se encontraron eventos, vuelva a
                     intentar.</h2><br>
             </div>
         </div>

@@ -13,17 +13,17 @@ use yii\web\JsExpression;
 
 $this->title = "Cargar Expositor";
 ?>
-<div class="dark_light_bg padding_section" style="min-height: 100vh;">
+<div class="bg_muni_half_azul_45 padding_section" style="min-height: 100vh;">
     <div class="container">
         <div class="card expositor-center">
-            <div class="card-header pinkish_bg text-light">
+            <div class="card-header bg_muni_azul_4 text-light">
                 <h2 class="text-center">Cargar expositor</h2>
             </div>
             <div class="card-body">
                 <?php
                 //echo $objetoEvento->idUsuario0->idUsuario;
                 if (!Yii::$app->user->isGuest && $objetoEvento->idUsuario0->idUsuario == Yii::$app->user->identity->idUsuario) {
-                    ?>
+                ?>
                     <div class="row">
                         <div class="col-md-8 col-12 m-auto">
                             <div class="evento-form">
@@ -35,22 +35,22 @@ $this->title = "Cargar Expositor";
                                     <?php $form = ActiveForm::begin(['id' => 'agregarExpositor']); ?>
                                     <?=
                                     'Expositor ' . '<br>' .
-                                    AutoComplete::widget([
-                                        'clientOptions' => [
-                                            'appendTo' => '#agregarExpositor',
-                                            'source' => $usuarios,
-                                            'autoFill' => true,
-                                            'minLength' => '3',
-                                            'select' => new JsExpression("function( event, ui ) { $('#inputIdExpositor').val(ui.item.idUsuario);}")
-                                        ],
-                                        'options' => [
-                                            'class' => 'form-control',
-                                            'placeholder' => 'Buscar expositor',
-                                            'data-title' => 'Requisitos',
-                                            'data-toggle' => 'popover',
-                                            'data-content' => 'Mínimo tres caracteres para la búsqueda automática',
-                                        ]
-                                    ]);
+                                        AutoComplete::widget([
+                                            'clientOptions' => [
+                                                'appendTo' => '#agregarExpositor',
+                                                'source' => $usuarios,
+                                                'autoFill' => true,
+                                                'minLength' => '3',
+                                                'select' => new JsExpression("function( event, ui ) { $('#inputIdExpositor').val(ui.item.idUsuario);}")
+                                            ],
+                                            'options' => [
+                                                'class' => 'form-control',
+                                                'placeholder' => 'Buscar expositor',
+                                                'data-title' => 'Requisitos',
+                                                'data-toggle' => 'popover',
+                                                'data-content' => 'Mínimo tres caracteres para la búsqueda automática',
+                                            ]
+                                        ]);
                                     ?>
                                     <?= Html::activeHiddenInput($model, 'idExpositor', ['id' => 'inputIdExpositor']) . '<br>' ?>
                                     <div class="form-group">

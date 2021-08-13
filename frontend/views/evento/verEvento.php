@@ -294,7 +294,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     <h2><strong><?= $evento->nombreEvento ?></strong>
                                     </h2>
                                     <br>
-                                    <p>Organizado por <?= $organizadorEvento ?></p>
+                                    <p class="text-dark">Organizado por <?= $organizadorEvento ?></p>
                                     <br>
                                     <!--<span>-->
                                     <?PHP
@@ -325,7 +325,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                         <div class="row padding_section greyish_bg  d-flex align-items-center">
                             <div class="col-sm-12 col-md-8">
                                 <div class="cupos">
-                                    <p class="align-middle">CUPOS DISPONIBLES: <?= $cupos ?> <?= $preInscripcion ?></p>
+                                    <p class="text_muni_azul_45">CUPOS DISPONIBLES: <span class="font-weight-bolder"><?= $cupos ?></span> <?= " - "; ?> <?= $preInscripcion ?></p>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-4">
