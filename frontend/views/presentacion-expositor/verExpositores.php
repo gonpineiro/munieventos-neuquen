@@ -12,7 +12,7 @@ use yii\helpers\Url;
     <div class="expositores-lista">
 
 
-        <h1>
+        <h4>
             <?php
             $cadenaAgregar = "";
             if (!Yii::$app->user->isGuest && $model->idEvento0->idUsuario == Yii::$app->user->identity->idUsuario) {
@@ -22,7 +22,7 @@ use yii\helpers\Url;
             }
             ?>
             <?= $model->tituloPresentacion . '<br> ' . $cadenaAgregar; ?>
-        </h1>
+        </h4>
 
         <div class="table-responsive">
             <?=
@@ -83,6 +83,12 @@ use yii\helpers\Url;
                         },
                         //describe los botones de accion
                         'buttons' => [
+                            'view' => function ($url, $model) {
+                                return false;
+                            },
+                            'update' => function ($url, $model) {
+                                return false;
+                            },
                             'delete' => function ($url, $model) {
                                 return Html::a('<i class="material-icons large align-middle text-white">remove_circle_outline</i>', $url, ['class' => 'btn verPresentacion', 'data-toggle' => 'modal', 'href' => '#myModal', 'data' => [
                                     'confirm' => '¿Esta seguro que desea Borrar el Expositor?',
