@@ -84,7 +84,7 @@ use yii\helpers\Url;
                         //describe los botones de accion
                         'buttons' => [
                             'delete' => function ($url, $model) {
-                                return Html::a('<i class="material-icons large align-middle">remove_circle_outline</i>', $url, ['class' => 'btn verPresentacion', 'data-toggle' => 'modal', 'href' => '#myModal', 'data' => [
+                                return Html::a('<i class="material-icons large align-middle text-white">remove_circle_outline</i>', $url, ['class' => 'btn verPresentacion', 'data-toggle' => 'modal', 'href' => '#myModal', 'data' => [
                                     'confirm' => '¿Esta seguro que desea Borrar el Expositor?',
                                     'method' => 'post',
                                 ]]);
@@ -103,9 +103,6 @@ use yii\helpers\Url;
             ]);
             Modal::end();
             ?>
-
         </div>
     </div>
-
-
 </div>

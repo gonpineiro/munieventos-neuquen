@@ -78,7 +78,7 @@ $this->title = 'Eventos Muni Neuquén';
 
     <?php else : ?>
         <div class="row text-center">
-            <h2 class="text-dark text-uppercase">No se encontraron eventos, vuelva a intentar.</h2><br>
+            <h4 class="text-dark text-uppercase">No se encontraron eventos, vuelva a intentar.</h4><br>
         </div>
     <?php endif; ?>
     </div>

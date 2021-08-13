@@ -678,7 +678,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                 <!--<div class="col-6">-->
                                                 <?php if (!Yii::$app->user->isGuest && $unaPresentacion->idEvento0->idUsuario == Yii::$app->user->identity->idUsuario) {
                                                     $accionEditar = Html::a('<i class="material-icons">edit</i>', Url::to(['/presentacion/update', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon editarPresentacion']);
-                                                    $accionBorrar = Html::a('<i class="material-icons">remove_circle_outline</i>', Url::to(['/presentacion/borrar', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon borrarPresentacion']);
+                                                    $accionBorrar = Html::a('<i class="material-icons text-white">remove_circle_outline</i>', Url::to(['/presentacion/borrar', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon borrarPresentacion']);
                                                 ?>
                                                     <tr>
                                                         <td rowspan="2" class="align-middle">Acciones:</td>
