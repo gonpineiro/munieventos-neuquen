@@ -21,11 +21,11 @@ use yii\helpers\Url;
     <?= $form->field($model, 'descripcion')->textInput(['maxlength' => true])->label("Pregunta") ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Guardar', ['class' => 'btn']) ?>
         <?php
 
         if (!$esAjax) {
-            echo Html::a("Volver Atras", Url::previous("slugEvento"), ['class' => 'btn btn-success']);
+            echo Html::a("Volver Atras", Url::previous("slugEvento"), ['class' => 'btn']);
         }
 
         ?>

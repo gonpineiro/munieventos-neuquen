@@ -22,5 +22,5 @@ $this->title = $name;
     <p> Si sospecha que el error es un problema del servidor, por favor, pongase en contacto con los
         administradores. </p>
     <p> Sepa disculpar las molestias. ¡Muchas gracias! </p>
-    <?= Html::a("Ir al inicio", ["site/index"], ['class' => 'btn btn-success']) ?>
+    <?= Html::a("Ir al inicio", ["site/index"], ['class' => 'btn']) ?>
 </div>

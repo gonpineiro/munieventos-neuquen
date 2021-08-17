@@ -73,7 +73,7 @@ $this->title = "Cargar Presentación - " . $evento->nombreCortoEvento;
                     Los campos marcados con (*) son obligatorios.
                 <p>
                 <div class="form-group">
-                    <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
+                    <?= Html::submitButton('Guardar', ['class' => 'btn']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

@@ -61,7 +61,7 @@ $this->title = "Crear Email";
                             <br>
 
                             <div class="form-group col-md-12">
-                                <?= Html::submitButton('Enviar', ['class' => 'btn btn-success']) ?>
+                                <?= Html::submitButton('Enviar', ['class' => 'btn']) ?>
                             </div>
 
                             <?php ActiveForm::end(); ?>
