@@ -40,6 +40,7 @@ return [
             'frontend/web/iconos',
             'frontend/web/images',
             'frontend/web/eventos',
+            'frontend/',
         ],
         'setExecutable' => [
             'yii',
@@ -62,6 +63,7 @@ return [
             'frontend/web/iconos',
             'frontend/web/images',
             'frontend/web/eventos',
+            'frontend/',
         ],
         'setExecutable' => [
             'yii',
