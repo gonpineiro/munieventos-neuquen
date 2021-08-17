@@ -577,6 +577,10 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                 },
                                                 //describe los botones de accion
                                                 'buttons' => [
+                                                    'view' => function ($url, $model) {
+                                                        //                                                    return Html::a('<img src="' . Yii::getAlias('@web/icons/pencil.svg') . '" alt="Editar" width="20" height="20" title="Editar" role="img">', $url, ['class' => 'btn editarPresentacion']);
+                                                        return false;
+                                                    },
                                                     'update' => function ($url, $model) {
                                                         //                                                    return Html::a('<img src="' . Yii::getAlias('@web/icons/pencil.svg') . '" alt="Editar" width="20" height="20" title="Editar" role="img">', $url, ['class' => 'btn editarPresentacion']);
                                                         return Html::a('<i class="material-icons">edit</i>', $url, ['class' => 'btn btn_icon editarPresentacion']);
