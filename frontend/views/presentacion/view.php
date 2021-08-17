@@ -13,7 +13,7 @@ YiiAsset::register($this);
 <div class="container">
     <div class="presentacion-view">
 
-        <h1><?= Html::encode($this->title) ?></h1>
+        <h4 class="text-dark"><?= Html::encode($this->title) ?></h4>
         <div class="table table-responsive">
             <?= DetailView::widget([
                 'model' => $model,

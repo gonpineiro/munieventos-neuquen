@@ -294,7 +294,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     <h2><strong><?= $evento->nombreEvento ?></strong>
                                     </h2>
                                     <br>
-                                    <p>Organizado por <?= $organizadorEvento ?></p>
+                                    <p class="text-dark">Organizado por <?= $organizadorEvento ?></p>
                                     <br>
                                     <!--<span>-->
                                     <?PHP
@@ -325,7 +325,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                         <div class="row padding_section greyish_bg  d-flex align-items-center">
                             <div class="col-sm-12 col-md-8">
                                 <div class="cupos">
-                                    <p class="align-middle">CUPOS DISPONIBLES: <?= $cupos ?> <?= $preInscripcion ?></p>
+                                    <p class="text_muni_azul_45">CUPOS DISPONIBLES: <span class="font-weight-bolder"><?= $cupos ?></span> <?= " - "; ?> <?= $preInscripcion ?></p>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-4">
@@ -678,7 +678,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                 <!--<div class="col-6">-->
                                                 <?php if (!Yii::$app->user->isGuest && $unaPresentacion->idEvento0->idUsuario == Yii::$app->user->identity->idUsuario) {
                                                     $accionEditar = Html::a('<i class="material-icons">edit</i>', Url::to(['/presentacion/update', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon editarPresentacion']);
-                                                    $accionBorrar = Html::a('<i class="material-icons">remove_circle_outline</i>', Url::to(['/presentacion/borrar', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon borrarPresentacion']);
+                                                    $accionBorrar = Html::a('<i class="material-icons text-white">remove_circle_outline</i>', Url::to(['/presentacion/borrar', 'presentacion' => $unaPresentacion->idPresentacion]), ['class' => 'btn btn_icon borrarPresentacion']);
                                                 ?>
                                                     <tr>
                                                         <td rowspan="2" class="align-middle">Acciones:</td>

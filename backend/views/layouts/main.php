@@ -22,7 +22,7 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/ico', 'href' => Url::base('http') . '/favicon.ico']); ?>
+    <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/ico', 'href' => Url::base('http') . '/favicon.png']); ?>
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -36,11 +36,12 @@ AppAsset::register($this);
         <div class="row">
             <div class="col-12 text-center">
                 <div class="mb-4">
-                    <?=
-                    Html::img('images/juntar-logo/svg/juntar-logo-b.svg', [
+                    <?PHP
+                    /*
+                    Html::img('images/logo-03.svg', [
                         'class' => 'img-fluid mx-auto d-block',
                         'style' => ['width' => '40%']
-                    ]);
+                    ]);*/
                     ?>
                     <h3 class="mt-2 m-auto">Aplicación Backend</h3>
                 </div>
@@ -68,7 +69,6 @@ AppAsset::register($this);
     <?php else: ?>
         <?php
         NavBar::begin([
-            'brandLabel' => Html::img('@web/images/juntar-logo/svg/juntar-icon-w.svg', ['style' => 'width:30px']),
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'navbar navbar-expand-md navbar-dark fixed-top',

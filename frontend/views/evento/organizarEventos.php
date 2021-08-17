@@ -6,7 +6,7 @@ use yii\bootstrap4\Html;
 use yii\bootstrap4\LinkPager;
 use yii\helpers\Url;
 
-$this->title = 'Proyecto Juntar';
+$this->title = 'Eventos Muni Neuquén';
 ?>
 <div class="site-index">
 
@@ -52,12 +52,12 @@ $this->title = 'Proyecto Juntar';
             <?php if (count($eventos) != 0) : ?>
                 <div class="card-columns">
                     <?php foreach ($eventos as $evento) : ?>
-                        <div class='card shadow bg-light'>
+                        <div class='card shadow bg-light mb-4'>
                             <?= Html::a(Html::img(Url::base('') . '/' . Html::encode($evento["imgLogo"]), ["class" => "card-img-top"]), ['/eventos/ver-evento/' . $evento->nombreCortoEvento]) ?>
                             <div class='card-body'>
-                                <h4 class='card-title text_muni_azul_5'><?= Html::encode($evento["nombreEvento"]) ?></h4>
+                                <h4 class='card-title font-weight-bold text_muni_azul_5'><?= Html::encode($evento["nombreEvento"]) ?></h4>
                                 <h5 class='card-title text-dark'><?= Html::encode("Organizador: " . $evento["idUsuario0"]["nombre"] . " " . $evento["idUsuario0"]["apellido"]) ?></h5>
-                                <h5 class='card-title text-dark'><?= Html::encode(date('d/m/Y', strtotime($evento["fechaInicioEvento"]))) ?></h5>
+                                <h5 class='card-title text-muted'><?= Html::encode(date('d/m/Y', strtotime($evento["fechaInicioEvento"]))) ?></h5>
                                 <hr>
                                 <p class='card-text font-weight-light'><?= Html::encode($evento["lugar"]) ?></p>
                                 <p class='card-text font-weight-light'><?= Html::decode(strtok(wordwrap($evento["descripcionEvento"], 100, "...\n"), "\n")) ?> </p>
@@ -77,8 +77,8 @@ $this->title = 'Proyecto Juntar';
         </div>
 
     <?php else : ?>
-        <div class="row">
-            <h2 class="text-white text-uppercase">No se encontraron eventos, vuelva a intentar.</h2><br>
+        <div class="row text-center">
+            <h4 class="text-dark text-uppercase">No se encontraron eventos, vuelva a intentar.</h4><br>
         </div>
     <?php endif; ?>
     </div>
