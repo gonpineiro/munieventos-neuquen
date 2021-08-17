@@ -136,6 +136,7 @@ class ImagenQR extends Model
         $qrCode = (new QrCode($url))
             ->useLogo("../web/images/juntar-logo/png/juntar-avatar-bg-b.png")
             ->setLogoWidth(45)
+            ->useForegroundColor(51, 89, 146)
             ->setSize(400)
             ->setMargin(5)
             ->setLabel($label);
@@ -145,8 +146,8 @@ class ImagenQR extends Model
     /**
      * {@inheritdoc}
      */
-//    public function attributeLabels() {
-//        return [
-//        ];
-//    }
+    //    public function attributeLabels() {
+    //        return [
+    //        ];
+    //    }
 }
