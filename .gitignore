@@ -5,10 +5,15 @@ protected/runtime/*
 protected/data/*.db
 themes/classic/views/
 frontend/web/eventos/images/flyers/*
+!frontend/web/eventos/images/flyers/flyers.md
 frontend/web/eventos/images/logos/*
+!frontend/web/eventos/images/logos/logos.md
 frontend/web/eventos/images/qrcodes/*
+!frontend/web/eventos/images/qrcodes/qrcodes.md
 frontend/web/eventos/formularios/archivos/*
+!frontend/web/eventos/formularios/archivos/archivos.md
 frontend/web/profile/images/*
+!frontend/web/profile/images/profile.md
 
 # yii console commands
 /yii
