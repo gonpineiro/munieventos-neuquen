@@ -126,9 +126,8 @@ AppAsset::register($this);
                 <div class="col-12 col-md-4">
                     <h5 class="white-text">Contacto</h5>
                     <p>Avda. Argentina y Roca</p>
-                    <p>+ 54 0299 449 1200</p>
-                    <p>ciudadano@muninqn.gov.ar</p>
-                    <p>Abierto de lunes a viernes: 8.00 – 15.00 hs.</p>
+                    <p><a class="text-white" style="text-decoration: none;" href="tel:+5402994491200">+ 54 0299 449 1200</a></p>
+                    <p><a class="text-white" style="text-decoration: none;" href="mailto:ciudadano@muninqn.gov.ar">ciudadano@muninqn.gov.ar</a></p>
                 </div>
             </div>
         </div>

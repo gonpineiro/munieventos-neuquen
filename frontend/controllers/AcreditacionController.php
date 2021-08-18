@@ -104,12 +104,10 @@ class AcreditacionController extends Controller
             if ($seAcredito) {
                 return true;
             } else {
-                Yii::$app->session->setFlash('error', '<h2> Ocurrio un error </h2> '
-                    . '<p> Por favor vuelva a intentar </p>');
+                Yii::$app->session->setFlash('error', '<p> Ocurrió un error, por favor vuelva a intentar. </p>');
             }
         } else {
-            Yii::$app->session->setFlash('error', '<h2> El codigo ingresado es inválido </h2> '
-                . '<p> Por favor vuelva a intentar </p>');
+            Yii::$app->session->setFlash('error', '<p> El código ingresado es inválido, por favor vuelva a intentar. </p>');
         }
         return false;
     }
@@ -117,8 +115,7 @@ class AcreditacionController extends Controller
     private function acreditar($inscripcion)
     {
         //El usuario es acreditado
-        Yii::$app->session->setFlash('success', '<h2> Acreditado. </h2>'
-            . '<p> Usted se acredito. </p>');
+        Yii::$app->session->setFlash('success', '<p> Usted se ha acreditado. </p>');
         $inscripcion->acreditacion = 1;
         $seGuardo = $inscripcion->save();
 
