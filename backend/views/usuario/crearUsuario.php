@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= $form->field($model, 'email')->input('email')->label('Dirección de Correo')->textInput(['placeholder' => 'Ejemplo: myEmail@gmail.com']); ?>
                     </div>
                     <div class="form-group mt-2">
-                        <?= Html::submitButton('Registrar Usuario', ['class' => 'btn btn-pink col-sm-12', 'name' => 'signup-button']) ?>
+                        <?= Html::submitButton('Registrar Usuario', ['class' => 'btn btn-blue col-sm-12', 'name' => 'signup-button']) ?>
                     </div>
 
                     <?php ActiveForm::end(); ?>

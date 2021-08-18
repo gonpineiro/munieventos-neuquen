@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
     background-color: rgb(216, 216, 216);
 }
@@ -14,7 +15,7 @@ html, body {
     padding: 0 0 60px;
 }
 
-.wrap > .container {
+.wrap>.container {
     padding: 70px 15px 20px;
 }
 
@@ -44,9 +45,11 @@ html, body {
     font-style: italic;
 }
 
+
 /* add sorting icons to gridview sort links */
 
-a.asc:after, a.desc:after {
+a.asc:after,
+a.desc:after {
     position: relative;
     top: 1px;
     display: inline-block;
@@ -83,11 +86,13 @@ a.desc:after {
     content: "\e156";
 }
 
-.grid-view th, .grid-view td:last-child {
+.grid-view th,
+.grid-view td:last-child {
     white-space: nowrap;
 }
 
-.grid-view .filters input, .grid-view .filters select {
+.grid-view .filters input,
+.grid-view .filters select {
     min-width: 50px;
 }
 
@@ -105,15 +110,16 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+
 /* align the logout "link" (button in form) of the navbar */
 
-.nav li > form > button.logout {
+.nav li>form>button.logout {
     padding: 15px;
     border: none;
 }
 
 @media (max-width: 767px) {
-    .nav li > form > button.logout {
+    .nav li>form>button.logout {
         display: block;
         text-align: left;
         width: 100%;
@@ -121,11 +127,12 @@ a.desc:after {
     }
 }
 
-.nav > li > form > button.logout:focus, .nav > li > form > button.logout:hover {
+.nav>li>form>button.logout:focus,
+.nav>li>form>button.logout:hover {
     text-decoration: none;
 }
 
-.nav > li > form > button.logout:focus {
+.nav>li>form>button.logout:focus {
     outline: none;
 }
 
@@ -237,6 +244,19 @@ a.desc:after {
     z-index: 2;
 }
 
+.btn-blue {
+    background-color: #266aad;
+    color: aliceblue !important;
+    border: none;
+    text-transform: capitalize;
+    border-radius: 0px;
+}
+
+.btn-blue:hover {
+    background-color: #2e5083;
+    color: aliceblue !important;
+}
+
 .btn-pink {
     background-color: #FE1355;
     color: aliceblue !important;
@@ -263,7 +283,9 @@ a.desc:after {
     color: white;
 }
 
+
 /*Evita que el editor mejorado se vaya fuera del margen de vista*/
+
 .cke_maximized {
     top: 0px !important;
 }

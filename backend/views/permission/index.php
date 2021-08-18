@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h1 class="card-header text-center darkish_bg text-white"> <?= Html::encode($this->title) ?> </h1>
 
                 <p class="m-3">
-                    <?php echo Html::a('Nuevo Permiso', ['create-permiso'], ['class' => 'btn btn-pink col-md-2 col-sm-12']) ?>
+                    <?php echo Html::a('Nuevo Permiso', ['create-permiso'], ['class' => 'btn btn-blue col-md-2 col-sm-12']) ?>
                 </p>
 
                 <div class="card-body">
@@ -58,10 +58,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                     },
                                     'buttons' => [
                                         'view' => function ($url, $model) {
-                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/eye.svg') . '" alt="Visualizar" width="20" height="20" title="Visualizar" role="img">', $url, ['class' => 'btn btn-pink']);
+                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/eye.svg') . '" alt="Visualizar" width="20" height="20" title="Visualizar" role="img">', $url, ['class' => 'btn btn-blue']);
                                         },
                                         'delete' => function ($url, $model) {
-                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/trash.svg') . '" alt="Borrar" width="20" height="20" title="Borrar" role="img">', $url, ['class' => 'btn btn-pink']);
+                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/trash.svg') . '" alt="Borrar" width="20" height="20" title="Borrar" role="img">', $url, ['class' => 'btn btn-blue']);
                                         },
                                     ],
                                     'header' => 'Acciones',

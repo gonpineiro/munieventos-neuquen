@@ -58,7 +58,7 @@ AppAsset::register($this);
                     ];
 
                     echo Nav::widget([
-                        'options' => ['class' => 'btn btn-pink d-block text-center m-auto col-md-2 col-sm-12'],
+                        'options' => ['class' => 'btn btn-blue d-block text-center m-auto col-md-2 col-sm-12'],
                         'items' => $menuItems,
                     ]);
                     ?>

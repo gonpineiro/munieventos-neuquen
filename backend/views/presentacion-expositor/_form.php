@@ -29,7 +29,7 @@ use yii\bootstrap4\ActiveForm;
     </div>
 
     <div class="form-group">
-        <?= Html::submitButton('Guardar', ['class' => 'btn btn-pink']) ?>
+        <?= Html::submitButton('Guardar', ['class' => 'btn btn-blue']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

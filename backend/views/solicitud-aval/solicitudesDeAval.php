@@ -149,7 +149,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'view' => function ($url, $model) {
                                             return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/eye.svg') . '" alt="Visualizar Evento" title="Visualizar Evento" width="20" height="20" role="img">',
                                                 ['/evento/view', 'id' => $model->idEvento],
-                                                ['class' => 'btn btn-pink']);
+                                                ['class' => 'btn btn-blue']);
                                         },
                                     ],
                                     'header' => 'Accion',

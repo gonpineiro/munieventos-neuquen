@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="card">
                 <h1 class="card-header text-center darkish_bg text-white"> <?= Html::encode($this->title) ?> </h1>
 
-                <?php // echo Html::a('Crear Evento', ['create'], ['class' => 'btn btn-pink mt-3 ml-3 col-2'])   ?>
+                <?php // echo Html::a('Crear Evento', ['create'], ['class' => 'btn btn-blue mt-3 ml-3 col-2'])   ?>
 
                 <div class="card-body">
                     <div class="table-responsive">
@@ -96,19 +96,19 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ['class' => 'yii\grid\ActionColumn',
                                     'buttons' => [
                                         'view' => function ($url, $model) {
-                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/eye.svg') . '" alt="Visualizar" width="20" height="20" title="Visualizar" role="img">', $url, ['class' => 'btn btn-pink']);
+                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/eye.svg') . '" alt="Visualizar" width="20" height="20" title="Visualizar" role="img">', $url, ['class' => 'btn btn-blue']);
                                         },
 
                                         'update' => function ($url, $model) {
                                             return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/pencil.svg') . '" alt="Editar" width="20" height="20" title="Editar" role="img">',
                                                 ['/evento/editar-evento/', 'id' => $model->idEvento],
-                                                ['class' => 'btn btn-pink']);
+                                                ['class' => 'btn btn-blue']);
 
                                         },
                                         'delete' => function ($url, $model) {
                                             return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/trash.svg') . '" alt="Borrar" width="20" height="20" title="Borrar" role="img">',
                                                 ['/evento/deshabilitar/', 'id' => $model->idEvento],
-                                                ['class' => 'btn btn-pink']);
+                                                ['class' => 'btn btn-blue']);
                                         }
                                     ],
                                     'header' => 'Acciones',
