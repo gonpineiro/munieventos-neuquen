@@ -703,6 +703,7 @@ INSERT INTO `permiso_rol` (`parent`, `child`) VALUES
 ('Organizador', 'evento/cargar-evento'),
 ('Organizador', 'evento/cargar-expositor'),
 ('Organizador', 'evento/crear-email'),
+('Organizador', 'evento/mostrar-qr-evento'),
 ('Organizador', 'evento/crear-formulario-dinamico'),
 ('Organizador', 'evento/editar-evento'),
 ('Organizador', 'evento/enviar-email'),
@@ -811,92 +812,4 @@ INSERT INTO modalidad_evento (idModalidadEvento, descripcionModalidad) VALUES
 (2, 'Online'),
 (3, 'Presencial y Online'),
 (4, 'Otra');
-
---
--- Volcado de datos para la tabla `inscripcion`
---
-
-/* INSERT INTO `inscripcion` (`idInscripcion`, `idUsuario`, `idEvento`, `estado`, `fechaPreInscripcion`, `fechaInscripcion`, `acreditacion`, `certificado`) VALUES
-(1, 6, 2, 0, '2020-06-15', NULL, 0, NULL),
-(2, 3, 1, 0, '2020-06-15', NULL, 0, NULL),
-(3, 6, 4, 0, '2020-06-15', NULL, 0, NULL),
-(4, 13, 2, 2, '2020-06-15', NULL, 0, NULL),
-(5, 6, 1, 0, '2020-06-16', NULL, 0, NULL),
-(6, 17, 10, 0, '2020-06-16', NULL, 1, NULL),
-(7, 19, 10, 0, '2020-06-16', NULL, 0, NULL),
-(8, 18, 10, 0, '2020-06-16', NULL, 1, NULL),
-(9, 12, 10, 0, '2020-06-16', NULL, 1, NULL); */
-
---
--- Volcado de datos para la tabla `presentacion`
---
-
-/* INSERT INTO `presentacion` (`idPresentacion`, `idEvento`, `tituloPresentacion`, `descripcionPresentacion`, `diaPresentacion`, `horaInicioPresentacion`, `horaFinPresentacion`, `linkARecursos`) VALUES
-(1, 1, 'Introducción a GNU/Linux', 'GNU/Linux es la denominación técnica y generalizada que reciben una serie de sistemas operativos de tipo Unix, que también son multiplataforma, multiusuario y multitarea.? Estos sistemas operativos están formados mediante la combinación de varios proyectos, entre los cuales destaca el entorno GNU, encabezado por el programador estadounidense Richard Stallman junto a la Free Software Foundation, una fundación cuyo propósito es difundir el software libre, así como también el núcleo de sistema operativo conocido como «Linux», encabezado por el programador finlandés Linus Torvalds.', '2020-06-25', '15:00:00', '15:35:00', ''),
-(3, 2, 'Bienvenida Autoridades Locales', 'Docente de grado de la Universidad de UNCuyo y de posgrado en varias universidades en espacios curriculares vinculados a las Tecnologías Digitales y la Educación. ', '2020-07-06', '11:00:00', '12:00:00', ''),
-(5, 3, '¿Qué es el teletrabajo?', 'El teletrabajo es aquel que se realiza fuera de las instalaciones de una empresa mediante la utilización de todo tipo de tecnología de la información y de las comunicaciones (TIC). Esta modalidad está siendo adoptada cada vez más por trabajadores, empresas y organismos, a nivel mundial. ', '2020-07-01', '14:30:00', '18:30:00', 'https://tiuma.github.io/telework-presentation/#/'),
-(6, 4, 'Desarrollo de mi primer App', 'Tallerista\r\n\r\nMatias es Estudiante de la Licenciatura en Ciencias de la Computación. Es docente de nivel medio y ha participado activamente en diferentes proyectos de Extensión y del proyecto de Vocaciones TICs dictando numerosos talleres de AppInventor.', '2020-06-25', '15:00:00', '17:00:00', 'https://drive.google.com/drive/folders/1drYhE3i4ewzks94MTr2QRvXWnb2N2uLU'),
-(7, 1, 'Montun paso a paso Instalación', 'El desarrollo de estos sistemas operativos es uno de los ejemplos más prominentes de software libre: todo su código fuente puede ser utilizado, modificado y redistribuido libremente por cualquier persona, empresa o institución, bajo los términos de la Licencia Pública General de GNU, así como de otra serie de licencias, si se desea.3? La idea de desarrollar un sistema operativo libre y basado en el sistema operativo Unix, se remonta a mediados de la década de 1980 con el proyecto GNU. ', '2020-06-25', '15:35:00', '16:05:00', ''),
-(8, 1, 'Homenaje al Oso. Anécdotas, Charlas, Ideas, Preguntas, Respuestas y Recuerdos de una gran persona Eduardo Grosclaude - el oso,', 'A pesar de que en la jerga cotidiana la mayoría de las personas usan el vocablo «Linux» para referirse a este sistema operativo,4?5? en realidad ese es solo el nombre del kernel o núcleo, ya que el sistema completo está formado también por una gran cantidad de componentes del proyecto GNU, que van desde compiladores hasta entornos de escritorio.', '2020-06-25', '16:06:00', '16:35:00', ''),
-(9, 1, 'reconectar++', 'Sin embargo, tras publicar Torvalds su núcleo Linux en 1991 y ser este usado junto al software del proyecto GNU, una parte significativa de los medios generales y especializados han utilizado el término «Linux» para referirse a estos sistemas operativos completos', '2020-06-25', '16:35:00', '17:05:00', ''),
-(10, 4, 'Agregando comportamiento a mi App', 'Tallerista\r\n\r\nCarlos es Estudiante de la Licenciatura en Ciencias de la Computación y ha participado activamente en diferentes proyectos de Extensión y del proyecto de Vocaciones TICs dictando numerosos talleres de AppInventor.', '2020-06-26', '17:00:00', '18:30:00', ''),
-(11, 2, 'Conferencia Inaugural - La pandemia como aprendizaje para la post pandemia', 'Ha ocupado diferentes cargos en el ámbito de la Gestión Universitaria. En la actualidad es Directora de la Maestría en “Enseñanza en Escenarios Digitales” de la AUSA y de la Diplomatura “Educación en la Cultura Digital” de la FED.', '2020-07-07', '14:30:00', '16:00:00', ''),
-(12, 3, 'Ventajas del Teletrabajo', 'En este contexto de pandemia, no tiene sentido hablar de ventajas. Hoy es una necesidad. Es una ventaja en si.', '2020-07-01', '18:30:00', '19:00:00', ''),
-(13, 7, 'Rutinas de estudio en tiempos de virtualidad', 'Taller 1 - Atender  a  las  dificultades  de  las  y  los estudiantes  que se presentan con respecto a la rutina de estudio en tiempos de virtualidad.\r\nPromover  un  espacio  de  reflexión  sobre  los propios   procesos   cognitivos,emocionales, sociales    que  se  desarrollan  en  la  etapa  de ingreso universitario', '2020-06-24', '16:00:00', '17:30:00', ''),
-(14, 7, 'Estrategias y recursos para fortalecer tu trayectoria académica', 'Taller 2 - Propiciar la reflexión sobre las condiciones que obstaculizan  y  facilitan  el  aprendizaje  en entornos virtuales.\r\nFavorecer  el desarrollo de diferentes recursos psicoeducativos para la mejora del aprendizaje en la Universidad.\r\nFortalecer el proceso de formación profesional en el contexto académico universitario', '2020-06-25', '14:00:00', '18:30:00', ''),
-(15, 8, 'Proveedores de Soluciones IT / IoT', 'Proveedores de infraestructura\r\nProveedores de software\r\n', '2020-07-07', '13:30:00', '16:00:00', ''),
-(16, 8, 'Organismos Gubernamentales', 'Proveedores de Telefonía IP\r\nProveedores de equipos, antenas, radios\r\nProveedores de hosting y cloud', '2020-07-07', '16:00:00', '18:00:00', ''),
-(17, 9, 'Panel', 'lslsl', '2020-06-19', '17:00:00', '19:00:00', ''),
-(18, 9, 'Panel', 'q', '2020-06-19', '22:00:00', '23:00:00', ''),
-(19, 9, 'Panel', '555', '2020-06-19', '01:00:00', '02:00:00', ''),
-(20, 9, 'Panel', '555', '2020-06-19', '01:00:00', '02:00:00', ''); */
-
---
--- Volcado de datos para la tabla `presentacion_expositor`
---
-
-/* INSERT INTO `presentacion_expositor` (`idExpositor`, `idPresentacion`) VALUES
-(2, 10),
-(6, 5),
-(6, 7),
-(6, 13),
-(7, 8),
-(7, 14),
-(8, 1),
-(8, 13),
-(8, 16),
-(8, 20),
-(10, 12),
-(12, 9),
-(13, 3),
-(13, 11),
-(14, 15),
-(19, 20); */
-
---
--- Volcado de datos para la tabla `pregunta`
---
-
-/* INSERT INTO `pregunta` (`id`, `idevento`, `tipo`, `descripcion`) VALUES
-(9, 3, '1', 'Hola'),
-(10, 3, '2', 'Test2'),
-(13, 1, '2', '¿Como te llamas?'),
-(14, 3, '3', 'Subi tu cv'); */
-
---
--- Volcado de datos para la tabla `respuesta`
---
-
-/* INSERT INTO `respuesta` (`id`, `idpregunta`, `idinscripcion`, `respuesta`) VALUES
-(2, 9, 9, 'a'),
-(3, 10, 9, 'dasdas'),
-(16, 14, 9, '../web/eventos/formularios/archivos/IMG-20170129-WA0005.jpeg'); */
-
--- #######################################################################################################################
--- #######################################################################################################################
-
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
