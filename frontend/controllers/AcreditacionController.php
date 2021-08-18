@@ -109,7 +109,7 @@ class AcreditacionController extends Controller
                     . '<p> Por favor vuelva a intentar </p>');
             }
         } else {
-            Yii::$app->session->setFlash('error', '<h2> El codigo ingresado es invalido </h2> '
+            Yii::$app->session->setFlash('error', '<h2> El codigo ingresado es inválido </h2> '
                 . '<p> Por favor vuelva a intentar </p>');
         }
         return false;
@@ -125,5 +125,4 @@ class AcreditacionController extends Controller
 
         return $seGuardo ? true : false;
     }
-
 }

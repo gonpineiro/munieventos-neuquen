@@ -373,10 +373,10 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                             if ($inscripcion != null && $inscripcion->estado == 1) {
                                                 echo Html::a('Acreditación', ['acreditacion-evento/' . $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']);
                                             } else {
-                                                echo "Usted ya esta acreditado";
+                                                echo "Usted ya está acreditado.";
                                             }
                                         } else if ($estadoEventoInscripcion == "yaAcreditado") {
-                                            echo "Usted ya esta acreditado";
+                                            echo "Usted ya está acreditado.";
                                         } else {
                                             echo "El evento ya ha iniciado";
                                         }

@@ -120,7 +120,6 @@ class CertificadoController extends Controller
                 'message' => 'Se ha provocado un error en la solicitud del certificado.'
             ]);
         }
-
     }
 
     /**
@@ -183,7 +182,7 @@ class CertificadoController extends Controller
         $eventData = $certificate->event;
 
         if (isset($eventData[0]->solicitudAval['avalado']) && $eventData[0]->solicitudAval['avalado'] == 1) {
-            $footer = 'Facultad de Informática - UNComa';
+            $footer = 'Municipalidad de Neuquén';
             $isOficial = true;
         } else {
             $footer = null;
@@ -222,17 +221,13 @@ class CertificadoController extends Controller
             'cssInline' => '.kv-heading-1{font-size:18px}',
             'options' => ['title' => 'Certificado'],
             'methods' => [
-                'SetHeader' => ['Certificado Digital <img src=images/juntar-logo/png/juntar-logo-k.png style=width:65px;>'],
+                'SetHeader' => ['<img src=images/logo-14.svg style=width:150px;>'],
                 'SetFooter' => [$footer],
-                'SetTitle' => ['Certificado Juntar'],
-                'SetAuthor' => ['Facultad de Informática - UNComa'],
+                'SetTitle' => ['Certificado Eventos Muni Neuquén'],
+                'SetAuthor' => ['Municipalidad de Neuquén'],
             ]
         ]);
 
         return $pdf;
-
     }
-
 }
-
-?>
