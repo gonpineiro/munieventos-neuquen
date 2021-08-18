@@ -153,6 +153,7 @@ CREATE TABLE `usuario` (
   `nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `apellido` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `dni` int(11) DEFAULT NULL,
+  `telefono` varchar(50) DEFAULT NULL,
   `pais` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `provincia` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `localidad` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,

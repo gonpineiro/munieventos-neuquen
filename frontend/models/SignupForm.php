@@ -15,7 +15,7 @@ class SignupForm extends Model
     public $nombre;
     public $apellido;
     public $dni;
-//    public $telefono;
+    public $telefono;
     public $pais;
     public $provincia;
     public $localidad;
@@ -31,7 +31,7 @@ class SignupForm extends Model
     {
         return [
             //Obligatorio
-            [['nombre', 'apellido', 'email', 'pais', 'provincia', 'localidad', 'dni', 'password'], 'required'],
+            [['nombre', 'apellido', 'email', 'pais', 'provincia', 'localidad', 'dni', 'password', 'telefono'], 'required'],
 
             //Reglas nombre
             ['nombre', 'match', 'pattern' => '/^[a-zA-ZÀ-ÿ]+(\s*[a-zA-ZÀ-ÿ]*)*[a-zA-ZÀ-ÿ]+$/', 'message' => 'El campo contiene caracteres inválidos'],
@@ -102,7 +102,7 @@ class SignupForm extends Model
         $user->nombre = $this->nombre;
         $user->apellido = $this->apellido;
         $user->dni = $this->dni;
-//        $user->telefono = $this->telefono;
+        $user->telefono = $this->telefono;
         $user->pais = $this->pais;
         $user->provincia = $this->provincia;
         $user->localidad = $this->localidad;
