@@ -25,7 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?=
                         GridView::widget([
                             'dataProvider' => $dataProvider,
-//        'options' => ['style' => 'width:100%;'],
                             'filterModel' => $searchModel,
                             'columns' => [
                                 ['class' => 'yii\grid\SerialColumn'],
@@ -37,9 +36,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                     },
                                 ],
                                 'dni',
-                                'pais',
+                                'telefono',
                                 'provincia',
                                 'localidad',
+                                'barrio',
                                 [
                                     'attribute' => 'email',
                                     'label' => 'Email',
@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'attribute' => 'created_at',
                                     'label' => 'Fecha Registro',
                                     'value' => function ($dataProvider) {
-                                        return date("Y-m-d H:i:s", $dataProvider->created_at);
+                                        return date("d/m/Y", $dataProvider->created_at);
                                     },
                                 ],
                                 ['class' => 'yii\grid\ActionColumn',

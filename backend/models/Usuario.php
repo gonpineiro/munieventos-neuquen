@@ -12,9 +12,11 @@ use yii\db\ActiveRecord;
  * @property string $nombre
  * @property string $apellido
  * @property int|null $dni
+ * @property string|null $telefono
  * @property string $pais
  * @property string|null $provincia
  * @property string|null $localidad
+ * @property string|null $barrio
  * @property string $email
  * @property string $auth_key
  * @property string $password_hash
@@ -79,9 +81,11 @@ class Usuario extends ActiveRecord
             'nombre' => 'Nombre',
             'apellido' => 'Apellido',
             'dni' => 'Dni',
+            'telefono' => 'Telefono',
             'pais' => 'Pais',
             'provincia' => 'Provincia',
             'localidad' => 'Localidad',
+            'barrio' => 'Barrio',
             'email' => 'Email',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',

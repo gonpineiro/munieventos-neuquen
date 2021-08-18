@@ -17,9 +17,7 @@ class UsuarioSearch extends Usuario
     public function rules()
     {
         return [
-//            [['idUsuario', 'dni', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['nombre', 'apellido', 'dni', 'pais', 'provincia', 'localidad', 'email', 'status'], 'safe'],
-//            ['created_at', 'safe'],
+            [['nombre', 'apellido', 'dni', 'telefono', 'pais', 'provincia', 'localidad', 'barrio', 'email', 'status'], 'safe'],
         ];
     }
 
@@ -52,25 +50,25 @@ class UsuarioSearch extends Usuario
             ],
         ]);
 
-//        $this->load($params);
-//
-//        if (!$this->validate()) {
-//            // uncomment the following line if you do not want to return any records when validation fails
-//            // $query->where('0=1');
-//            return $dataProvider;
-//        }
+        //        $this->load($params);
+        //
+        //        if (!$this->validate()) {
+        //            // uncomment the following line if you do not want to return any records when validation fails
+        //            // $query->where('0=1');
+        //            return $dataProvider;
+        //        }
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
 
         // grid filtering conditions
-//        $query->andFilterWhere([
-//            'idUsuario' => $this->idUsuario,
-//            'dni' => $this->dni,
-//            'status' => $this->status,
-//            'created_at' => $this->created_at,
-//            'updated_at' => $this->updated_at,
-//        ]);
+        //        $query->andFilterWhere([
+        //            'idUsuario' => $this->idUsuario,
+        //            'dni' => $this->dni,
+        //            'status' => $this->status,
+        //            'created_at' => $this->created_at,
+        //            'updated_at' => $this->updated_at,
+        //        ]);
         //busca dni usuario
         if ($this->dni != null && $this->dni != '') {
             $query->andFilterWhere([
@@ -97,9 +95,9 @@ class UsuarioSearch extends Usuario
         }
         //busca fecha creacion
         if ($this->created_at != null && $this->created_at != '') {
-//            $query->andFilterWhere(['like', 'created_at', strtotime(date("Y-m-d", strtotime($this->created_at)) ) ]);
-//            $query->andFilterWhere(['like', 'FROM_UNIXTIME(UNIX_TIMESTAMP(), "%d-%-m-%Y");', strtotime(date("Y-m-d", strtotime($this->created_at)) ) ]);
-//            $query->andFilterWhere(['like', 'FROM_UNIXTIME(UNIX_TIMESTAMP(), "%d-%-m-%Y");', strtotime($this->created_at)]);
+            //            $query->andFilterWhere(['like', 'created_at', strtotime(date("Y-m-d", strtotime($this->created_at)) ) ]);
+            //            $query->andFilterWhere(['like', 'FROM_UNIXTIME(UNIX_TIMESTAMP(), "%d-%-m-%Y");', strtotime(date("Y-m-d", strtotime($this->created_at)) ) ]);
+            //            $query->andFilterWhere(['like', 'FROM_UNIXTIME(UNIX_TIMESTAMP(), "%d-%-m-%Y");', strtotime($this->created_at)]);
             $query->andFilterWhere(['FROM_UNIXTIME(UNIX_TIMESTAMP(), "%d-%-m-%Y");' => strtotime($this->created_at)]);
         }
         //busca nombre usuario
@@ -126,5 +124,4 @@ class UsuarioSearch extends Usuario
 
         return $dataProvider;
     }
-
 }

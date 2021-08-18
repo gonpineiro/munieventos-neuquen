@@ -73,9 +73,11 @@ YiiAsset::register($this);
                                         'nombre',
                                         'apellido',
                                         'dni',
+                                        'telefono',
                                         'pais',
                                         'provincia',
                                         'localidad',
+                                        'barrio',
                                         'email:email',
                                         [
                                             'attribute' => 'created_at',
