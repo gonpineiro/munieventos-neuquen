@@ -17,12 +17,15 @@ YiiAsset::register($this);
 ?>
 <div class="acreditacion-view container">
 
-    <?php $form = ActiveForm::begin(['id' => 'acreditacion-form']); ?>
-    <?= $form->field($model, 'codigoAcreditacion')->textInput(['autofocus' => true])->label("Ingrese el código de acreditación: ") ?>
-    <div class="form-group">
-        <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-        <?= Html::a("Volver Atrás", Url::previous("slugEvento"), ['class' => 'btn']); ?>
+    <div class="row">
+        <div class="col-md-6 col-sm-12 m-auto">
+            <?php $form = ActiveForm::begin(['id' => 'acreditacion-form']); ?>
+            <?= $form->field($model, 'codigoAcreditacion')->textInput(['autofocus' => true])->label("Ingrese el código para registrar su asistencia: ") ?>
+            <div class="form-group">
+                <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                <a href="#" class="btn" onclick="history.back()">Volver Atrás</a>
+            </div>
+            <?php ActiveForm::end(); ?>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
 </div>

@@ -28,7 +28,7 @@ class AcreditacionForm extends Model
     public function attributeLabels()
     {
         return [
-            'codigoAcreditacion' => 'Codigo de Acreditacion',
+            'codigoAcreditacion' => 'Código de Asistencia',
         ];
     }
 }

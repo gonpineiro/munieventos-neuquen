@@ -1,5 +1,6 @@
 <?php
 
+use PhpOffice\PhpSpreadsheet\Reader\Xml\Style;
 use yii\bootstrap4\Html;
 use yii\bootstrap4\Modal;
 use yii\grid\GridView;
@@ -100,7 +101,11 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
             <div class="container">
                 <?php if ($evento->fechaFinEvento < date("Y-m-d") || $evento->idEstadoEvento == 3) { ?>
                     <div class="alert alert-warning text-center b_corners" role="alert">
-                        <b>EL EVENTO SE ENCUENTRA FINALIZADO</b>
+                        <b>EL EVENTO SE ENCUENTRA FINALIZADO
+                            <?PHP if ($evento->fechaFinEvento <= date("Y-m-d") && $estadoEventoInscripcion == "yaAcreditado") {
+                                echo "Y HAS ASISTIDO";
+                            }
+                            ?></b>
                     </div>
                 <?php } ?>
                 <div class="card bg-white">
@@ -277,17 +282,23 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     }
                                 }
                                 ?>
+                                <?PHP if ($evento->fechaFinEvento <= date("Y-m-d") && $estadoEventoInscripcion == "yaAcreditado") {
+                                    echo "<div class='alert alert-info text-center mb-4' role='alert'>Usted ya ha asistido a este evento.</div>";
+                                } ?>
                                 <div class="padding_section">
+
                                     <i class="material-icons align-middle">today</i><span class=" align-middle"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
                                     <br>
                                     <?php if ($esDueño || $esAdministrador) { ?>
-                                        <i class="material-icons align-middle">email</i>
-                                        <span class=" align-middle">
-                                            <?php
+                                        <div class="mt-3">
 
-                                            echo Html::a('Enviar un mail a los participantes', ['eventos/crear-email/' . $evento->nombreCortoEvento], ['class' => '']);
-                                            ?>
-                                        </span>
+                                            <span class=" align-middle">
+                                                <?php
+
+                                                echo Html::a('<i class="material-icons align-middle">email</i> Enviar un mail a los participantes', ['eventos/crear-email/' . $evento->nombreCortoEvento], ['class' => 'pt-5', 'style' => 'text-decoration:none;']);
+                                                ?>
+                                            </span>
+                                        </div>
 
                                     <?php } ?>
                                     <br>
@@ -311,6 +322,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
 
                                         ]);
                                     }
+
                                     ?>
                                     <?php if ($esDueño) : ?>
                                         <?= Html::a('Visualizar QR', ['/evento/mostrar-qr-evento/', 'slug' => $evento->nombreCortoEvento], ['class' => 'btn ml-2 visualizarQR']); ?>
@@ -340,33 +352,33 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                 echo Html::a('Preinscribirse', ['inscripcion/preinscripcion', "slug" => $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']);
                                                 break;
                                             case "sinCupos":
-                                                echo Html::tag('p', 'Sin cupos.', ['class' => 'text-center', 'style' => 'font-size:0.8rem']);
+                                                echo Html::tag('p', 'Sin cupos.', ['class' => 'text-center', 'style' => 'font-size:0.8rem;margin:0px;']);
                                                 //echo Html::label('Sin cupos');
                                                 break;
                                             case "yaAcreditado":
-                                                //echo Html::tag('p', 'Usted ya se acreditó en este evento.', ['class' => 'text-center', 'style' => 'font-size:0.8rem']);
+                                                //echo Html::tag('p', 'Usted ya ha registrado su asistencia en este evento.', ['class' => 'text-center', 'style' => 'font-size:0.8rem;margin:0px;']);
                                                 //echo Html::label("Usted ya se acreditó en este evento");
                                                 break;
                                             case "inscriptoYEventoIniciado":
-                                                echo Html::tag('p', 'El evento ya inició, pásela bien.', ['class' => 'text-center', 'style' => 'font-size:0.8rem']);
+                                                echo Html::tag('p', 'El evento ya inició, pásela bien.', ['class' => 'text-center', 'style' => 'font-size:0.8rem;margin:0px;']);
                                                 //echo Html::label("El evento ya inició, pasela bien");
                                                 break;
                                             case "yaPreinscripto":
                                                 echo Html::a('Anular Preinscripción', ['inscripcion/eliminar-inscripcion', "slug" => $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width mb-3']);
                                                 if ($cantidadPreguntas != 0) {
-                                                    echo Html::a('Formulario de Preinscripcion', ['eventos/responder-formulario/' . $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']);
+                                                    echo Html::a('Formulario de Preinscripción', ['eventos/responder-formulario/' . $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']);
                                                 }
                                                 break;
                                             case "yaInscripto":
                                                 echo Html::a('Anular Inscripción', ['inscripcion/eliminar-inscripcion', "slug" => $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']);
                                                 break;
                                             case "noInscriptoYFechaLimiteInscripcionPasada":
-                                                echo Html::tag('p', 'No se puede inscribir, período de inscripciones cerrado.', ['class' => 'text-center', 'style' => 'font-size:0.8rem']);
+                                                echo Html::tag('p', 'No se puede inscribir, período de inscripciones cerrado.', ['class' => 'text-center', 'style' => 'font-size:0.8rem;margin:0px;']);
                                                 //echo Html::label('No se puede inscribir, período de inscripciones cerrado');
                                                 break;
                                             case "puedeAcreditarse":
                                                 if ($inscripcion != null && $inscripcion->estado == 1) {
-                                                    echo Html::a('Acreditación', ['acreditacion-evento/' . $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']);
+                                                    echo Html::a('Registrar Asistencia', ['acreditacion-evento/' . $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']);
                                                 } else {
                                                     echo "";
                                                 }
@@ -377,7 +389,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                             if ($inscripcion != null && $inscripcion->estado == 1) {
                                                 echo Html::a('Acreditación', ['acreditacion-evento/' . $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']);
                                             } else {
-                                                echo Html::tag('p', 'Usted ya está acreditado.', ['class' => 'text-center', 'style' => 'font-size:0.8rem']);
+                                                echo Html::tag('p', 'Usted ya ha registrado su asistencia.', ['class' => 'text-center', 'style' => 'font-size:0.8rem;margin:0px;']);
                                                 //echo "<p class='text-center'>Usted ya está acreditado.</p>";
                                             }
                                         } else if ($estadoEventoInscripcion == "yaAcreditado") {
