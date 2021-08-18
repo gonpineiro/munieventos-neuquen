@@ -55,8 +55,7 @@ class AcreditacionController extends Controller
         //Se verifica que el usuario no se haya inscripto ya
         $inscripcion = funciones::getEstaInscripto(Yii::$app->user->identity->idUsuario, $evento->idEvento);
         if (($inscripcion == null || $inscripcion->acreditacion == 1) && $evento->fechaInicioEvento <= date("Y-m-d")) {
-            Yii::$app->session->setFlash('error', '<h2> Error </h2>'
-                . '<p> Usted no se puede acreditar. </p>');
+            Yii::$app->session->setFlash('warning', '<p style="margin:10px"> Usted no se puede acreditar. </p>');
             return $this->redirect(['eventos/ver-evento/' . $slug]);
         } else {
             //Si la acreditacion se realiza por codigo qr se obtiene el codigo de acreditacion del url
