@@ -54,6 +54,7 @@ class SiteController extends Controller
                         'index',
                         'buscar-provincias',
                         'buscar-localidades',
+                        'buscar-barrios',
                     ],
                     'roles' => ['?'], // <----- guest
                 ],
@@ -234,9 +235,14 @@ class SiteController extends Controller
         //obtiene datos paises
         $dataCountry = file_get_contents("json/paises.json");
         $paises = json_decode($dataCountry, true);
-        //Conversión de datos
         $paises = ArrayHelper::map($paises['countries'], 'id', 'name');
         $paises = $this->conversionAutocomplete($paises);
+        
+        //obtiene datos barrios
+        $dataBarrio = file_get_contents("json/barrios.json");
+        $barrios = json_decode($dataBarrio, true);
+        $barrios = ArrayHelper::map($barrios['barrios'], 'id', 'nombre');
+        $barrios = $this->conversionAutocomplete($barrios);
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->signup()) {
             Yii::$app->session->setFlash('success', '<h2> ¡Sólo queda confirmar tu correo! </h2>'
@@ -247,6 +253,7 @@ class SiteController extends Controller
         return $this->render('signup', [
             'model' => $model,
             'paises' => $paises,
+            'barrios' => $barrios
         ]);
     }
 
@@ -438,5 +445,4 @@ class SiteController extends Controller
             'model' => $model
         ]);
     }
-
 }
