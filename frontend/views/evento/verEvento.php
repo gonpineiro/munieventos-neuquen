@@ -394,7 +394,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     Modal::end();
                                     ?>
                                     <!-- Certificado -->
-                                    <?php if ($evento->fechaFinEvento < date("Y-m-d") and !Yii::$app->user->isGuest and $estadoEventoInscripcion == 'yaAcreditado') : ?>
+                                    <?php if ($evento->fechaFinEvento <= date("Y-m-d") and !Yii::$app->user->isGuest and $estadoEventoInscripcion == 'yaAcreditado') : ?>
                                         <?= Html::a('Certificado', ['certificado/index', 'id' => $evento->idEvento], ['class' => 'btn btn-primary btn-lg full_width viewCertification']); ?>
                                     <?php endif; ?>
                                     <!-- Validar evento - Usuario Validador-->
