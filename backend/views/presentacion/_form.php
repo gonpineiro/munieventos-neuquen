@@ -33,7 +33,7 @@ use yii\bootstrap4\ActiveForm;
     <?= $form->field($model, 'linkARecursos')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Guardar', ['class' => 'btn btn-pink']) ?>
+        <?= Html::submitButton('Guardar', ['class' => 'btn btn-blue']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

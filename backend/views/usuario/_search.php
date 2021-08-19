@@ -23,6 +23,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'dni') ?>
 
+    <?= $form->field($model, 'telefono') ?>
+
     <?= $form->field($model, 'pais') ?>
 
     <?php // echo $form->field($model, 'provincia') ?>

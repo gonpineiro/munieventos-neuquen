@@ -127,7 +127,7 @@ $this->title = "Cargar Evento";
                                 Los campos marcados con (*) son obligatorios.
                             <p>
                             <div class="form-group">
-                                <?= Html::submitButton('Guardar Cambios', ['class' => 'btn btn-pink col-md-2 col-sm-12']) ?>
+                                <?= Html::submitButton('Guardar Cambios', ['class' => 'btn btn-blue col-md-2 col-sm-12']) ?>
                             </div>
 
                             <?php ActiveForm::end(); ?>

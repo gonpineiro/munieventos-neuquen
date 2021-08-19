@@ -28,7 +28,7 @@ $this->title = 'Login';
                     <?= $form->field($model, 'rememberMe')->checkbox()->label("Recordarme") ?>
 
                     <div class="form-group">
-                        <?= Html::submitButton('Ingresar', ['class' => 'btn btn-pink col-md-4 col-sm-12', 'name' => 'login-button']) ?>
+                        <?= Html::submitButton('Ingresar', ['class' => 'btn btn-blue col-md-4 col-sm-12', 'name' => 'login-button']) ?>
                     </div>
 
                     <?php ActiveForm::end(); ?>

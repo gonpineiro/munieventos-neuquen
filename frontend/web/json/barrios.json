@@ -1,0 +1,351 @@
+{
+  "barrios": [{
+      "id": 1,
+      "nombre": "Area Centro Este"
+    },
+    {
+      "id": 2,
+      "nombre": "Area Centro Oeste"
+    },
+    {
+      "id": 3,
+      "nombre": "Area Centro Sur"
+    },
+    {
+      "id": 4,
+      "nombre": "Nuevo"
+    },
+    {
+      "id": 5,
+      "nombre": "Rincon De Emilio"
+    },
+    {
+      "id": 6,
+      "nombre": "Santa Genoveva"
+    },
+    {
+      "id": 7,
+      "nombre": "Villa Farrel"
+    },
+    {
+      "id": 8,
+      "nombre": "Villa Florencia"
+    },
+    {
+      "id": 9,
+      "nombre": "Belgrano"
+    },
+    {
+      "id": 10,
+      "nombre": "Confluencia Rural"
+    },
+    {
+      "id": 11,
+      "nombre": "Confluencia Urbano"
+    },
+    {
+      "id": 12,
+      "nombre": "Los Pumas"
+    },
+    {
+      "id": 13,
+      "nombre": "Mariano Moreno"
+    },
+    {
+      "id": 14,
+      "nombre": "Provincias Unidas"
+    },
+    {
+      "id": 15,
+      "nombre": "Santa Catalina"
+    },
+    {
+      "id": 16,
+      "nombre": "Sapere"
+    },
+    {
+      "id": 17,
+      "nombre": "2 Y 7 De Mayo Casimiro"
+    },
+    {
+      "id": 18,
+      "nombre": "370 Viviendas"
+    },
+    {
+      "id": 19,
+      "nombre": "Alma Fuerte"
+    },
+    {
+      "id": 20,
+      "nombre": "Cuenca Xv"
+    },
+    {
+      "id": 21,
+      "nombre": "Cuenca Xvi"
+    },
+    {
+      "id": 22,
+      "nombre": "Esfuerzo"
+    },
+    {
+      "id": 23,
+      "nombre": "Gran Neuquen Norte"
+    },
+    {
+      "id": 24,
+      "nombre": "Hibepa"
+    },
+    {
+      "id": 25,
+      "nombre": "Los Hornitos"
+    },
+    {
+      "id": 26,
+      "nombre": "Los Hornos"
+    },
+    {
+      "id": 27,
+      "nombre": "Loteo Social Gran Neuquen"
+    },
+    {
+      "id": 28,
+      "nombre": "Sector 8"
+    },
+    {
+      "id": 29,
+      "nombre": "Sector Z1"
+    },
+    {
+      "id": 30,
+      "nombre": "Toma Norte"
+    },
+    {
+      "id": 31,
+      "nombre": "Valentina Norte Rural"
+    },
+    {
+      "id": 32,
+      "nombre": "Bardas Soleadas"
+    },
+    {
+      "id": 33,
+      "nombre": "Barreneche"
+    },
+    {
+      "id": 34,
+      "nombre": "Barrio Independencia"
+    },
+    {
+      "id": 35,
+      "nombre": "Bouquet Roldan"
+    },
+    {
+      "id": 36,
+      "nombre": "Canal V"
+    },
+    {
+      "id": 37,
+      "nombre": "Carnagui"
+    },
+    {
+      "id": 38,
+      "nombre": "Cumelen"
+    },
+    {
+      "id": 39,
+      "nombre": "El Progreso"
+    },
+    {
+      "id": 40,
+      "nombre": "Ferroviario"
+    },
+    {
+      "id": 41,
+      "nombre": "Gran Neuquen Sur"
+    },
+    {
+      "id": 42,
+      "nombre": "Gregorio Alvarez"
+    },
+    {
+      "id": 43,
+      "nombre": "Huilliches"
+    },
+    {
+      "id": 44,
+      "nombre": "Islas Malvinas"
+    },
+    {
+      "id": 45,
+      "nombre": "Itati"
+    },
+    {
+      "id": 46,
+      "nombre": "La Laguna"
+    },
+    {
+      "id": 47,
+      "nombre": "Las Plateas"
+    },
+    {
+      "id": 48,
+      "nombre": "Loteo Social San Lorenzo"
+    },
+    {
+      "id": 49,
+      "nombre": "Melipal"
+    },
+    {
+      "id": 50,
+      "nombre": "San Lorenzo Norte"
+    },
+    {
+      "id": 51,
+      "nombre": "San Lorenzo Sur"
+    },
+    {
+      "id": 52,
+      "nombre": "Union De Mayo"
+    },
+    {
+      "id": 53,
+      "nombre": "Valentina Norte Urbana"
+    },
+    {
+      "id": 54,
+      "nombre": "Villa Ceferino"
+    },
+    {
+      "id": 55,
+      "nombre": "Yupanqui"
+    },
+    {
+      "id": 56,
+      "nombre": "Cordon Col�n"
+    },
+    {
+      "id": 57,
+      "nombre": "14 De Octubre"
+    },
+    {
+      "id": 58,
+      "nombre": "Copol"
+    },
+    {
+      "id": 59,
+      "nombre": "Alta Barda"
+    },
+    {
+      "id": 60,
+      "nombre": "Alta Barda 2"
+    },
+    {
+      "id": 61,
+      "nombre": "Ciudad Industrial"
+    },
+    {
+      "id": 62,
+      "nombre": "Colonia Nueva Esperanza"
+    },
+    {
+      "id": 63,
+      "nombre": "Ejido Meseta"
+    },
+    {
+      "id": 64,
+      "nombre": "El Tanque"
+    },
+    {
+      "id": 65,
+      "nombre": "El Trebol"
+    },
+    {
+      "id": 66,
+      "nombre": "Patagonia"
+    },
+    {
+      "id": 67,
+      "nombre": "Racu Antu"
+    },
+    {
+      "id": 68,
+      "nombre": "Salud P�blica"
+    },
+    {
+      "id": 69,
+      "nombre": "Terrazas Del Neuquen"
+    },
+    {
+      "id": 70,
+      "nombre": "Unipol"
+    },
+    {
+      "id": 71,
+      "nombre": "Urbanizaci�n De La Meseta"
+    },
+    {
+      "id": 72,
+      "nombre": "127 Hect�reas"
+    },
+    {
+      "id": 73,
+      "nombre": "140 Viviendas"
+    },
+    {
+      "id": 74,
+      "nombre": "Altos Del Limay"
+    },
+    {
+      "id": 75,
+      "nombre": "Balsa Las Perlas"
+    },
+    {
+      "id": 76,
+      "nombre": "Bosch"
+    },
+    {
+      "id": 77,
+      "nombre": "Don Bosco Ii"
+    },
+    {
+      "id": 78,
+      "nombre": "Don Bosco Iii"
+    },
+    {
+      "id": 79,
+      "nombre": "La Sirena"
+    },
+    {
+      "id": 80,
+      "nombre": "Limay"
+    },
+    {
+      "id": 81,
+      "nombre": "Los Polvorines"
+    },
+    {
+      "id": 82,
+      "nombre": "Militar"
+    },
+    {
+      "id": 83,
+      "nombre": "Rio Grande"
+    },
+    {
+      "id": 84,
+      "nombre": "Valentina Sur Rural"
+    },
+    {
+      "id": 85,
+      "nombre": "Valentina Sur Urbana"
+    },
+    {
+      "id": 86,
+      "nombre": "Villa Maria"
+    },
+    {
+      "id": 87,
+      "nombre": "Otro"
+    }
+  ]
+}

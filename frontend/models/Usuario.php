@@ -102,6 +102,7 @@ class Usuario extends ActiveRecord
             'nombre' => 'Nombre',
             'apellido' => 'Apellido',
             'dni' => 'Dni',
+            'telefono' => 'Telefono',
             'pais' => 'País',
             'provincia' => 'Provincia',
             'localidad' => 'Localidad',
