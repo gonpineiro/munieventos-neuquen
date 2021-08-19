@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Reemplazar', ['class' => 'btn btn-pink col-md-2 col-sm-12']) ?>
+                    <?= Html::submitButton('Reemplazar', ['class' => 'btn btn-blue col-md-2 col-sm-12']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

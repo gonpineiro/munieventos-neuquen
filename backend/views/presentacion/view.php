@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <h1 class="card-header text-center darkish_bg text-white"><?= Html::encode($model->tituloPresentacion) ?></h1>
 
             <p class="m-3">
-                <?= Html::a('Volver', ['/presentacion/list-of-presentation', 'id' => $model->idEvento], ['class' => 'btn btn-pink']) ?>
+                <?= Html::a('Volver', ['/presentacion/list-of-presentation', 'id' => $model->idEvento], ['class' => 'btn btn-blue']) ?>
             </p>
             <div class="card-body">
                 <?= DetailView::widget([

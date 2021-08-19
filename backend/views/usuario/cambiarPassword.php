@@ -26,7 +26,7 @@ $this->title = 'Asignar nueva contraseña';
                         <?= $form->field($modelCambiarPw, 'repeatNewPassword')->textInput(['maxlength' => true]) ?>
 
                         <div class="form-group">
-                            <?= Html::submitButton('Asignar Contraseña', ['class' => 'btn btn-pink col-md-3 col-sm-12']) ?>
+                            <?= Html::submitButton('Asignar Contraseña', ['class' => 'btn btn-blue col-md-3 col-sm-12']) ?>
                         </div>
                         <?php ActiveForm::end(); ?>
 

@@ -47,7 +47,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'fechaCreacionEvento')->input('date', ['style' => 'width: auto'])->label('Fecha Creación') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Guardar', ['class' => 'btn btn-pink col-md-2 col-sm-12']) ?>
+        <?= Html::submitButton('Guardar', ['class' => 'btn btn-blue col-md-2 col-sm-12']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

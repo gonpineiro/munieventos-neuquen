@@ -19,11 +19,11 @@ YiiAsset::register($this);
             <div class="row">
                 <div class="col-12">
                     <p class="m-3">
-                        <?= Html::a('Actualizar', ['/usuario/update', 'id' => $model->idUsuario], ['class' => 'btn btn-pink mb-2 col-md-2 col-sm-12']) ?>
+                        <?= Html::a('Actualizar', ['/usuario/update', 'id' => $model->idUsuario], ['class' => 'btn btn-blue mb-2 col-md-2 col-sm-12']) ?>
                         <?php
                         if ($model->status == 10) {
                             echo Html::a('Deshabilitar', ['/usuario/deshabilitar', 'id' => $model->idUsuario], [
-                                'class' => 'btn btn-pink mb-2 col-md-2 col-sm-12',
+                                'class' => 'btn btn-blue mb-2 col-md-2 col-sm-12',
                                 'data' => ['confirm' => '¿Está seguro de querer deshabilitar este usuario?',],]);
                         } else if ($model->status == 0 || $model->status == 9) {
                             echo Html::a('Habilitar', ['/usuario/habilitar', 'id' => $model->idUsuario], [
@@ -73,9 +73,11 @@ YiiAsset::register($this);
                                         'nombre',
                                         'apellido',
                                         'dni',
+                                        'telefono',
                                         'pais',
                                         'provincia',
                                         'localidad',
+                                        'barrio',
                                         'email:email',
                                         [
                                             'attribute' => 'created_at',

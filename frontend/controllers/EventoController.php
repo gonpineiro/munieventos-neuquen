@@ -750,9 +750,11 @@ class EventoController extends Controller
             'user_apellido' => 'usuario.apellido',
             'user_nombre' => 'usuario.nombre',
             'user_dni' => 'usuario.dni',
+            'user_telefono' => 'usuario.telefono',
             'user_pais' => 'usuario.pais',
             'user_provincia' => 'usuario.provincia',
             'user_localidad' => 'usuario.localidad',
+            'user_barrio' => 'usuario.barrio',
             'user_email' => 'usuario.email',
             'user_fechaPreInscripcion' => 'inscripcion.fechaPreInscripcion',
             'user_fechaInscripcion' => 'inscripcion.fechaInscripcion'

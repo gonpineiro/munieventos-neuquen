@@ -33,10 +33,12 @@ $fila->setCellValueByColumnAndRow(3, $row, 'Fecha');
 $fila->setCellValueByColumnAndRow(4, $row, 'Apellido');
 $fila->setCellValueByColumnAndRow(5, $row, 'Nombre');
 $fila->setCellValueByColumnAndRow(6, $row, 'Dni');
-$fila->setCellValueByColumnAndRow(7, $row, 'Pais');
-$fila->setCellValueByColumnAndRow(8, $row, 'Provincia');
-$fila->setCellValueByColumnAndRow(9, $row, 'Localidad');
-$fila->setCellValueByColumnAndRow(10, $row, 'Email');
+$fila->setCellValueByColumnAndRow(7, $row, 'Telefono');
+$fila->setCellValueByColumnAndRow(8, $row, 'Pais');
+$fila->setCellValueByColumnAndRow(9, $row, 'Provincia');
+$fila->setCellValueByColumnAndRow(10, $row, 'Localidad');
+$fila->setCellValueByColumnAndRow(11, $row, 'Barrio');
+$fila->setCellValueByColumnAndRow(12, $row, 'Email');
 
 // Encabezado  preguntas del Usurio
 $i = 11;
@@ -59,12 +61,14 @@ foreach ($listaRepuesta as $datos) {
     $fila->setCellValueByColumnAndRow(4, $row, mb_convert_encoding($unParticipante['user_apellido'], 'UTF-8'));
     $fila->setCellValueByColumnAndRow(5, $row, mb_convert_encoding($unParticipante['user_nombre'], 'UTF-8'));
     $fila->setCellValueByColumnAndRow(6, $row, mb_convert_encoding($unParticipante['user_dni'], 'UTF-8'));
-    $fila->setCellValueByColumnAndRow(7, $row, mb_convert_encoding($unParticipante['user_pais'], 'UTF-8'));
-    $fila->setCellValueByColumnAndRow(8, $row, mb_convert_encoding($unParticipante['user_provincia'], 'UTF-8'));
-    $fila->setCellValueByColumnAndRow(9, $row, mb_convert_encoding($unParticipante['user_localidad'], 'UTF-8'));
-    $fila->setCellValueByColumnAndRow(10, $row, mb_convert_encoding($unParticipante['user_email'], 'UTF-8'));
+    $fila->setCellValueByColumnAndRow(7, $row, mb_convert_encoding($unParticipante['user_telefono'], 'UTF-8'));
+    $fila->setCellValueByColumnAndRow(8, $row, mb_convert_encoding($unParticipante['user_pais'], 'UTF-8'));
+    $fila->setCellValueByColumnAndRow(9, $row, mb_convert_encoding($unParticipante['user_provincia'], 'UTF-8'));
+    $fila->setCellValueByColumnAndRow(10, $row, mb_convert_encoding($unParticipante['user_localidad'], 'UTF-8'));
+    $fila->setCellValueByColumnAndRow(11, $row, mb_convert_encoding($unParticipante['user_barrio'], 'UTF-8'));
+    $fila->setCellValueByColumnAndRow(12, $row, mb_convert_encoding($unParticipante['user_email'], 'UTF-8'));
 
-    $j = 11;
+    $j = 13;
     $respuestas = $datos['respuestas'];
     $url_archivo = "";
     $url_descarga = "";

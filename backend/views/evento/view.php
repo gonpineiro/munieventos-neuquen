@@ -31,7 +31,7 @@ YiiAsset::register($this);
                                     'data' => ['confirm' => '¿Está seguro de querer conceder el aval de la FAI para este evento?'],
                                 ]);
                                 echo Html::a('Denegar aval FAI', ['solicitud-aval/denegar-aval', 'id' => $model->idEvento], [
-                                    'class' => 'btn btn-pink m-auto col-md-5 col-sm-12',
+                                    'class' => 'btn btn-blue m-auto col-md-5 col-sm-12',
                                     'data' => ['confirm' => '¿Está seguro de querer denegar el aval de la FAI para este evento?'],
                                 ]);
                                 ?>
@@ -47,12 +47,12 @@ YiiAsset::register($this);
                 <h1 class="card-header text-center darkish_bg text-white"> <?= Html::encode($this->title) ?> </h1>
 
                 <div class="m-3">
-                    <?= Html::a('Actualizar', ['/evento/editar-evento/', 'id' => $model->idEvento], ['class' => 'btn btn-pink mb-2 col-md-2 col-sm-12']) ?>
-                    <?= Html::a('Presentaciones', ['/presentacion/list-of-presentation/', 'id' => $model->idEvento], ['class' => 'btn btn-pink mb-2 col-md-2 col-sm-12']) ?>
+                    <?= Html::a('Actualizar', ['/evento/editar-evento/', 'id' => $model->idEvento], ['class' => 'btn btn-blue mb-2 col-md-2 col-sm-12']) ?>
+                    <?= Html::a('Presentaciones', ['/presentacion/list-of-presentation/', 'id' => $model->idEvento], ['class' => 'btn btn-blue mb-2 col-md-2 col-sm-12']) ?>
                     <?php
                     if ($model->idEstadoEvento0->descripcionEstado == "Activo") {
                         echo Html::a('Deshabilitar', ['deshabilitar', 'id' => $model->idEvento], [
-                            'class' => 'btn btn-pink mb-2 col-md-2 col-sm-12',
+                            'class' => 'btn btn-blue mb-2 col-md-2 col-sm-12',
                             'data' => ['confirm' => '¿Está seguro de querer deshabilitar este evento?'],]);
                     } else {
                         if ($model->idEstadoEvento0->descripcionEstado == "inhabilitado") {
@@ -74,7 +74,7 @@ YiiAsset::register($this);
                                 ]);
                             } else {
                                 echo Html::a('Quitar aval FAI', ['solicitud-aval/denegar-aval', 'id' => $model->idEvento], [
-                                    'class' => 'btn btn-pink mb-2 col-md-2 col-sm-12',
+                                    'class' => 'btn btn-blue mb-2 col-md-2 col-sm-12',
                                     'data' => ['confirm' => '¿Está seguro de querer quitar el aval de la FAI para este evento?'],
                                 ]);
                             }
@@ -111,7 +111,7 @@ YiiAsset::register($this);
 //                                    $string .= Html::tag('br');
 //                                    $string .= Html::tag('br');
 //                                    $string .= Html::tag('br');
-                                    $string .= Html::a('Modificar Organizador', ['/evento/modificar-organizador/', 'idEvento' => $model->idEvento], ['class' => 'mt-2 btn btn-pink col-md-3 col-sm-2 popUpModifyOrganizer']);
+                                    $string .= Html::a('Modificar Organizador', ['/evento/modificar-organizador/', 'idEvento' => $model->idEvento], ['class' => 'mt-2 btn btn-blue col-md-3 col-sm-2 popUpModifyOrganizer']);
                                     return $string;
                                 },
                                 'headerOptions' => ['class' => 'd-flex justify-content-end'],

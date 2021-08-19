@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="card">
                 <h1 class="card-header text-center darkish_bg text-white"> <?= Html::encode($this->title) ?> </h1>
                 <p class="m-3">
-                    <?= Html::a('Crear Usuario', ['/usuario/crear-usuario'], ['class' => 'btn btn-pink col-md-2 col-sm-12']) ?>
+                    <?= Html::a('Crear Usuario', ['/usuario/crear-usuario'], ['class' => 'btn btn-blue col-md-2 col-sm-12']) ?>
                 </p>
 
                 <div class="card-body">
@@ -25,7 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?=
                         GridView::widget([
                             'dataProvider' => $dataProvider,
-//        'options' => ['style' => 'width:100%;'],
                             'filterModel' => $searchModel,
                             'columns' => [
                                 ['class' => 'yii\grid\SerialColumn'],
@@ -37,9 +36,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                     },
                                 ],
                                 'dni',
-                                'pais',
+                                'telefono',
                                 'provincia',
                                 'localidad',
+                                'barrio',
                                 [
                                     'attribute' => 'email',
                                     'label' => 'Email',
@@ -70,19 +70,19 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'attribute' => 'created_at',
                                     'label' => 'Fecha Registro',
                                     'value' => function ($dataProvider) {
-                                        return date("Y-m-d H:i:s", $dataProvider->created_at);
+                                        return date("d/m/Y", $dataProvider->created_at);
                                     },
                                 ],
                                 ['class' => 'yii\grid\ActionColumn',
                                     'buttons' => [
                                         'update' => function ($url, $model) {
-                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/pencil.svg') . '" alt="Editar" width="20" height="20" title="Editar" role="img">', $url, ['class' => 'btn btn-pink']);
+                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/pencil.svg') . '" alt="Editar" width="20" height="20" title="Editar" role="img">', $url, ['class' => 'btn btn-blue']);
                                         },
                                         'view' => function ($url, $model) {
-                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/eye.svg') . '" alt="Visualizar" width="20" height="20" title="Visualizar" role="img">', $url, ['class' => 'btn btn-pink']);
+                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/eye.svg') . '" alt="Visualizar" width="20" height="20" title="Visualizar" role="img">', $url, ['class' => 'btn btn-blue']);
                                         },
                                         'delete' => function ($url, $model) {
-                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/trash.svg') . '" alt="Borrar" width="20" height="20" title="Borrar" role="img">', ['/usuario/deshabilitar', 'id' => $model->idUsuario], ['class' => 'btn btn-pink']);
+                                            return Html::a('<img class="filter-white" src="' . Yii::getAlias('@web/iconos/trash.svg') . '" alt="Borrar" width="20" height="20" title="Borrar" role="img">', ['/usuario/deshabilitar', 'id' => $model->idUsuario], ['class' => 'btn btn-blue']);
                                         }
                                     ]
                                 ],

@@ -30,8 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'nombre')->label('Nombre (*)')->textInput(['placeholder' => 'Ejemplo: Juan']) ?>
             <?= $form->field($model, 'apellido')->label('Apellido (*)')->textInput(['placeholder' => 'Ejemplo: Perez']) ?>
             <?= $form->field($model, 'dni')->label('DNI (*)')->textInput(['placeholder' => 'Ejemplo: 26734824']); ?>
+            <?= $form->field($model, 'telefono')->label('Teléfono (*)')->textInput(['placeholder' => 'Ejemplo: 299-5693256']); ?>
             <?=
-            $form->field($model, 'pais')->label('País (*)')->widget(AutoComplete::classname(), [
+            $form->field($model, 'pais', ['options' => ['class' => 'hidden']])->label('País (*)')->widget(AutoComplete::classname(), [
                 'options' => ['class' => 'form-control'],
                 'clientOptions' => [
                     'source' => $paises,
@@ -40,12 +41,26 @@ $this->params['breadcrumbs'][] = $this->title;
                     'options' => ['class' => 'form-control'],
                     'select' => new JsExpression("function( event, ui ) {
                                     $('#signupform-pais').val(ui.item.id);
-                                  }")],
+                                  }")
+                ],
             ])->textInput(['value' => 'Argentina']);
             ?>
             <?= $form->field($model, 'provincia')->label('Provincia (*)')->textInput(['placeholder' => 'Ejemplo: Buenos Aires']); ?>
             <?= $form->field($model, 'localidad')->label('Localidad (*)')->textInput(['placeholder' => 'Ejemplo: Neuquen']); ?>
-            <?= $form->field($model, 'email')->input('email')->label('Dirección de Correo (*)')->textInput(['placeholder' => 'Ejemplo: myEmail@gmail.com']); ?>    
+            <?=
+            $form->field($model, 'barrio')->label('Barrio (*) <small class="text-muted">Escriba otro si no encuentra su barrio</small>')->widget(AutoComplete::classname(), [
+                'options' => ['class' => 'form-control'],
+                'clientOptions' => [
+                    'source' => $barrios,
+                    'autoFill' => true,
+                    'minLength' => '3',
+                    'options' => ['class' => 'form-control'],
+                    'select' => new JsExpression("function( event, ui ) {
+                                    $('#signupform-barrio').val(ui.item.id);
+                                  }")
+                ],
+            ])->textInput(['placeholder' => 'Ejemplo: Otro']);
+            ?><?= $form->field($model, 'email')->input('email')->label('Dirección de Correo (*)')->textInput(['placeholder' => 'Ejemplo: myEmail@gmail.com']); ?>
             <?=
             $form->field($model, 'password')->passwordInput([
                 'placeholder' => 'Ejemplo: Mypass1234, myPass32',
