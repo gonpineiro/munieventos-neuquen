@@ -334,7 +334,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                 <?= $logo ?>
                             </div>
                         </div>
-                        <div class="row padding_section greyish_bg  d-flex align-items-center">
+                        <div class="row padding_section greyish_bg d-flex align-items-center">
                             <div class="col-sm-12 col-md-8">
                                 <div class="cupos">
                                     <p class="text_muni_azul_45">CUPOS DISPONIBLES: <span class="font-weight-bolder"><?= $cupos ?></span> <?= " - "; ?> <?= $preInscripcion ?></p>

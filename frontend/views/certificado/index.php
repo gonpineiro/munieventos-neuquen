@@ -18,7 +18,7 @@ use yii\helpers\Html;
                 <div class="col-12 col-md-6">
                     <?php if ($organizerCertificate) {
                         echo '<label>Organizador</label></br>';
-                        echo Html::a($iconsPdf, ['certificado/preview-organizer', 'id' => $idEvent], ['class' => 'btn ']);
+                        echo Html::a($iconsPdf, ['certificado/preview-organizer', 'id' => $idEvent], ['class' => 'btn ', 'target' => "_blank"]);
                     } ?>
                 </div>
             </div>

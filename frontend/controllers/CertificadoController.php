@@ -221,7 +221,7 @@ class CertificadoController extends Controller
             'cssInline' => '.kv-heading-1{font-size:18px}',
             'options' => ['title' => 'Certificado'],
             'methods' => [
-                'SetHeader' => ['<img src=images/logo-14.svg style=width:150px;>'],
+                'SetHeader' => ['<img src=images/logo-14.svg style=width:150px;padding:10px>'],
                 'SetFooter' => [$footer],
                 'SetTitle' => ['Certificado Eventos Muni Neuquén'],
                 'SetAuthor' => ['Municipalidad de Neuquén'],
