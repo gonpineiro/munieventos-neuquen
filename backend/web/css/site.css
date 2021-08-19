@@ -4,8 +4,13 @@ body {
     background-color: rgb(216, 216, 216);
 }
 
-.navbar-dark {
-    background-color: #050714
+.navbar-white {
+    background-color: white;
+    color: black;
+}
+
+.navbar-white a {
+    color: #335992 !important;
 }
 
 .wrap {
@@ -43,6 +48,48 @@ body {
 .not-set {
     color: #c55;
     font-style: italic;
+}
+
+
+/* FONDO COLORES MUNICIPALIDAD */
+
+.bg_muni_azul_5 {
+    background-color: #335992;
+}
+
+.bg_muni_azul_45 {
+    background-color: #2e5083;
+}
+
+.bg_muni_azul_4 {
+    background-color: #266aad;
+}
+
+.bg_muni_azul_3 {
+    background-color: #5b99cf;
+}
+
+.bg_muni_azul_2 {
+    background-color: #7dc3f7;
+}
+
+.bg_muni_azul_1 {
+    background-color: #bedced;
+}
+
+.bg_muni_half_azul_45 {
+    background: -webkit-linear-gradient(0deg, #dddddd 55%, #2e5083 55%);
+    background: -o-linear-gradient(0deg, #dddddd 55%, #2e5083 55%);
+    background: -moz-linear-gradient(0deg, #dddddd 55%, #2e5083 55%);
+    background: linear-gradient(0deg, #dddddd 55%, #2e5083 55%);
+}
+
+.bg-light {
+    background-color: #f5f5f5;
+}
+
+.bg-light-2 {
+    background-color: #ededed;
 }
 
 
@@ -173,7 +220,7 @@ a.desc:after {
 
 .darkish_bg {
     /*background-color: #FE1355;*/
-    background-color: #0B0D19;
+    background-color: #266aad;
     /*background-color: rgb(101,23,48);*/
 }
 

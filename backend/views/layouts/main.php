@@ -71,7 +71,7 @@ AppAsset::register($this);
         NavBar::begin([
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar navbar-expand-md navbar-dark fixed-top',
+                'class' => 'navbar navbar-expand-md navbar-white fixed-top shadow-sm',
             ],
         ]);
         if (Yii::$app->user->isGuest) {
