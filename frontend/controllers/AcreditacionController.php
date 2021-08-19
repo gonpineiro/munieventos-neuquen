@@ -115,7 +115,7 @@ class AcreditacionController extends Controller
     private function acreditar($inscripcion)
     {
         //El usuario es acreditado
-        Yii::$app->session->setFlash('success', '<p> Usted ha registrado su asistencia a evento. </p>');
+        Yii::$app->session->setFlash('success', '<p> Usted ha registrado su asistencia al evento. </p>');
         $inscripcion->acreditacion = 1;
         $seGuardo = $inscripcion->save();
 

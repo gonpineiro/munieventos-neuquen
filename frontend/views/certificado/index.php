@@ -8,23 +8,23 @@ use yii\helpers\Html;
     <div class="certificate-index">
         <div class="certificates-buttons">
             <!-- Botón para general los archivos PDF dependiendo de la participación en el evento. -->
-            <?php $iconsPdf = '<i class="material-icons large align-middle">picture_as_pdf</i>'; ?>
+            <?php $iconsPdf = '<i class="material-icons text-white large align-middle">picture_as_pdf</i>'; ?>
             <div class="row m-2 ">
                 <div class="col-12 col-md-6">
                     <?php if ($attendanceCertificate) {
-                        echo '<label>Asistencia</label></br>' . Html::a($iconsPdf, ['certificado/preview-attendance', 'id' => $idEvent], ['class' => 'btn btn-primary', 'target' => "_blank"]);
+                        echo '<label>Asistencia</label></br>' . Html::a($iconsPdf, ['certificado/preview-attendance', 'id' => $idEvent], ['class' => 'btn', 'target' => "_blank"]);
                     } ?>
                 </div>
                 <div class="col-12 col-md-6">
                     <?php if ($organizerCertificate) {
                         echo '<label>Organizador</label></br>';
-                        echo Html::a($iconsPdf, ['certificado/preview-organizer', 'id' => $idEvent], ['class' => 'btn btn-primary']);
+                        echo Html::a($iconsPdf, ['certificado/preview-organizer', 'id' => $idEvent], ['class' => 'btn ']);
                     } ?>
                 </div>
             </div>
             <div class="row p-3">
                 <div class="col-md-12">
-                    <?php if ($exhibitorCertificate): ?>
+                    <?php if ($exhibitorCertificate) : ?>
                         <?php $form = ActiveForm::begin([
                             'id' => 'presentation-form',
                             'enableClientValidation' => false,
