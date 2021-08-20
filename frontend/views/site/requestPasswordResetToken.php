@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
             <div class="form-advice">
-                <p class=""> Se le enviará un correo a su cuenta para reestablecer la contraseña </p>
+                <p class=""> Se le enviará un correo a su cuenta para restablecer la contraseña </p>
             </div>
             <div class="form-group">
                 <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary']) ?>

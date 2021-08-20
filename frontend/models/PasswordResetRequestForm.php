@@ -23,7 +23,8 @@ class PasswordResetRequestForm extends Model
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'exist',
+            [
+                'email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
                 'message' => 'No existe usuario registrado con ese correo.'
@@ -63,7 +64,7 @@ class PasswordResetRequestForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => 'No-reply @ ' . Yii::$app->name])
             ->setTo($this->email)
-            ->setSubject('Reestablecer contraseña en ' . Yii::$app->name)
+            ->setSubject('Restablecer contraseña en ' . Yii::$app->name)
             ->send();
     }
 }

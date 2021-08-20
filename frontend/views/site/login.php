@@ -25,11 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'rememberMe')->checkbox()->label("Recordarme") ?>
 
             <div class="form-advice">
-                ¿No tiene cuenta en Juntar? Debe <?= Html::a('registrarse', ['site/signup']) ?>.
+                ¿No tenés cuenta? <?= Html::a('registrarse', ['site/signup']) ?>.
                 <br>
-                Si olvidaste tu contraseña puedes <?= Html::a('restablecerla', ['site/request-password-reset']) ?>.
+                Si olvidaste tu contraseña podés <?= Html::a('restablecerla', ['site/request-password-reset']) ?>.
                 <br>
-                ¿Necesitas activar tu
+                ¿Necesitás activar tu
                 cuenta? <?= Html::a('Solicitar correo de Activación', ['site/resend-verification-email']) ?>
             </div>
 

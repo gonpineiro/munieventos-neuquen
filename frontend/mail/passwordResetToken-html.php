@@ -53,7 +53,7 @@ if (preg_match('/backend/i', Yii::$app->request->referrer)) {
                 <p> Si tu no pediste el cambio de contraseña y crees que fue un error, por favor, ignora este correo y contactanos
                     lo antes posible. </p>
 
-                <p style="margin-bottom: 50px"> Para reestablecer tu contraseña, clickea sobre el botón "Reestablecer
+                <p style="margin-bottom: 50px"> Para restablecer tu contraseña, clickea sobre el botón "Reestablecer
                     contraseña": </p>
 
                 <!-- Botón -->
@@ -71,7 +71,7 @@ if (preg_match('/backend/i', Yii::$app->request->referrer)) {
 
             color: black;
             background-color: white;
-            border-color: white;"> Reestablecer contraseña </a></p>
+            border-color: white;"> Restablecer contraseña </a></p>
 
 
                 <div style="margin-top: 15px;">

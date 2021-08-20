@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1 class="text-center mb-2"><?= Html::encode($this->title) ?></h1>
 
-    <p class="text-center"> Complete el formulario para registrarse en la plataforma: </p>
+    <p class="text-center"> Completá el formulario para registrarte en la plataforma: </p>
 
     <div class="col-lg-5 m-auto">
         <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'provincia')->label('Provincia (*)')->textInput(['placeholder' => 'Ejemplo: Buenos Aires']); ?>
             <?= $form->field($model, 'localidad')->label('Localidad (*)')->textInput(['placeholder' => 'Ejemplo: Neuquen']); ?>
             <?=
-            $form->field($model, 'barrio')->label('Barrio (*) <small class="text-muted">Escriba otro si no encuentra su barrio</small>')->widget(AutoComplete::classname(), [
+            $form->field($model, 'barrio')->label('Barrio (*) <small class="text-muted">Escribí "otro" si no encontrás tu barrio</small>')->widget(AutoComplete::classname(), [
                 'options' => ['class' => 'form-control'],
                 'clientOptions' => [
                     'source' => $barrios,

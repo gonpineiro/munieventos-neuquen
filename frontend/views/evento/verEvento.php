@@ -239,7 +239,6 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                                 <p>¿Está seguro de querer suspender su evento?</p>
                                                 <p>No será visible en los lanzamientos de la plataforma, dejará de estar
                                                     disponible para las inscripciones y podrá seguir editando</p>
-                                                <span class="float-right font-weight-bold">Juntar</span>
                                             </div>
                                             <div class="modal-footer">
                                                 <?= Html::a('Si', ['eventos/suspender-evento/' . $evento->nombreCortoEvento], ['class' => 'btn']) ?>
@@ -288,14 +287,13 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                 <?= $logo ?>
 
                                 <div class="padding_section">
-                                    <i class="material-icons align-middle">today</i><span class=" align-middle"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
+                                    <i class="material-icons align-middle text_muni_azul_45">today</i><span class=" align-middle text_muni_azul_45"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
                                     <br>
                                     <?php if ($esDueño || $esAdministrador) { ?>
                                         <div class="mt-3">
 
-                                            <span class=" align-middle">
+                                            <span class="align-middle">
                                                 <?php
-
                                                 echo Html::a('<i class="material-icons align-middle">email</i> Enviar un mail a los participantes', ['eventos/crear-email/' . $evento->nombreCortoEvento], ['class' => 'pt-5', 'style' => 'text-decoration:none;']);
                                                 ?>
                                             </span>

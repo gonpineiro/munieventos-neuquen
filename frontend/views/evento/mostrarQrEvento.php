@@ -3,7 +3,7 @@
 
 use yii\bootstrap4\Html;
 
-$this->title = 'Proyecto Juntar';
+$this->title = 'Eventos Muni Neuquén';
 ?>
 <div class="evento-codigos-qr">
 
@@ -16,7 +16,7 @@ $this->title = 'Proyecto Juntar';
                     <h5 class="card-header text-center bg_muni_azul_45 text-white"> QR Evento: </h5>
                     <div class="card-body">
                         <?php if ($imageEventoQR != '' || $imageEventoQR != null) : ?>
-                            <p> El siguiente código QR permite visualizar el evento creado en Juntar: </p>
+                            <p> El siguiente código QR permite visualizar el link del evento. </p>
                             <img class="mt-2 full_width" src="<?= Html::encode($imageEventoQR) ?>" title="<?= Html::encode($slug); ?>">
                             <br>
                             <br>
@@ -35,8 +35,7 @@ $this->title = 'Proyecto Juntar';
                         <h5 class="card-header text-center bg_muni_azul_45 text-white"> QR Acreditación Evento: </h5>
                         <div class="card-body">
                             <?php if ($imageAcreditacionEventoQR != null && $imageAcreditacionEventoQR != '') : ?>
-                                <p> El siguiente código QR permite a un usuario inscripto acreditarse al evento en
-                                    Juntar: </p>
+                                <p> El siguiente código QR permite a un usuario inscripto acreditarse al evento. </p>
                                 <img class="mt-2 full_width" src="<?= Html::encode($imageAcreditacionEventoQR) ?>" title="<?= Html::encode($slug); ?>">
                                 <br>
                                 <br>
