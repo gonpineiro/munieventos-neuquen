@@ -213,7 +213,20 @@ class EventoController extends Controller
             ->select(['descripcionModalidad'])
             ->indexBy('idModalidadEvento')
             ->column();
-        return $this->render('cargarEvento', ['model' => $model, 'modelLogo' => $modelLogo, 'modelFlyer' => $modelFlyer, 'categoriasEventos' => $categoriasEventos, 'modalidadEvento' => $modalidadEvento]);
+
+        $secretariaEvento = [
+            'Secretaría de Capacitación y Empleo' => "Secretaría de Capacitación y Empleo",
+            'Secretaría de Ciudadanía' => "Secretaría de Ciudadanía",
+            'Secretaría de Coordinación e Infraestructura' => "Secretaría de Coordinación e Infraestructura",
+            'Secretaría de Cultura, Deportes y Actividad Física' => "Secretaría de Cultura, Deportes y Actividad Física",
+            'Secretaría de Turismo y Desarrollo Social' => "Secretaría de Turismo y Desarrollo Social",
+            'Secretaría de Finanzas' => "Secretaría de Finanzas",
+            'Subsecretaría de Medio Ambiente y Protección Ciudadana' => "Subsecretaría de Medio Ambiente y Protección Ciudadana",
+            'Secretaría de Gobiern' => "Secretaría de Gobierno",
+            'Secretaría de Hacienda' => "Secretaría de Hacienda"
+        ];
+
+        return $this->render('cargarEvento', ['model' => $model, 'modelLogo' => $modelLogo, 'modelFlyer' => $modelFlyer, 'categoriasEventos' => $categoriasEventos, 'modalidadEvento' => $modalidadEvento, 'secretariaEvento' => $secretariaEvento]);
     }
 
     public function actionMostrarQrEvento()
@@ -645,8 +658,19 @@ class EventoController extends Controller
                 ->select(['descripcionModalidad'])
                 ->indexBy('idModalidadEvento')
                 ->column();
+            $secretariaEvento = [
+                'Secretaría de Capacitación y Empleo' => "Secretaría de Capacitación y Empleo",
+                'Secretaría de Ciudadanía' => "Secretaría de Ciudadanía",
+                'Secretaría de Coordinación e Infraestructura' => "Secretaría de Coordinación e Infraestructura",
+                'Secretaría de Cultura, Deportes y Actividad Física' => "Secretaría de Cultura, Deportes y Actividad Física",
+                'Secretaría de Turismo y Desarrollo Social' => "Secretaría de Turismo y Desarrollo Social",
+                'Secretaría de Finanzas' => "Secretaría de Finanzas",
+                'Subsecretaría de Medio Ambiente y Protección Ciudadana' => "Subsecretaría de Medio Ambiente y Protección Ciudadana",
+                'Secretaría de Gobiern' => "Secretaría de Gobierno",
+                'Secretaría de Hacienda' => "Secretaría de Hacienda"
+            ];
 
-            return $this->render('editarEvento', ['model' => $model, 'modelLogo' => $modelLogo, 'modelFlyer' => $modelFlyer, 'categoriasEventos' => $categoriasEventos, 'modalidadEvento' => $modalidadEvento]);
+            return $this->render('editarEvento', ['model' => $model, 'modelLogo' => $modelLogo, 'modelFlyer' => $modelFlyer, 'categoriasEventos' => $categoriasEventos, 'modalidadEvento' => $modalidadEvento, 'secretariaEvento' => $secretariaEvento]);
         } else {
             return $this->redirect(["site/index"]);
         }

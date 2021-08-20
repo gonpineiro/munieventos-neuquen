@@ -97,24 +97,24 @@ class EventoController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-//    public function actionCreate() {
-//        $model = new Evento();
-//
-//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['view', 'id' => $model->idEvento]);
-//        }
-//
-//        return $this->render('create', [
-//                    'model' => $model,
-//        ]);
-//    }
+    //    public function actionCreate() {
+    //        $model = new Evento();
+    //
+    //        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    //            return $this->redirect(['view', 'id' => $model->idEvento]);
+    //        }
+    //
+    //        return $this->render('create', [
+    //                    'model' => $model,
+    //        ]);
+    //    }
 
 
 
 
     public function actionEditarEvento($id)
     {
-//        $model = new Evento($id);
+        //        $model = new Evento($id);
         $model = Evento::findOne(['idEvento' => $id]);
 
         $model->idEstadoEvento = 4; //FLag - Por defecto los eventos quedan en estado "Borrador"
@@ -122,11 +122,11 @@ class EventoController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             //necesita variables, porque sino hace referencia al objeto model y la referencia pierde el valor si crea una nueva instancia
-//            if ($model->codigoAcreditacion != null) {
-//                $nombreCortoEvento = $model->nombreCortoEvento;
-//                $codAcre = $model->codigoAcreditacion;
-////                $this->actionGenerarQRAcreditacion($codAcre, $nombreCortoEvento);
-//            }
+            //            if ($model->codigoAcreditacion != null) {
+            //                $nombreCortoEvento = $model->nombreCortoEvento;
+            //                $codAcre = $model->codigoAcreditacion;
+            ////                $this->actionGenerarQRAcreditacion($codAcre, $nombreCortoEvento);
+            //            }
             $model->save();
             return $this->redirect(['/evento/view/', 'id' => $id]);
         }
@@ -140,11 +140,22 @@ class EventoController extends Controller
             ->select(['descripcionModalidad'])
             ->indexBy('idModalidadEvento')
             ->column();
+        $secretariaEvento = [
+            'Secretaría de Capacitación y Empleo' => "Secretaría de Capacitación y Empleo",
+            'Secretaría de Ciudadanía' => "Secretaría de Ciudadanía",
+            'Secretaría de Coordinación e Infraestructura' => "Secretaría de Coordinación e Infraestructura",
+            'Secretaría de Cultura, Deportes y Actividad Física' => "Secretaría de Cultura, Deportes y Actividad Física",
+            'Secretaría de Turismo y Desarrollo Social' => "Secretaría de Turismo y Desarrollo Social",
+            'Secretaría de Finanzas' => "Secretaría de Finanzas",
+            'Subsecretaría de Medio Ambiente y Protección Ciudadana' => "Subsecretaría de Medio Ambiente y Protección Ciudadana",
+            'Secretaría de Gobiern' => "Secretaría de Gobierno",
+            'Secretaría de Hacienda' => "Secretaría de Hacienda"
+        ];
         return $this->render('editarEvento', [
             'model' => $model,
             'categoriasEventos' => $categoriasEventos,
             'modalidadEvento' => $modalidadEvento,
-
+            'secretariaEvento' => $secretariaEvento
         ]);
     }
 
@@ -156,17 +167,17 @@ class EventoController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
 
-//    public function actionUpdate($id) {
-//        $model = $this->findModel($id);
-//
-//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-//            return $this->redirect(['view', 'id' => $model->idEvento]);
-//        }
-//
-//        return $this->render('update', [
-//                    'model' => $model,
-//        ]);
-//    }
+    //    public function actionUpdate($id) {
+    //        $model = $this->findModel($id);
+    //
+    //        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    //            return $this->redirect(['view', 'id' => $model->idEvento]);
+    //        }
+    //
+    //        return $this->render('update', [
+    //                    'model' => $model,
+    //        ]);
+    //    }
     public function actionModificarOrganizador($idEvento)
     {
         $model = new CambiarOrganizadorForm();
@@ -253,5 +264,4 @@ class EventoController extends Controller
 
         throw new NotFoundHttpException('La página solicitada no existe.');
     }
-
 }

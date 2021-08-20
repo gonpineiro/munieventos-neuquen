@@ -98,7 +98,9 @@ $this->title = "Editar Evento - " . $model->nombreCortoEvento;
 
                             <!-- select modalidad -->
                             <?= $form->field($model, 'idModalidadEvento')->dropdownList($modalidadEvento, ['prompt' => 'Selecciona una modalidad'])->label('Modalidad *'); ?>
-
+                            
+                            <?= $form->field($model, 'secretariaEvento')->dropdownList($secretariaEvento, ['prompt' => 'Selecciona una secretaria'])->label('Secretaria *'); ?>
+                            
                             <!-- input logo -->
                             <?= $form->field($modelLogo, 'imageLogo')->fileInput()->label('Ingrese logo [solo formato png, jpg y jpeg]') ?>
                             <button type="button" id="quitarLogo" class="btn btn-sm btn-outline">Quitar</button>
