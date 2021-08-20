@@ -41,6 +41,7 @@ CREATE TABLE evento (
   idCategoriaEvento tinyint(4) NOT NULL,
   idEstadoEvento tinyint(4) NOT NULL,
   idModalidadEvento tinyint(4) NOT NULL,
+  secretariaEvento varchar(200) NOT NULL,
   nombreEvento varchar(200) NOT NULL,
   nombreCortoEvento varchar(100) NOT NULL,
   descripcionEvento varchar(2000) NOT NULL,

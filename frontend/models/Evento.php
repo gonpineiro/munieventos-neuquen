@@ -16,6 +16,7 @@ use yii\db\ActiveRecord;
  * @property int $idCategoriaEvento
  * @property int $idEstadoEvento
  * @property int $idModalidadEvento
+ * @property string $secretariaEvento
  * @property string $nombreEvento
  * @property string $nombreCortoEvento
  * @property string $descripcionEvento
@@ -68,9 +69,9 @@ class Evento extends ActiveRecord
     public function rules()
     {
         return [
-            [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento', 'nombreEvento', 'nombreCortoEvento', 'descripcionEvento', 'lugar', 'fechaInicioEvento', 'fechaFinEvento', 'preInscripcion'], 'required'],
+            [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento','secretariaEvento', 'nombreEvento', 'nombreCortoEvento', 'descripcionEvento', 'lugar', 'fechaInicioEvento', 'fechaFinEvento', 'preInscripcion'], 'required'],
             [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento', 'capacidad', 'preInscripcion'], 'integer'],
-            [['fechaInicioEvento', 'fechaFinEvento', 'fechaLimiteInscripcion', 'fechaCreacionEvento'], 'safe'],
+            [['fechaInicioEvento', 'fechaFinEvento', 'fechaLimiteInscripcion', 'fechaCreacionEvento', 'idSecretariaEvento'], 'safe'],
             [['nombreEvento', 'lugar', 'imgFlyer', 'imgLogo'], 'string', 'max' => 200],
             ['fechaFinEvento', 'compare', 'compareAttribute' => 'fechaInicioEvento', 'operator' => '>='],
             [['nombreCortoEvento', 'codigoAcreditacion'], 'string', 'max' => 100],
@@ -99,6 +100,7 @@ class Evento extends ActiveRecord
             'idCategoriaEvento' => 'Categoria',
             'idEstadoEvento' => 'Estado',
             'idModalidadEvento' => 'Modalidad',
+            'secretariaEvento' => 'Secretaria',
             'nombreEvento' => 'Nombre Evento',
             'nombreCortoEvento' => 'Nombre Corto Evento',
             'descripcionEvento' => 'Descripción',

@@ -14,6 +14,7 @@ use yii\db\ActiveRecord;
  * @property int $idCategoriaEvento
  * @property int $idEstadoEvento
  * @property int $idModalidadEvento
+ * @property int $idSecretariaEvento
  * @property string $nombreEvento
  * @property string $nombreCortoEvento
  * @property string $descripcionEvento
@@ -60,7 +61,7 @@ class Evento extends ActiveRecord
     public function rules()
     {
         return [
-            [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento', 'nombreEvento', 'nombreCortoEvento', 'descripcionEvento', 'lugar', 'fechaInicioEvento', 'fechaFinEvento', 'preInscripcion'], 'required'],
+            [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento', 'idSecretariaEvento', 'nombreEvento', 'nombreCortoEvento', 'descripcionEvento', 'lugar', 'fechaInicioEvento', 'fechaFinEvento', 'preInscripcion'], 'required'],
             [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento', 'capacidad', 'preInscripcion'], 'integer'],
             [['fechaInicioEvento', 'fechaFinEvento', 'fechaLimiteInscripcion', 'fechaCreacionEvento'], 'safe'],
             [['nombreEvento', 'lugar', 'imgFlyer', 'imgLogo'], 'string', 'max' => 200],
@@ -91,6 +92,7 @@ class Evento extends ActiveRecord
             'idCategoriaEvento' => 'Id Categoria Evento',
             'idEstadoEvento' => 'Id Estado Evento',
             'idModalidadEvento' => 'Id Modalidad Evento',
+            'SecretariaEvento' => 'Secretaria Evento',
             'nombreEvento' => 'Nombre Evento',
             'nombreCortoEvento' => 'Nombre Corto Evento',
             'descripcionEvento' => 'Descripcion Evento',
