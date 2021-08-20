@@ -270,8 +270,8 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
 
 
                     <div class="card-body">
-                        <div class="row padding_section">
-                            <div class="col-sm-12 col-md-8">
+                        <div class="row">
+                            <div class="col-sm-12">
                                 <?PHP
                                 if ($esDueño && ($evento->fechaFinEvento > date("Y-m-d"))) {
                                     if ($evento->preInscripcion == 1) {
@@ -283,10 +283,11 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                 }
                                 ?>
                                 <?PHP if ($evento->fechaFinEvento <= date("Y-m-d") && $estadoEventoInscripcion == "yaAcreditado") {
-                                    echo "<div class='alert alert-info text-center mb-4' role='alert'>Usted ya ha asistido a este evento.</div>";
+                                    echo "<div class='alert alert-info text-center mb-4 mt-1' role='alert'>Usted ya ha asistido a este evento.</div>";
                                 } ?>
-                                <div class="padding_section">
+                                <?= $logo ?>
 
+                                <div class="padding_section">
                                     <i class="material-icons align-middle">today</i><span class=" align-middle"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
                                     <br>
                                     <?php if ($esDueño || $esAdministrador) { ?>
@@ -302,7 +303,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
 
                                     <?php } ?>
                                     <br>
-                                    <h2><strong><?= $evento->nombreEvento ?></strong>
+                                    <h2 class="text_muni_azul_5"><strong><?= $evento->nombreEvento ?></strong>
                                     </h2>
                                     <br>
                                     <p class="text-dark">Organizado por <?= $organizadorEvento ?></p>
@@ -330,11 +331,8 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     <!--</span>-->
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-4">
-                                <?= $logo ?>
-                            </div>
                         </div>
-                        <div class="row padding_section greyish_bg  d-flex align-items-center">
+                        <div class="row padding_section greyish_bg d-flex align-items-center">
                             <div class="col-sm-12 col-md-8">
                                 <div class="cupos">
                                     <p class="text_muni_azul_45">CUPOS DISPONIBLES: <span class="font-weight-bolder"><?= $cupos ?></span> <?= " - "; ?> <?= $preInscripcion ?></p>
