@@ -99,7 +99,7 @@ $this->title = "Editar Evento - " . $model->nombreCortoEvento;
                             <!-- select modalidad -->
                             <?= $form->field($model, 'idModalidadEvento')->dropdownList($modalidadEvento, ['prompt' => 'Selecciona una modalidad'])->label('Modalidad *'); ?>
                             
-                            <?= $form->field($model, 'secretariaEvento')->dropdownList($secretariaEvento, ['prompt' => 'Selecciona una secretaria'])->label('Secretaria *'); ?>
+                            <?= $form->field($model, 'secretariaEvento')->dropdownList($secretariaEvento, ['prompt' => 'Selecciona una secretaria / Unicades de Gestion'])->label('Secretarias / Unicades de Gestion *'); ?>
                             
                             <!-- input logo -->
                             <?= $form->field($modelLogo, 'imageLogo')->fileInput()->label('Ingrese logo [solo formato png, jpg y jpeg]') ?>
