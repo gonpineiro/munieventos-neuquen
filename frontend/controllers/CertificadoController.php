@@ -117,7 +117,7 @@ class CertificadoController extends Controller
         } else {
             return $this->render('/site/error', [
                 'name' => 'Certificado',
-                'message' => 'Se ha provocado un error en la solicitud del certificado.'
+                'message' => 'Ha ocurrido un error en la solicitud del certificado.'
             ]);
         }
     }
@@ -136,7 +136,7 @@ class CertificadoController extends Controller
         } else {
             return $this->render('/site/error', [
                 'name' => 'Certificado',
-                'message' => 'Se ha provocado un error en la solicitud del certificado.'
+                'message' => 'Ha ocurrido un error en la solicitud del certificado.'
             ]);
         }
     }
@@ -221,8 +221,8 @@ class CertificadoController extends Controller
             'cssInline' => '.kv-heading-1{font-size:18px}',
             'options' => ['title' => 'Certificado'],
             'methods' => [
-                'SetHeader' => ['<img src=images/logo-14.svg style=width:150px;padding:10px>'],
-                'SetFooter' => [$footer],
+                'SetHeader' => null,
+                'SetFooter' => ['<img src="images/logo-14.svg" style="height:50px;padding:10px;padding-top:20px;">'],
                 'SetTitle' => ['Certificado Eventos Muni Neuquén'],
                 'SetAuthor' => ['Municipalidad de Neuquén'],
             ]

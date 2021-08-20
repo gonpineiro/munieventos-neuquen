@@ -3,6 +3,7 @@
 
 <head>
 
+
 </head>
 
 <body>
@@ -30,7 +31,7 @@
             $daysMessage = "desde el " . $initialDay->format("d") . " hasta el " . $latestDay->format("d");
         }
     } else {
-        $daysMessage = "el dìa " . $initialDay->format("d");
+        $daysMessage = "el día " . $initialDay->format("d");
     }
 
     //Arrays Auxiliar.
@@ -55,37 +56,37 @@
     }
     ?>
 
-    <div class="container">
-        <div class="centring logos">
-            <?php
-            $pathLogo = "images/logo-14.svg";
-            if ($isOficial) {
-                echo
-                '<img id="" style="min-height:500px!important;padding-top:4rem;" class="" src="' . $pathLogo . '">';
-            } else {
-                echo '<img id="" style="min-height:500px!important;padding-top:4rem;" class="" src="' . $pathLogo . '">';
-            }
-            ?>
-        </div>
-        <div class="head">
-            <h3 class="centring" style="padding-top: 4rem;color: #335992;font-size:3rem;margin:0px;">Certificado</p>
-        </div>
-        <div class="body">
-            <p class="centring" style="color:#266aad;">Se certifica que <b><?= $user->apellido . ", " . $user->nombre ?></b>, DNI Nº
-                <b><?= $user->dni ?></b>
-            </p>
-            <p class="centring" style="color:#266aad;"> <?= $type . " " . $category ?> </p>
-            <p class="centring event"><b>"<?= $event[0]['nombreEvento'] ?>"</b></p>
-            <p class="centring" style="color:#266aad;"> Realizado <?= $daysMessage ?> de <?= $months[$numberMonth] ?>
-                del <?= date("Y", strtotime($event[0]['fechaInicioEvento'])) ?>,
-                <?php if ($certificateType != 'expositor') : ?>
-                    <?php if ($hours->format("H") != '00') : ?>
-                        con una duración de <?= $hours->format("H:i") ?> Hs.
-                    <?php endif; ?>
-                    <?php endif; ?>dictado en:</p></br>
-            <p class="centring" style="color:#266aad;"><b><?= $event[0]['lugar'] ?></b>.</p>
-            <p class="centring" style="color:#266aad;">Neuquén, <?= date('d/m/Y') ?>.</p>
-        </div>
+    <div class="centring logos">
+        <?php
+
+        $pathLogo = substr($event[0]['imgLogo'], 1);
+        if (file_exists($pathLogo)) {
+            $banner = '<img class="full_width" src="' . $pathLogo . '">';
+        }
+        echo $banner;
+        ?>
+    </div>
+    <div class="head">
+        <h3 class="centring" style="padding-top: 3rem;font-size:3rem;margin:0px;">Certificado de Asistencia</p>
+    </div>
+    <div class="body">
+        <p class="centring">Se certifica que <b style="font-size: 2rem;"><?= $user->apellido . ", " . $user->nombre ?></b>
+        </p>
+        <p class="centring">DNI Nº
+            <b><?= $user->dni ?></b>
+        </p>
+        <p class="centring"> <?= $type . " " . $category ?> </p>
+        <p class="centring event"><b>"<?= $event[0]['nombreEvento'] ?>"</b></p>
+        <p class="centring"> Realizado <?= $daysMessage ?> de <?= $months[$numberMonth] ?>
+            del <?= date("Y", strtotime($event[0]['fechaInicioEvento'])) ?>,
+            <?php if ($certificateType != 'expositor') : ?>
+                <?php if ($hours->format("H") != '00') : ?>
+                    con una duración de <?= $hours->format("H:i") ?> Hs.
+                <?php endif; ?>
+                <?php endif; ?>dictado en:</p></br>
+        <p class="centring"><b><?= $event[0]['lugar'] ?></b>.</p>
+        <p class="centring">Neuquén, <?= date('d/m/Y') ?>.</p>
+    </div>
     </div>
 </body>
 
