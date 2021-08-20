@@ -75,17 +75,19 @@
         <p class="centring">DNI Nº
             <b><?= $user->dni ?></b>
         </p>
+        <p>
+            </h5>
         <p class="centring"> <?= $type . " " . $category ?> </p>
         <p class="centring event"><b>"<?= $event[0]['nombreEvento'] ?>"</b></p>
-        <p class="centring"> Realizado <?= $daysMessage ?> de <?= $months[$numberMonth] ?>
+        <p class="centring"> Realizado por <?= $event[0]['secretariaEvento']; ?>, <br> <?= $daysMessage ?> de <?= $months[$numberMonth] ?>
             del <?= date("Y", strtotime($event[0]['fechaInicioEvento'])) ?>,
             <?php if ($certificateType != 'expositor') : ?>
                 <?php if ($hours->format("H") != '00') : ?>
                     con una duración de <?= $hours->format("H:i") ?> Hs.
                 <?php endif; ?>
                 <?php endif; ?>dictado en:</p></br>
-        <p class="centring"><b><?= $event[0]['lugar'] ?></b>.</p>
-        <p class="centring">Neuquén, <?= date('d/m/Y') ?>.</p>
+        <p class="centring"><b><?= $event[0]['lugar'] ?></b>, Neuquén, <?= date('d/m/Y') ?>.</p>
+        <p class="centring"></p>
     </div>
     </div>
 </body>
