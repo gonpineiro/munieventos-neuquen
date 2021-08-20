@@ -222,8 +222,13 @@ class EventoController extends Controller
             'Secretaría de Turismo y Desarrollo Social' => "Secretaría de Turismo y Desarrollo Social",
             'Secretaría de Finanzas' => "Secretaría de Finanzas",
             'Subsecretaría de Medio Ambiente y Protección Ciudadana' => "Subsecretaría de Medio Ambiente y Protección Ciudadana",
-            'Secretaría de Gobiern' => "Secretaría de Gobierno",
-            'Secretaría de Hacienda' => "Secretaría de Hacienda"
+            'Secretaría de Gobierno' => "Secretaría de Gobierno",
+            'Secretaría de Hacienda' => "Secretaría de Hacienda",
+            'Secretaría de Modernización' => "Secretaría de Modernización",
+            'Secretaría de Movilidad y Servicios al Ciudadano' => "Secretaría de Movilidad y Servicios al Ciudadano",
+            'Unidad de gestión de planificación y proyectos urbanos' => "Unidad de gestión de planificación y proyectos urbanos",
+            'Unidad de promoción de actividades públicas y relaciones institucionales' => "Unidad de promoción de actividades públicas y relaciones institucionales",
+            'Unidad Gestión Municipal' => "Unidad Gestión Municipal"
         ];
 
         return $this->render('cargarEvento', ['model' => $model, 'modelLogo' => $modelLogo, 'modelFlyer' => $modelFlyer, 'categoriasEventos' => $categoriasEventos, 'modalidadEvento' => $modalidadEvento, 'secretariaEvento' => $secretariaEvento]);
