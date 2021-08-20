@@ -90,10 +90,10 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $username
      * @return static|null
      */
-//    public static function findByUsername($username)
-//    {
-//        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
-//    }
+    //    public static function findByUsername($username)
+    //    {
+    //        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+    //    }
 
     /**
      * Finds out if password reset token is valid
@@ -144,7 +144,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
-//            [['nombre', 'apellido', 'dni', 'fecha_nacimiento', 'telefono', 'localidad', 'email'], 'required'],
+            //            [['nombre', 'apellido', 'dni', 'fecha_nacimiento', 'telefono', 'localidad', 'email'], 'required'],
         ];
     }
 
@@ -228,7 +228,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function generateCambiarEmailToken()
     {
-//        $this->newEmailToken = Yii::$app->security->generateRandomString() . '_' . time();
+        //        $this->newEmailToken = Yii::$app->security->generateRandomString() . '_' . time();
         Yii::$app->session->set('newEmailToken', Yii::$app->security->generateRandomString() . '_' . time());
     }
 
@@ -263,7 +263,7 @@ class User extends ActiveRecord implements IdentityInterface
             )
             ->setFrom([Yii::$app->params['supportEmail'] => 'No-reply @ ' . Yii::$app->name])
             ->setTo($this->email)
-            ->setSubject('Reestablecer contraseña en ' . Yii::$app->name)
+            ->setSubject('Restablecer contraseña en ' . Yii::$app->name)
             ->send();
     }
 

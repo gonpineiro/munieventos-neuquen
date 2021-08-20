@@ -199,11 +199,11 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 Yii::$app->session->setFlash('success', '<h2> Consulta Recibida. </h2>'
-                    . '<p> Muchas gracias por ponerte en contacto con Juntar. </p>'
-                    . '<p> Un administrador se pondrá en contacto para responder tus consultas lo más rápido posible! </p>');
+                    . '<p> Muchas gracias por ponerte en contacto. </p>'
+                    . '<p> ¡Un administrador se pondrá en contacto para responder tus consultas lo más rápido posible! </p>');
             } else {
                 Yii::$app->session->setFlash('error', '<h2> Algo salió mal.. </h2> '
-                    . '<p> Ocurrió un error mientras se enviaba su consulta. Por favor, intentelo nuevamente. </p>'
+                    . '<p> Ocurrió un error mientras se enviaba su consulta. Por favor, inténtelo nuevamente. </p>'
                     . '<p> Si cree que es un error del servidor, por favor, contacte con un administrador </p>');
             }
 
@@ -237,7 +237,7 @@ class SiteController extends Controller
         $paises = json_decode($dataCountry, true);
         $paises = ArrayHelper::map($paises['countries'], 'id', 'name');
         $paises = $this->conversionAutocomplete($paises);
-        
+
         //obtiene datos barrios
         $dataBarrio = file_get_contents("json/barrios.json");
         $barrios = json_decode($dataBarrio, true);
@@ -246,7 +246,7 @@ class SiteController extends Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->signup()) {
             Yii::$app->session->setFlash('success', '<h2> ¡Sólo queda confirmar tu correo! </h2>'
-                . '<p> Muchas gracias por registrarte en la plataforma Juntar. Por favor, revisa tu dirección de correo para confirmar tu cuenta. </p>');
+                . '<p> Muchas gracias por registrarte. Por favor, revisa tu dirección de correo para confirmar tu cuenta. </p>');
             return $this->goHome();
         }
 

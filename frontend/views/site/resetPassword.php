@@ -8,7 +8,7 @@ use frontend\models\ResetPasswordForm;
 use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = 'Reestablecer contraseña';
+$this->title = 'Restablecer contraseña';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-reset-password container">

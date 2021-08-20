@@ -28,7 +28,7 @@ $this->title = "Cargar Evento";
                             <!-- Oculto, se carga con el id del usuario logueado que esta crendo el evento (usuario organizador) -->
                             <?= $form->field($model, 'idUsuario')->hiddenInput(['value' => Yii::$app->user->identity->idUsuario])->label(false); ?>
 
-                            <?= $form->field($model, 'nombreEvento')->textInput(['maxlength' => true, 'placeholder' => 'Ingrese nombre'])->label(false) ?>
+                            <?= $form->field($model, 'nombreEvento')->textInput(['maxlength' => true, 'placeholder' => 'Ingrese nombre'])->label('Nombre Evento *') ?>
 
 
                             <label for="evento-nombrecortoevento"> Nombre corto del evento: * </label>
