@@ -1,4 +1,4 @@
-use yii2advanced;
+--use yii2advanced;
 --
 -- Estructura de tabla para la tabla `categoria_evento`
 --
