@@ -59,19 +59,26 @@ if ($evento->codigoAcreditacion != null) {
     $codAcreditacion = "Código no cargado o en construcción";
 }
 
-
 if ($evento->fechaCreacionEvento != null) {
     $fechaPublicacion = $evento->fechaCreacionEvento;
 } else {
     $fechaPublicacion = "Evento no publicado";
 }
-
+if ($evento->horaInicioEvento != null) {
+    $horaInicioEvento = " de " . $evento->horaInicioEvento;
+} else {
+    $horaInicioEvento = "";
+}
+if ($evento->horaFinEvento != null) {
+    $horaFinEvento = " hasta " . $evento->horaFinEvento;
+} else {
+    $horaFinEvento = "";
+}
 if ($evento->fechaLimiteInscripcion != null) {
     $fechaLimite = $evento->fechaLimiteInscripcion;
 } else {
     $fechaLimite = "No posee inscripción";
 }
-
 
 $categoriaEvento = $evento->idCategoriaEvento0->descripcionCategoria;
 $modalidadEvento = $evento->idModalidadEvento0->descripcionModalidad;
@@ -287,7 +294,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                 <?= $logo ?>
 
                                 <div class="padding_section">
-                                    <i class="material-icons align-middle text_muni_azul_45">today</i><span class=" align-middle text_muni_azul_45"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
+                                    <i class="material-icons align-middle text_muni_azul_45">today</i><span class=" align-middle text_muni_azul_45"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) . $horaInicioEvento . $horaFinEvento ?></span>
                                     <br>
                                     <?php if ($esDueño || $esAdministrador) { ?>
                                         <div class="mt-3">

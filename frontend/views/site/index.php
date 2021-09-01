@@ -82,7 +82,9 @@ $this->title = 'Eventos Neuquén';
                             <div class='card-body'>
                                 <h4 class='card-title font-weight-bold text_muni_azul_5'><?= Html::encode($evento["nombreEvento"]) ?></h4>
                                 <h5 class='card-title text-dark'><?= Html::encode("Organizador: " . $evento["idUsuario0"]["nombre"] . " " . $evento["idUsuario0"]["apellido"]) ?></h5>
-                                <h5 class='card-title text-muted'><?= Html::encode(date('d/m/Y', strtotime($evento["fechaInicioEvento"]))) ?></h5>
+                                <h5 class='card-title text-muted'><?= Html::encode(date('d/m/Y', strtotime($evento["fechaInicioEvento"]))) ?> <?PHP if ($evento["horaInicioEvento"] != null && $evento["horaFinEvento"] != null) {
+                                                                                                                                                    echo "de " . $evento["horaInicioEvento"] . " hasta " . $evento["horaFinEvento"];
+                                                                                                                                                } ?></h5>
                                 <hr>
                                 <p class='card-text font-weight-light'><?= Html::encode($evento["lugar"]) ?></p>
                                 <p class='card-text font-weight-light'><?= Html::decode(strtok(wordwrap(strip_tags($evento["descripcionEvento"]), 250, "...\n"), "\n")) ?> </p>
