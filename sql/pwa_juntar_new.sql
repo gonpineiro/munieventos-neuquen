@@ -795,10 +795,15 @@ INSERT INTO `usuario_rol` (`item_name`, `user_id`, `created_at`) VALUES
 --
 
 INSERT INTO categoria_evento (idCategoriaEvento, descripcionCategoria) VALUES
-(1, 'Seminario'),
-(2, 'Congreso'),
-(3, 'Diplomatura'),
-(4, 'Otra');
+(1, 'Curso'),
+(2, 'Charla'),
+(3, 'Taller'),
+(4, 'CityTour Peatonal');
+(5, 'Visita Guiada'),
+(6, 'Paseo Guiado'),
+(7, 'Bus Turístico'),
+(8, 'Paseo Histórico');
+(9, 'Paseo en Minibus');
 
 --
 -- Volcado de datos para la tabla `estado_evento`
