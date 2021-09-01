@@ -22,7 +22,9 @@ use yii\db\ActiveRecord;
  * @property string $descripcionEvento
  * @property string $lugar
  * @property string $fechaInicioEvento
+ * @property string $horaInicioEvento
  * @property string $fechaFinEvento
+ * @property string $horaFinEvento
  * @property string|null $imgFlyer
  * @property string|null $imgLogo
  * @property int $capacidad
@@ -69,7 +71,7 @@ class Evento extends ActiveRecord
     public function rules()
     {
         return [
-            [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento','secretariaEvento', 'nombreEvento', 'nombreCortoEvento', 'descripcionEvento', 'lugar', 'fechaInicioEvento', 'fechaFinEvento', 'preInscripcion'], 'required'],
+            [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento', 'secretariaEvento', 'nombreEvento', 'nombreCortoEvento', 'descripcionEvento', 'lugar', 'fechaInicioEvento', 'horaInicioEvento', 'fechaFinEvento', 'horaFinEvento', 'preInscripcion'], 'required'],
             [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento', 'capacidad', 'preInscripcion'], 'integer'],
             [['fechaInicioEvento', 'fechaFinEvento', 'fechaLimiteInscripcion', 'fechaCreacionEvento', 'idSecretariaEvento'], 'safe'],
             [['nombreEvento', 'lugar', 'imgFlyer', 'imgLogo'], 'string', 'max' => 200],
@@ -86,6 +88,8 @@ class Evento extends ActiveRecord
             ['fechaFinEvento', 'compare', 'compareAttribute' => 'fechaInicioEvento', 'operator' => '>='],
             ['fechaLimiteInscripcion', 'compare', 'compareAttribute' => 'fechaFinEvento', 'operator' => '<='],
             ['nombreCortoEvento', 'match', 'pattern' => "/^[A-Z|a-z|0-9-_]+$/", "message" => "El campo contiene caracteres inválidos"],
+            ['horaInicioEvento', 'match', 'pattern' => "/([01]?[0-9]{1}|2[0-3]{1})[:.][0-5]{1}[0-9]{1}/", "message" => "Formato hora HH:MM"],
+            ['horaFinEvento', 'match', 'pattern' => "/([01]?[0-9]{1}|2[0-3]{1})[:.][0-5]{1}[0-9]{1}/", "message" => "Formato hora HH:MM"],
         ];
     }
 

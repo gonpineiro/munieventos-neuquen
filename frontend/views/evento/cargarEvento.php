@@ -105,7 +105,11 @@ $this->title = "Cargar Evento";
 
                             <?= $form->field($model, 'fechaInicioEvento')->input('date', ['style' => 'width: auto'])->label('Fecha Inicio *') ?>
 
+                            <?= $form->field($model, 'horaInicioEvento')->textInput(['placeholder' => 'Hora Inicio'])->label('Hora Inicio *') ?>
+
                             <?= $form->field($model, 'fechaFinEvento')->input('date', ['style' => 'width: auto'])->label('Fecha Fin *') ?>
+
+                            <?= $form->field($model, 'horaFinEvento')->textInput(['placeholder' => 'Hora Fin'])->label('Hora Fin *') ?>
 
                             <!-- input logo -->
                             <?= $form->field($modelLogo, 'imageLogo')->fileInput()->label('Ingrese logo [solo formato png, jpg y jpeg]') ?>
