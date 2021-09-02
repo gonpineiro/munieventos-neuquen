@@ -65,12 +65,12 @@ if ($evento->fechaCreacionEvento != null) {
     $fechaPublicacion = "Evento no publicado";
 }
 if ($evento->horaInicioEvento != null) {
-    $horaInicioEvento = " de " . $evento->horaInicioEvento;
+    $horaInicioEvento = " <i class='material-icons large align-middle'>access_time</i> " . $evento->horaInicioEvento;
 } else {
     $horaInicioEvento = "";
 }
 if ($evento->horaFinEvento != null) {
-    $horaFinEvento = " hasta " . $evento->horaFinEvento;
+    $horaFinEvento = " - " . $evento->horaFinEvento;
 } else {
     $horaFinEvento = "";
 }
