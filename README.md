@@ -40,7 +40,7 @@ Tener en cuenta que este proceso va a tardar un poco la primera vez que lo corra
 | ---------- | ------------- | ------------- | ---------------- | ---------------- |
 | Frontend\* | 20081         | 80            | 20080            | 80               |
 | Backend\*  | 21081         | 80            | 21080            | 80               |
-| MySql      | 3306          | 3306          | 3306             | 3306             |
+| MySql      | 3326          | 3326          | 3306             | 3306             |
 
 <b>Frontend:</b> aplicacion principal en el cual los usuarios tiene acceso. [localhost:21008](http://localhost:21008/)
 <b>Backend:</b> aplicacion secundaria para la adminstración. [localhost:20080](http://localhost:20008/)
@@ -49,6 +49,7 @@ Tener en cuenta que este proceso va a tardar un poco la primera vez que lo corra
 
 - Con VPN activada conetarse por ssh a la maquina de la siguiente forma: 
     - ssh modernizacion@128.53.80.108
+    - ssh modernizacion@128.53.1.9
     - Password: Moderna20
 
 #### Configuración del proyecto
