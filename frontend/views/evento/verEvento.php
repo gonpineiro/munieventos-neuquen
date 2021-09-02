@@ -65,12 +65,12 @@ if ($evento->fechaCreacionEvento != null) {
     $fechaPublicacion = "Evento no publicado";
 }
 if ($evento->horaInicioEvento != null) {
-    $horaInicioEvento = " <i class='material-icons large align-middle'>access_time</i> " . $evento->horaInicioEvento;
+    $horaInicioEvento = $evento->horaInicioEvento;
 } else {
-    $horaInicioEvento = "";
+    $horaInicioEvento = null;
 }
 if ($evento->horaFinEvento != null) {
-    $horaFinEvento = " - " . $evento->horaFinEvento;
+    $horaFinEvento = $evento->horaFinEvento;
 } else {
     $horaFinEvento = "";
 }
@@ -96,7 +96,13 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
             <div class="row padding_section">
                 <div class="col text-center">
                     <h4 class="font-weight-light"><i class="material-icons large align-middle text-white">date_range</i> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?>
+                        <?PHP
+                        if (!is_null($horaInicioEvento)) {
+                            echo "<h4> <i class='material-icons large align-middle text-white'>access_time</i> " . $horaInicioEvento . " - " . $horaFinEvento . "</h4>";
+                        }
+                        ?>
                     </h4>
+
                     <h4 class="font-weight-light"><i class="material-icons large align-middle text-white">location_on</i> <?= $evento->lugar ?></h4>
                 </div>
             </div>
@@ -294,7 +300,14 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                 <?= $logo ?>
 
                                 <div class="padding_section">
-                                    <i class="material-icons align-middle text_muni_azul_45">today</i><span class=" align-middle text_muni_azul_45"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) . $horaInicioEvento . $horaFinEvento ?></span>
+                                    <div>
+                                        <i class="material-icons align-middle text_muni_azul_45">today</i><span class=" align-middle text_muni_azul_45"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?>
+                                            <?PHP
+                                            if (!is_null($horaInicioEvento)) {
+                                                echo "<i class='material-icons large align-middle'>access_time</i> " . $horaInicioEvento . " - " . $horaFinEvento;
+                                            }
+                                            ?></span>
+                                    </div>
                                     <br>
                                     <?php if ($esDueño || $esAdministrador) { ?>
                                         <div class="mt-3">

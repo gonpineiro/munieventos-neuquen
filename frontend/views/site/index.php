@@ -35,11 +35,9 @@ $this->title = 'Eventos Neuquén';
 <div class="site-index">
     <div class="body-content">
         <header class="hero gradient-hero">
-            <div class="center-content padding_hero">
-                <!-- Html::img('@web/images/logo-14.svg', ['class' => 'img-fluid padding_logo']); -->
-                <h1 class="text-white">Eventos Muni Neuquén</h1>
-                <br>
-                <a href="#events" class="btn btn-primary btn-lg">Empezar</a>
+            <div class="center-content">
+                <?= Html::img('@web/images/icono-muni-evento.png', ['class' => 'img-fluid mt-3 ', 'style' => 'width:300px']); ?>
+                <a href="#events" class="btn btn-primary btn-lg mb-5">Empezar</a>
             </div>
         </header>
         <div class="bg_muni_azul_5" style="padding: 45px 15px 30px;" id="events">
