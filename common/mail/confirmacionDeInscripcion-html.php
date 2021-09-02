@@ -40,7 +40,7 @@ if (!is_null($evento->horaInicioEvento) && !is_null($evento->horaFinEvento)) {
 
 
         <p>¡Gracias por Inscribirse al evento <b><?= $evento->nombreEvento ?></b>!</p>
-        <p>Te recordamos que la fecha de inicio es <?= $inicio . " " . $horarios ?>"."</p>
+        <p>Te recordamos que la fecha de inicio es <?= $inicio . " " . $horarios ?>.</p>
         <p>El evento finaliza el <?= $fin ?></p>
 
 
