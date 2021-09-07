@@ -124,7 +124,7 @@ AppAsset::register($this);
                     <h5 class="white-text">Contacto</h5>
                     <p>Dirección: Avda. Argentina y Roca</p>
                     <p>Teléfono: <a class="text-white" style="text-decoration: none;" href="tel:+5402994491200">+ 54 0299 449 1200</a></p>
-                    <p>Email: <a class="text-white" style="text-decoration: none;" href="mailto:ciudadano@muninqn.gov.ar">ciudadano@muninqn.gov.ar</a></p>
+                    <p>Email: <a class="text-white" style="text-decoration: none;" href="mailto:munieventos@muninqn.gov.ar">munieventos@muninqn.gov.ar</a></p>
                 </div>
             </div>
         </div>
