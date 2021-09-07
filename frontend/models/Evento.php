@@ -116,7 +116,7 @@ class Evento extends ActiveRecord
             'capacidad' => 'Capacidad',
             'preInscripcion' => 'Preinscripción',
             'fechaLimiteInscripcion' => 'Fecha Limite de Preinscripción',
-            'codigoAcreditacion' => 'Código Acreditación',
+            'codigoAcreditacion' => 'Código Asistencia',
             'fechaCreacionEvento' => 'Fecha Creación Evento',
         ];
     }

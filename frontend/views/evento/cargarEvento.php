@@ -147,7 +147,7 @@ $this->title = "Cargar Evento";
                             <div id="fechaLimite">
                                 <?= $form->field($model, 'fechaLimiteInscripcion')->input('date', ['style' => 'width:auto', 'required'])->label('Fecha límite de preinscripción *') ?>
                             </div>
-                            <?= $form->field($model, 'codigoAcreditacion')->textInput(['placeholder' => 'Ingrese código de acreditación'], ['maxlength' => true]) ?>
+                            <?= $form->field($model, 'codigoAcreditacion')->textInput(['placeholder' => 'Ingrese código para verificar la asistencia'], ['maxlength' => true]) ?>
 
                             <p class="font-italic">
                                 Los campos marcados con (*) son obligatorios.

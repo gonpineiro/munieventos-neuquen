@@ -30,7 +30,7 @@ $openGraph->getImage()
     ])
     ->render();
 
-$this->title = 'Eventos Neuquén';
+$this->title = 'Muni Eventos';
 ?>
 <div class="site-index">
     <div class="body-content">

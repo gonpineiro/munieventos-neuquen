@@ -6,7 +6,7 @@ use yii\bootstrap4\Modal;
 use yii\grid\GridView;
 use yii\helpers\Url;
 
-$this->title = $evento->nombreEvento . " - Eventos Neuquén";
+$this->title = $evento->nombreEvento . " - Muni Eventos";
 
 $openGraph = Yii::$app->opengraph;
 
@@ -14,7 +14,7 @@ $openGraph->getBasic()
     ->setUrl(Yii::$app->request->hostInfo . Yii::$app->request->url)
     ->setTitle(Html::encode($evento->nombreEvento))
     ->setDescription(Html::encode(strtok(wordwrap($evento["descripcionEvento"], 100, "...\n"))))
-    ->setSiteName("Eventos Neuquén")
+    ->setSiteName("Muni Eventos")
     ->setLocale('es_AR')
     ->render();
 
