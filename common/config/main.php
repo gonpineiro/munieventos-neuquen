@@ -5,7 +5,7 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
-    'name' => 'Eventos Muni Neuquén',
+    'name' => 'Muni Eventos',
     'language' => "es_AR",
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
@@ -17,10 +17,10 @@ return [
         //configuramos el nombre modificado de las tablas que utilizará authManager
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
-//            'class' => 'vendor\yourVenderName\auth\models\DbManager',
+            //            'class' => 'vendor\yourVenderName\auth\models\DbManager',
 
             // uncomment if you want to cache RBAC items hierarchy
-//            'cache' => 'cache',
+            //            'cache' => 'cache',
 
 
             //renombramos las tablas auth  

@@ -36,7 +36,8 @@ $this->title = 'Muni Eventos';
     <div class="body-content">
         <header class="hero gradient-hero">
             <div class="center-content">
-                <?= Html::img('@web/images/icono-muni-evento.png', ['class' => 'img-fluid mt-3 ', 'style' => 'width:300px']); ?>
+                <h1 class="text-white my-5">Muni Eventos</h1>
+                <!-- <?= Html::img('@web/images/icono-muni-evento.png', ['class' => 'img-fluid mt-3 ', 'style' => 'width:300px']);  ?> -->
                 <a href="#events" class="btn btn-primary btn-lg mb-5">Empezar</a>
             </div>
         </header>

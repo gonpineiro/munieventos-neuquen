@@ -27,7 +27,7 @@ AppAsset::register($this);
     <?php $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/ico', 'href' => Url::base('http') . '/favicon.png']); ?>
 
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title) ?> - Municipalidad de Neuquén</title>
     <?php $this->head() ?>
 </head>
 
@@ -117,17 +117,14 @@ AppAsset::register($this);
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-6">
                     <h5 class="white-text">Municipalidad de Neuquén</h5>
-
-                    <p class="grey-text">Algo de texto describiendo? o información de contacto?</p>
-
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6">
                     <h5 class="white-text">Contacto</h5>
-                    <p>Avda. Argentina y Roca</p>
-                    <p><a class="text-white" style="text-decoration: none;" href="tel:+5402994491200">+ 54 0299 449 1200</a></p>
-                    <p><a class="text-white" style="text-decoration: none;" href="mailto:ciudadano@muninqn.gov.ar">ciudadano@muninqn.gov.ar</a></p>
+                    <p>Dirección: Avda. Argentina y Roca</p>
+                    <p>Teléfono: <a class="text-white" style="text-decoration: none;" href="tel:+5402994491200">+ 54 0299 449 1200</a></p>
+                    <p>Email: <a class="text-white" style="text-decoration: none;" href="mailto:ciudadano@muninqn.gov.ar">ciudadano@muninqn.gov.ar</a></p>
                 </div>
             </div>
         </div>
