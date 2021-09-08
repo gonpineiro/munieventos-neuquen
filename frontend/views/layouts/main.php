@@ -111,20 +111,16 @@ AppAsset::register($this);
 
     <section class="bg_muni_azul_5 text-light">
         <div class="container">
-            <div class="row mb-5">
-                <div class="col-12 col-md-5">
-                    <?= Html::img('@web/images/logo-03-negativo.svg', ['class' => 'img-fluid ', 'style' => 'width:200px;']); ?>
-                </div>
-            </div>
+
             <div class="row">
-                <div class="col-12 col-md-6">
-                    <h5 class="white-text">Municipalidad de Neuquén</h5>
+                <div class="col-12 col-md-7">
+                    <?= Html::img('@web/images/logo-03-negativo.svg', ['class' => 'img-fluid my-3', 'style' => 'width:300px;']); ?>
                 </div>
-                <div class="col-12 col-md-6">
-                    <h5 class="white-text">Contacto</h5>
+                <div class="col-12 col-md-5">
+                    <h4 class="white-text">Municipalidad de Neuquén</h4>
                     <p>Dirección: Avda. Argentina y Roca</p>
-                    <p>Teléfono: <a class="text-white" style="text-decoration: none;" href="tel:+5402994491200">+ 54 0299 449 1200</a></p>
-                    <p>Email: <a class="text-white" style="text-decoration: none;" href="mailto:munieventos@muninqn.gov.ar">munieventos@muninqn.gov.ar</a></p>
+                    <p>Teléfono: <a class="text-white" href="tel:+5402994491200">+ 54 0299 449 1200</a></p>
+                    <p>Email: <a class="text-white" href="mailto:munieventos@muninqn.gov.ar">munieventos@muninqn.gov.ar</a></p>
                 </div>
             </div>
         </div>
