@@ -92,8 +92,8 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
 
     <header class="hero gradient-hero">
         <div class="container-fluid center-content text-center padding_hero text-white">
-            <h1 class="text-white text-uppercase"><?= $evento->nombreEvento ?></h1>
-            <div class="row padding_section">
+            <h1 class="text-white text-uppercase pb-3"><?= $evento->nombreEvento ?></h1>
+            <div class="row">
                 <div class="col text-center">
                     <h4 class="font-weight-light"><i class="material-icons large align-middle text-white">date_range</i> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?>
                         <?PHP
@@ -405,14 +405,14 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                             if ($inscripcion != null && $inscripcion->estado == 1) {
                                                 echo Html::a('Acreditación', ['acreditacion-evento/' . $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']);
                                             } else {
-                                                echo Html::tag('p', 'Usted ya ha registrado su asistencia.', ['class' => 'text-center', 'style' => 'font-size:0.8rem;margin:0px;']);
+                                                echo Html::tag('p', 'Usted ya ha registrado su asistencia.', ['class' => 'text-center', 'style' => 'margin:0px;']);
                                                 //echo "<p class='text-center'>Usted ya está acreditado.</p>";
                                             }
                                         } else if ($estadoEventoInscripcion == "yaAcreditado") {
-                                            //echo Html::tag('p', 'Usted ya está acreditado.', ['class' => 'text-center', 'style' => 'font-size:0.8rem']);
+                                            echo Html::tag('p', 'Usted ya está acreditado.', ['class' => 'text-center', 'style' => 'margin:0px;']);
                                             //echo "<p class='text-center'>Usted ya está acreditado.</p>";
                                         } else {
-                                            echo Html::tag('p', 'El evento ya ha iniciado.', ['class' => 'text-center', 'style' => 'font-size:0.8rem;margin:0px;']);
+                                            //echo Html::tag('p', 'El evento ya ha iniciado.', ['class' => 'text-center', 'style' => 'font-size:0.8rem;margin:0px;']);
                                             //echo "El evento ya ha iniciado";
                                         }
                                     }
@@ -487,7 +487,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     </li>
                                     <li class="list-group-item bg_muni_azul_5 text-white">
                                         <p><b>Capacidad: </b></p>
-                                        <span class="font-weight-light"><?= ($evento->capacidad != null) ? $evento->capacidad : "Sin limite" ?></span>
+                                        <span class="font-weight-light"><?= ($evento->capacidad != null) ? $evento->capacidad : "Sin límite" ?></span>
                                     </li>
                                     <li class="list-group-item bg_muni_azul_5 text-white">
                                         <p><b>Fecha Publicación: </b></p>
