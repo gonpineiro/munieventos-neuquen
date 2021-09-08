@@ -34,7 +34,7 @@ $this->title = "Cargar Evento";
                             <label for="evento-nombrecortoevento"> Nombre corto del evento: * </label>
                             <div class="row">
                                 <div class="col-4 form-advice">
-                                    <span class="m-auto"> Opciones automaticas: </span>
+                                    <span class="m-auto"> Opciones automáticas: </span>
                                 </div>
                                 <div class="nombresCortos" id="automaticSlug">
                                 </div>
@@ -43,10 +43,10 @@ $this->title = "Cargar Evento";
                                     <!--<input type="radio" id="otro" name="shortName" value=""> <label for="otro">Otro: </label>-->
                                     <?=
                                     $form->field($model, 'nombreCortoEvento')->textInput([
-                                        'maxlength' => true, 'placeholder' => 'Ingrese  nombre corto',
+                                        'maxlength' => true, 'placeholder' => 'Ingrese nombre corto',
                                         'data-title' => 'Requisitos',
                                         'data-toggle' => 'popover',
-                                        'data-content' => 'Solo puede tener numeros y letras, sin caracteres especiales y los espacios deben ser guiones. Ejemplo test-evento.',
+                                        'data-content' => 'Solo puede tener números y letras, sin caracteres especiales y los espacios deben ser guiones. Ejemplo test-evento.',
                                     ])->label(false)
                                     ?>
                                 </div>
@@ -97,11 +97,11 @@ $this->title = "Cargar Evento";
 
                             <?= $form->field($model, 'lugar')->textInput(['placeholder' => 'Ingrese lugar'], ['maxlength' => true])->label('Lugar *') ?>
 
-                            <?= $form->field($model, 'idCategoriaEvento')->dropdownList($categoriasEventos, ['prompt' => 'Seleccione una categoria'])->label('Categoria *'); ?>
+                            <?= $form->field($model, 'idCategoriaEvento')->dropdownList($categoriasEventos, ['prompt' => 'Seleccione una categoría'])->label('Categoría *'); ?>
 
                             <?= $form->field($model, 'idModalidadEvento')->dropdownList($modalidadEvento, ['prompt' => 'Selecciona una modalidad'])->label('Modalidad *'); ?>
 
-                            <?= $form->field($model, 'secretariaEvento')->dropdownList($secretariaEvento, ['prompt' => 'Selecciona una secretaria / Unicades de Gestion'])->label('Secretarias / Unicades de Gestion *'); ?>
+                            <?= $form->field($model, 'secretariaEvento')->dropdownList($secretariaEvento, ['prompt' => 'Selecciona una secretaría / Unicades de Gestión'])->label('Secretarías / Unidades de Gestión *'); ?>
 
                             <?= $form->field($model, 'fechaInicioEvento')->input('date', ['style' => 'width: auto'])->label('Fecha Inicio *') ?>
 
@@ -112,7 +112,7 @@ $this->title = "Cargar Evento";
                             <?= $form->field($model, 'horaFinEvento')->textInput(['placeholder' => 'Hora Fin'])->label('Hora Fin *') ?>
 
                             <!-- input logo -->
-                            <?= $form->field($modelLogo, 'imageLogo')->fileInput()->label('Ingrese logo [solo formato png, jpg y jpeg]') ?>
+                            <?= $form->field($modelLogo, 'imageLogo')->fileInput()->label('Ingrese banner [medida recomendada 1920x300 y solo formato png, jpg y jpeg]') ?>
                             <button type="button" id="quitarLogo" class="btn btn-sm btn-outline">Quitar</button>
                             <br>
                             <br>

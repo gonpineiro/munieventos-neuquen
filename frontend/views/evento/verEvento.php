@@ -97,10 +97,9 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                 <div class="col text-center">
                     <h4 class="font-weight-light"><i class="material-icons large align-middle text-white">date_range</i> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?>
                         <?PHP
-                        if (!is_null($horaInicioEvento)) {
-                            echo "<h4> <i class='material-icons large align-middle text-white'>access_time</i> " . $horaInicioEvento . " - " . $horaFinEvento . "</h4>";
-                        }
-                        ?>
+                        if (!is_null($horaInicioEvento)) { ?>
+                            <h4 class="font-weight-light"> <i class='material-icons large align-middle text-white'>access_time</i> <?= $horaInicioEvento . " - " . $horaFinEvento ?></h4>
+                        <?PHP } ?>
                     </h4>
 
                     <h4 class="font-weight-light"><i class="material-icons large align-middle text-white">location_on</i> <?= $evento->lugar ?></h4>
@@ -495,7 +494,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                         <li class="list-group-item bg_muni_azul_5 text-white">
                                             <span>
                                                 <a class="btn btn-default full_width" href=<?= "/evento/lista-participantes?idEvento=$evento->idEvento&extension=csv" ?>>
-                                                    <i class="material-icons align-middle">file_download</i>Listado de Parcticipantes</a>
+                                                    <i class="material-icons align-middle">file_download</i>Listado de Participantes</a>
                                             </span>
                                         </li>
                                     <?php } ?>
