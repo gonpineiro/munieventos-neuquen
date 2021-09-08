@@ -73,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="row">
 
                                     <!-- Profile Card Body IMG -->
-                                    <div class="col-md-5 col-sm-12">
+                                    <div class="col-md-3 col-sm-12">
                                         <img class="card-img" width="100%" height="" src="<?php echo $profileImage ?>" title="<?= Html::encode($dataUser['nombre']); ?>">
                                         <!-- Input profile image -->
                                         <div class=".text-center d-flex justify-content-center">
@@ -96,29 +96,29 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <!-- Profile Card Body IMG -->
 
                                     <!-- Profile Card Body Content -->
-                                    <div class="col-md-7 col-sm-12 mt-3">
+                                    <div class="col-md-9 col-sm-12 mt-3">
                                         <div class="row">
-                                            <div class="col-8 mb-3">
+                                            <div class="col-12 col-md-4 mb-3">
                                                 <h5>Nombre:</h5>
                                                 <?= Html::encode($dataUser['nombre']) . ' ' . Html::encode($dataUser['apellido']); ?>
                                             </div>
-                                            <div class="col-4 mb-3">
+                                            <div class="col-12 col-md-4 mb-3">
                                                 <h5> DNI: </h5>
                                                 <?= Html::encode($dataUser['dni']); ?>
                                             </div>
-                                            <div class="col-12 mb-5">
+                                            <div class="col-12 mb-3">
                                                 <h5> Email: </h5>
                                                 <?= Html::encode($dataUser['email']); ?>
                                             </div>
-                                            <div class="col-md-4 col-sm-3">
+                                            <div class="col-12 col-md-4 mb-3">
                                                 <h5> País: </h5>
                                                 <?= Html::encode($dataUser['pais']); ?>
                                             </div>
-                                            <div class="col-md-4 col-sm-3">
+                                            <div class="col-12 col-md-4 mb-3">
                                                 <h5> Provincia: </h5>
                                                 <?= Html::encode($dataUser['provincia']); ?>
                                             </div>
-                                            <div class="col-md-4 col-sm-5">
+                                            <div class="col-12 col-md-4 mb-3">
                                                 <h5> Localidad: </h5>
                                                 <?= Html::encode($dataUser['localidad']); ?>
                                             </div>
