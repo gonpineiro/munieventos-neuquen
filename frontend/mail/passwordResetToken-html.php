@@ -50,10 +50,10 @@ if (preg_match('/backend/i', Yii::$app->request->referrer)) {
 
                 <p> Hemos recibido una solicitud para restablecer tu contraseña en la
                     plataforma <?= Html::encode(Yii::$app->name) ?>. </p>
-                <p> Si tu no pediste el cambio de contraseña y crees que fue un error, por favor, ignora este correo y contactanos
+                <p> Si no pediste el cambio de contraseña y crees que fue un error, por favor, ignora este correo y contactanos
                     lo antes posible. </p>
 
-                <p style="margin-bottom: 50px"> Para restablecer tu contraseña, clickea sobre el botón "Reestablecer
+                <p style="margin-bottom: 50px"> Para restablecer tu contraseña, clickea sobre el botón "Restablecer
                     contraseña": </p>
 
                 <!-- Botón -->
