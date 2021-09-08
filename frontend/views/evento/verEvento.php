@@ -300,21 +300,19 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                 <?= $logo ?>
 
                                 <div class="padding_section">
-                                    <div>
-                                        <i class="material-icons align-middle text_muni_azul_45">today</i><span class=" align-middle text_muni_azul_45"> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?>
-                                            <?PHP
-                                            if (!is_null($horaInicioEvento)) {
-                                                echo "<i class='material-icons large align-middle'>access_time</i> " . $horaInicioEvento . " - " . $horaFinEvento;
-                                            }
-                                            ?></span>
-                                    </div>
+                                    <span class="align-middle text_muni_azul_45 mr-2"><i class="material-icons align-middle">today</i> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
+                                    <?PHP
+                                    if (!is_null($horaInicioEvento)) { ?>
+                                        <span class="align-middle text_muni_azul_45"><i class="material-icons align-middle">access_time</i> <?= $horaInicioEvento . " - " . $horaFinEvento ?></span>
+                                    <?PHP } ?>
+
+
                                     <br>
                                     <?php if ($esDueño || $esAdministrador) { ?>
-                                        <div class="mt-3">
-
+                                        <div class="mt-4">
                                             <span class="align-middle">
                                                 <?php
-                                                echo Html::a('<i class="material-icons align-middle">email</i> Enviar un mail a los participantes', ['eventos/crear-email/' . $evento->nombreCortoEvento], ['class' => 'pt-5', 'style' => 'text-decoration:none;']);
+                                                echo Html::a('<i class="material-icons align-middle">email</i> Enviar un mail a los participantes', ['eventos/crear-email/' . $evento->nombreCortoEvento], ['style' => 'text-decoration:none;']);
                                                 ?>
                                             </span>
                                         </div>
@@ -461,37 +459,37 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                             <div class="col-sm-12 col-md-4 padding_section white-text">
                                 <ul class="list-group">
                                     <li class="list-group-item bg_muni_azul_5 text-white">
-                                        <p><b>Fecha de Inicio: </b></p>
-                                        <span><?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
+                                        <p>Fecha de Inicio: </p>
+                                        <span class="font-weight-light text-light"><?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span>
                                     </li>
                                     <li class="list-group-item bg_muni_azul_5 text-white">
-                                        <p><b>Fecha de Finalización: </b></p>
-                                        <span><?= date("d-m-Y", strtotime($evento->fechaFinEvento)) ?></span>
+                                        <p>Fecha de Finalización: </p>
+                                        <span class="font-weight-light text-light"><?= date("d-m-Y", strtotime($evento->fechaFinEvento)) ?></span>
                                     </li>
                                     <li class="list-group-item bg_muni_azul_5 text-white">
-                                        <p><b>Fecha Límite de Inscripción: </b></p>
-                                        <span><?php
-                                                if ($evento->fechaLimiteInscripcion == null || $evento->fechaLimiteInscripcion == '1969-12-31') {
-                                                    echo "Sin fecha límite"; ////
-                                                } else {
-                                                    echo date("d-m-Y", strtotime($evento->fechaLimiteInscripcion));
-                                                } ?></span>
+                                        <p>Fecha Límite de Inscripción: </p>
+                                        <span class="font-weight-light text-light"><?php
+                                                                                    if ($evento->fechaLimiteInscripcion == null || $evento->fechaLimiteInscripcion == '1969-12-31') {
+                                                                                        echo "Sin fecha límite"; ////
+                                                                                    } else {
+                                                                                        echo date("d-m-Y", strtotime($evento->fechaLimiteInscripcion));
+                                                                                    } ?></span>
                                     </li>
                                     <li class="list-group-item bg_muni_azul_5 text-white">
-                                        <p><b>Lugar: </b></p>
-                                        <span class="font-weight-light"><?= $evento->lugar ?></span>
+                                        <p>Lugar: </p>
+                                        <span class="font-weight-light text-light"><?= $evento->lugar ?></span>
                                     </li>
                                     <li class="list-group-item bg_muni_azul_5 text-white">
-                                        <p><b>Modalidad: </b></p>
-                                        <span class="font-weight-light"><?= $modalidadEvento ?></span>
+                                        <p>Modalidad: </p>
+                                        <span class="font-weight-light text-light"><?= $modalidadEvento ?></span>
                                     </li>
                                     <li class="list-group-item bg_muni_azul_5 text-white">
-                                        <p><b>Capacidad: </b></p>
-                                        <span class="font-weight-light"><?= ($evento->capacidad != null) ? $evento->capacidad : "Sin límite" ?></span>
+                                        <p>Capacidad: </p>
+                                        <span class="font-weight-light text-light"><?= ($evento->capacidad != null) ? $evento->capacidad : "Sin límite" ?></span>
                                     </li>
                                     <li class="list-group-item bg_muni_azul_5 text-white">
-                                        <p><b>Fecha Publicación: </b></p>
-                                        <span><?= date("d-m-Y", strtotime($fechaPublicacion)) ?></span>
+                                        <p>Fecha Publicación: </p>
+                                        <span class="font-weight-light text-light"><?= date("d-m-Y", strtotime($fechaPublicacion)) ?></span>
                                     </li>
                                     <?php if ($esDueño || $esAdministrador) { ?>
                                         <li class="list-group-item bg_muni_azul_5 text-white">
