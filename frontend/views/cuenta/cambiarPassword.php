@@ -8,13 +8,12 @@ use frontend\models\ResetPasswordForm;
 use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = 'Cambiar contraseña';
+$this->title = 'Cambiar Contraseña';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-reset-password container">
-    <h1 class="text-center"><?= Html::encode($this->title) ?></h1>
+    <h1 class="text-center text_muni_azul_5 mb-5"><?= Html::encode($this->title) ?></h1>
 
-    <p class="text-center"> Por favor, ingrese su nueva contraseña: </p>
 
     <div class="row">
         <div class="col-lg-5 m-auto">
@@ -32,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ])->label('Nueva contraseña: ');
             ?>
             <?= $form->field($model, 'repeatNewPassword')->passwordInput(['placeholder' => 'Repita la nueva contraseña', 'class' => 'form-control showCambiarPw',])->label('Repetir nueva contraseña: ') ?>
-            <?= $form->field($model, 'showpw', ['options' => ['class' => 'showpw mb-2']])->checkBox()->label("Mostrar Contraseñas") ?>
+            <?= $form->field($model, 'showpw', ['options' => ['class' => 'showpw mb-2']])->checkBox()->label("Mostrar contraseñas") ?>
 
             <div class="form-group">
                 <?= Html::submitButton('Guardar', ['class' => 'btn btn-primary']) ?>

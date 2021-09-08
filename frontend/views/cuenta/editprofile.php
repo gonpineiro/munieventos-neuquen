@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = 'Actualizar información';
 
 
 <div class="profile-update container">
-    <h1 class="text-center"><?= Html::encode($this->title) ?></h1>
+    <h3 class="mb-3 text_muni_azul_5"><?= Html::encode($this->title) ?></h3>
 
     <div class="row">
         <div class="col-12 m-auto profileForm">
@@ -29,13 +29,13 @@ $this->params['breadcrumbs'][] = 'Actualizar información';
                     <?= $form->field($model, 'dni')->label('DNI (*)')->textInput(['placeholder' => 'Ejemplo: 26734824']); ?>
                 </div>
                 <div class="col-md-4 col-sm-12">
-                    <?= $form->field($model, 'pais')->label('Pais (*)')->textInput(['value' => 'Argentina']); ?>
+                    <?= $form->field($model, 'pais')->label('País (*)')->textInput(['value' => 'Argentina']); ?>
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <?= $form->field($model, 'provincia')->label('Provincia (*)')->textInput(['placeholder' => 'Ejemplo: Buenos Aires']); ?>
                 </div>
                 <div class="col-md-4 col-sm-12">
-                    <?= $form->field($model, 'localidad')->label('Localidad (*)')->textInput(['placeholder' => 'Ejemplo: Neuquen']); ?>
+                    <?= $form->field($model, 'localidad')->label('Localidad (*)')->textInput(['placeholder' => 'Ejemplo: Neuquén']); ?>
                 </div>
             </div>
             <div class="form-group">

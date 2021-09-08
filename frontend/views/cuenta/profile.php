@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <!-- Profile Card Header -->
                             <div class="card-header">
                                 <div class="row">
-                                    <h4 class="col-md-9 col-sm-12">Perfil
+                                    <h4 class="col-md-9 col-sm-12 text_muni_azul_5">Perfil
                                         de <?= Html::encode($dataUser['nombre'] . ' ' . $dataUser['apellido']); ?> </h4>
                                     <?php $urlPencil = Url::base(true) . '/iconos/pencil.svg'; ?>
                                     <?=
