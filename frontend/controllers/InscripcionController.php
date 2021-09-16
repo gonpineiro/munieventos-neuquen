@@ -153,6 +153,17 @@ class InscripcionController extends Controller
             }
             $seGuardo = $inscripcion->save();
             if ($seGuardo) {
+                $userEmail = Yii::$app->user->identity->email;
+                Yii::$app->mailer
+                    ->compose(
+                        ['html' => 'confirmacionDeInscripcion-html'],
+                        ['evento' => $evento]
+                    )
+                    ->setFrom([Yii::$app->params['supportEmail'] => 'No-reply @ ' . Yii::$app->name])
+                    ->setBcc($userEmail)
+                    ->setSubject('Inscripción el Evento: ' . $evento->nombreEvento)
+                    ->send();
+
                 $texto = $esPreInscripcion ? "Se ha pre-inscripto con éxito" : "Se ha inscripto con éxito";
                 Yii::$app->session->setFlash('success', '<h2>' . $texto . '</h2>'
                     . '<p> Buena suerte </p>');
