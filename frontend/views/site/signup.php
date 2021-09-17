@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ])->textInput(['value' => 'Argentina']);
             ?>
             <?= $form->field($model, 'provincia')->label('Provincia (*)')->textInput(['placeholder' => 'Ejemplo: Buenos Aires']); ?>
-            <?= $form->field($model, 'localidad')->label('Localidad (*)')->textInput(['placeholder' => 'Ejemplo: Neuquen']); ?>
+            <?= $form->field($model, 'localidad')->label('Localidad (*)')->textInput(['placeholder' => 'Ejemplo: Neuquén']); ?>
             <?=
             $form->field($model, 'barrio')->label('Barrio (*) <small class="text-muted">Escribí "otro" si no encontrás tu barrio</small>')->widget(AutoComplete::classname(), [
                 'options' => ['class' => 'form-control'],
