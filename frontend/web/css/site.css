@@ -128,7 +128,16 @@ a {
 .text_muni_azul_1 {
   color: #bedced;
 }
-
+/* ALERTS */
+.alert-success {
+  color: white;
+  background-color: #3096d2;
+  border-color: #3096d2;
+  padding-top: 2%;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+}
 /* BOTONES */
 
 .btn {
