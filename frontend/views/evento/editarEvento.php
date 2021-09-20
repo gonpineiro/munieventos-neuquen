@@ -11,6 +11,7 @@ use frontend\models\ModalidadEvento;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Evento */
 /* @var $form yii\widgets\ActiveForm */
+
 $this->title = "Editar Evento - " . $model->nombreCortoEvento;
 ?>
 <div class="dark_light_bg">
@@ -42,17 +43,19 @@ $this->title = "Editar Evento - " . $model->nombreCortoEvento;
                                 <br>
                                 <div class="col-12 mt-2 nombresCortos">
                                     <!--<input type="radio" id="otro" name="shortName" value=""> <label for="otro">Otro: </label>-->
-                                    <?= $form->field($model, 'nombreCortoEvento')->textInput(['maxlength' => true, 'placeholder' => 'Ingrese  nombre corto',
+                                    <?= $form->field($model, 'nombreCortoEvento')->textInput([
+                                        'maxlength' => true, 'placeholder' => 'Ingrese  nombre corto',
                                         'data-title' => 'Requisitos',
                                         'data-toggle' => 'popover',
-                                        'data-content' => 'Solo puede tener numeros y letras, sin caracteres especiales y los espacios deben ser guiones. Ejemplo test-evento.',])->label(false) ?>
+                                        'data-content' => 'Solo puede tener números y letras, sin caracteres especiales y los espacios deben ser guiones. Ejemplo test-evento.',
+                                    ])->label(false) ?>
                                 </div>
                             </div>
 
                             <?php
                             //minimize ckedit on escape
                             $this->registerJs(
-                                    'CKEDITOR.on("instanceCreated", function (e) {
+                                'CKEDITOR.on("instanceCreated", function (e) {
                                         e.editor.on("contentDom", function () {
                                             e.editor.document.on("keydown", function (evto) {
                                                 if (evto.data.$.keyCode === 27 || evto.data.$.key === "Escape") {
@@ -61,9 +64,10 @@ $this->title = "Editar Evento - " . $model->nombreCortoEvento;
                                             }
                                         );
                                     });
-                                    });');
+                                    });'
+                            );
                             ?>
-                            
+
                             <?= $form->field($model, 'descripcionEvento')->widget(CKEditor::className(), [
                                 "options" => ['rows' => '8'],
                                 "preset" => "custom",
@@ -82,8 +86,8 @@ $this->title = "Editar Evento - " . $model->nombreCortoEvento;
                                         ['name' => 'font',],
                                         ['name' => 'styles'],
                                         ['name' => 'maximize'],
-                                        
-                                        
+
+
                                     ],
                                     'removeButtons' => 'Subscript,Superscript,Flash,Table,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe',
                                     'removePlugins' => 'elementspath',
@@ -94,13 +98,13 @@ $this->title = "Editar Evento - " . $model->nombreCortoEvento;
                             <?= $form->field($model, 'lugar')->textInput(['placeholder' => 'Ingrese lugar'], ['maxlength' => true])->label('Lugar *') ?>
 
                             <!-- select categoria -->
-                            <?= $form->field($model, 'idCategoriaEvento')->dropdownList($categoriasEventos, ['prompt' => 'Seleccione una categoria'])->label('Categoria *'); ?>
+                            <?= $form->field($model, 'idCategoriaEvento')->dropdownList($categoriasEventos, ['prompt' => 'Seleccione una categoría'])->label('Categoría *'); ?>
 
                             <!-- select modalidad -->
                             <?= $form->field($model, 'idModalidadEvento')->dropdownList($modalidadEvento, ['prompt' => 'Selecciona una modalidad'])->label('Modalidad *'); ?>
-                            
-                            <?= $form->field($model, 'secretariaEvento')->dropdownList($secretariaEvento, ['prompt' => 'Selecciona una secretaria / Unicades de Gestion'])->label('Secretarias / Unicades de Gestion *'); ?>
-                            
+
+                            <?= $form->field($model, 'secretariaEvento')->dropdownList($secretariaEvento, ['prompt' => 'Selecciona una secretaría / Unidades de Gestión'])->label('Secretarías / Unicades de Gestión *'); ?>
+
                             <!-- input logo -->
                             <?= $form->field($modelLogo, 'imageLogo')->fileInput()->label('Ingrese logo [solo formato png, jpg y jpeg]') ?>
                             <button type="button" id="quitarLogo" class="btn btn-sm btn-outline">Quitar</button>
@@ -119,13 +123,11 @@ $this->title = "Editar Evento - " . $model->nombreCortoEvento;
 
                                 <div role="radiogroup" aria-required="true">
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="espectadores-no"
-                                               name="posee-espectadores" value="-1" checked required>
+                                        <input class="custom-control-input" type="radio" id="espectadores-no" name="posee-espectadores" value="-1" checked required>
                                         <label class="custom-control-label" for="espectadores-no">No</label>
                                     </div>
                                     <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" id="espectadores-si"
-                                               name="posee-espectadores" value="2">
+                                        <input class="custom-control-input" type="radio" id="espectadores-si" name="posee-espectadores" value="2">
                                         <label class="custom-control-label" for="espectadores-si">Si</label><br>
                                     </div>
                                 </div>
