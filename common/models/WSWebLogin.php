@@ -46,7 +46,7 @@ class WSWebLogin
             $this->nombreApellido = explode(',', $usuario['datosPersonales']['razonSocial']);
             $this->email = $usuario['userName'];
             $this->pais = $usuario['datosPersonales']['domicilioReal']['codigoPostal']['pais'];
-            $this->password = $usuario['userPlainTextPass'];
+            $this->password = $usuario['userPass'];
 
             foreach ($usuario['apps'] as $apps) {
                 if ($apps['id'] == 999 && $apps['userProfiles']) {
