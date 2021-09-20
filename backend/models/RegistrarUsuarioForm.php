@@ -89,7 +89,7 @@ class RegistrarUsuarioForm extends Model
                 //iniciamos authManager
                 $auth = Yii::$app->authManager;
                 //indicamos el rol que deseamos asignarle al usuario
-                $usuarioRegistrado = $auth->createRole('Organizador');
+                $usuarioRegistrado = $auth->createRole('Registrado');
                 // Asignamos el rol al usuario registrado
                 $auth->assign($usuarioRegistrado, ($this->idUsuario));
                 //destruimos la referencha al authManager
