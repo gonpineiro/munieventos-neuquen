@@ -35,7 +35,7 @@ class RegistrarUsuarioForm extends Model
             //Obligatorio
             [['nombre', 'apellido', 'email', 'pais'], 'required'],
             //Reglas nombre
-            ['nombre', 'match', 'pattern' => '/^[a-zA-Z ]+$/', 'message' => 'El campo contiene caracteres inválidos'],
+            /* ['nombre', 'match', 'pattern' => '/^[a-zA-Z ]+$/', 'message' => 'El campo contiene caracteres inválidos'],
             ['nombre', 'string', 'min' => 2, 'max' => 14,
                 //comentario para minlenght
                 'tooShort' => 'El nombre debe tener como mínimo 2 caracteres.',
@@ -47,7 +47,7 @@ class RegistrarUsuarioForm extends Model
                 //comentario para minlenght
                 'tooShort' => 'El apellido debe tener como mínimo 2 caracteres.',
                 //comentario para maxLenght
-                'tooLong' => 'El apellido puede tener como máximo 14 caracteres. Si considera que esto un error, por favor, contacte un administrador'],
+                'tooLong' => 'El apellido puede tener como máximo 14 caracteres. Si considera que esto un error, por favor, contacte un administrador'], */
             //Reglas Email
             ['email', 'trim'],
             ['email', 'email'],
@@ -67,19 +67,18 @@ class RegistrarUsuarioForm extends Model
      *
      * @return bool whether the creating new account was successful and email was sent
      */
-    public function registrar()
+    public function registrar($pass = 'Muni_Eventos')
     {
         if (!$this->validate()) {
             return null;
         }
-
+        
         $user = new User();
         $user->nombre = $this->nombre;
         $user->apellido = $this->apellido;
         $user->pais = $this->pais;
         $user->email = $this->email;
-        $user->setPassword("Juntar1234");
-
+        $user->setPassword($pass);
 
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();

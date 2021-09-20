@@ -54,3 +54,42 @@ Tener en cuenta que este proceso va a tardar un poco la primera vez que lo corra
 
 #### Configuración del proyecto
  Dentro de `common/config/main-local.php` se debe configurar el acceso a la base de datos y la configuración del correo electronico del proyecto
+
+
+#### Integracion con WebLogin Municipalidad
+
+Se debe modificar el siguente archivo de la librearia de yii2: `\vendor\yiisoft\yii2\base\Application.php`
+ - Agregamos los siguentes `use` 
+
+ ```php
+  use backend\models\RegistrarUsuarioForm;
+  use common\models\LoginForm;
+  use common\models\WSWebLogin;
+  use common\models\User;
+ ```
+
+ - Dentro del metodo `run()` antes del `try catch` se debe agregar el siguente código:
+
+ ```php
+  if (isset($_GET['SESSIONKEY']) && isset($_GET['APP'])) {
+    $usuarioWsLogin = new WSWebLogin($_GET['SESSIONKEY'], $_GET['APP']);
+    if (!$usuarioWsLogin->error) {
+        $usuario = User::findByEmail($usuarioWsLogin->email);
+        if (!$usuario) {
+            $usuarioModelo = new RegistrarUsuarioForm();
+            $usuarioModelo->nombre = $usuarioWsLogin->nombreApellido[1];
+            $usuarioModelo->apellido = $usuarioWsLogin->nombreApellido[0];
+            $usuarioModelo->pais = $usuarioWsLogin->pais;
+            $usuarioModelo->email = $usuarioWsLogin->email;
+            $usuarioModelo->registrar($usuarioWsLogin->password);
+        }
+        $loginModel = new LoginForm();
+        $loginModel->email = $usuarioWsLogin->email;
+        $loginModel->password = $usuarioWsLogin->password;
+        $loginModel->login();
+    } else {
+        header('Location: https://weblogin.muninqn.gov.ar');
+        exit();
+    }
+}
+ ```
