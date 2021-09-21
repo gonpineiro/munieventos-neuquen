@@ -15,16 +15,16 @@ class RegistrarUsuarioForm extends Model
     public $nombre;
     public $apellido;
     public $pais;
-//    public $dni;
-//    public $telefono;
+    //    public $dni;
+    //    public $telefono;
     public $email;
-//    public $provincia;
-//    public $localidad;
-//    public $fecha_nacimiento;
+    //    public $provincia;
+    //    public $localidad;
+    //    public $fecha_nacimiento;
     private $idUsuario;
 
-//    public $password;
-//    public $showpw;
+    //    public $password;
+    //    public $showpw;
 
     /**
      * {@inheritdoc}
@@ -54,11 +54,11 @@ class RegistrarUsuarioForm extends Model
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'La dirección de correo electrónico que ha ingresado ya está registrada.'],
             //Reglas password
-//            ['password', 'match', 'pattern' => '/\d/', 'message' => 'La contraseña debe tener al menos un número.'],
-//            ['password', 'match', 'pattern' => '/\w*[A-Z]/', 'message' => 'La contraseña debe tener al menos una mayúscula.'],
-//            ['password', 'string', 'min' => 6, 'max' => 50, 'message' => 'La contraseña ingresada no es válida.',
-//                'tooShort' => 'La contraseña debe tener como mínimo 8 caracteres.', //comentario para minlenght
-//                'tooLong' => 'La contraseña debe tener como máximo 20 caracteres.'], //comentario para maxlenght
+            //            ['password', 'match', 'pattern' => '/\d/', 'message' => 'La contraseña debe tener al menos un número.'],
+            //            ['password', 'match', 'pattern' => '/\w*[A-Z]/', 'message' => 'La contraseña debe tener al menos una mayúscula.'],
+            //            ['password', 'string', 'min' => 6, 'max' => 50, 'message' => 'La contraseña ingresada no es válida.',
+            //                'tooShort' => 'La contraseña debe tener como mínimo 8 caracteres.', //comentario para minlenght
+            //                'tooLong' => 'La contraseña debe tener como máximo 20 caracteres.'], //comentario para maxlenght
         ];
     }
 
@@ -72,7 +72,7 @@ class RegistrarUsuarioForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
+
         $user = new User();
         $user->nombre = $this->nombre;
         $user->apellido = $this->apellido;
@@ -124,5 +124,4 @@ class RegistrarUsuarioForm extends Model
             ->setSubject('Te han registrado en ' . Yii::$app->name)
             ->send();
     }
-
 }
