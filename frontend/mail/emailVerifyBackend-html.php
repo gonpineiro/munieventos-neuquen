@@ -66,11 +66,7 @@ use yii\helpers\Html;
         <p><b> Hola <?= Html::encode($user->nombre . " " . $user->apellido) ?>.<b>
                     <p><br>
 
-                    <p> Un administrador te ha registrado en <?= Html::encode(Yii::$app->name) ?> </p>
-                    <p> La contraseña asignada por defecto en estos casos es: Juntar1234. Puedes modificar este y otros datos en tu
-                        perfil de usuario. </p>
-                    <small> Te recomendamos, por seguridad personal, modificar esta información cuanto antes. </small>
-                    <!--<p style="margin-bottom: 50px"> Para finalizar el proceso de registro, clickea sobre el botón "Confirmar Email" </p>-->
+                    <p> Ya estás registrado en <?= Html::encode(Yii::$app->name) ?>. </p>
 
                     <div style="margin-top: 15px;">
                         <small>(Correo Generado Automáticamente)</small>
