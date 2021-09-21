@@ -49,15 +49,21 @@ class AcreditacionController extends Controller
 
     public function actionAcreditacion($slug)
     {
+        
         //Se utiliza el slug del url para encontrar el evento al que se quiere acreditar
         $evento = Evento::find()->where(["nombreCortoEvento" => $slug])->one();
 
         //Se verifica que el usuario no se haya inscripto ya
         $inscripcion = funciones::getEstaInscripto(Yii::$app->user->identity->idUsuario, $evento->idEvento);
+
         if (($inscripcion == null || $inscripcion->acreditacion == 1) && $evento->fechaInicioEvento <= date("Y-m-d")) {
             Yii::$app->session->setFlash('warning', '<p style="margin:10px"> Usted no se puede acreditar. </p>');
             return $this->redirect(['eventos/ver-evento/' . $slug]);
         } else {
+            if ($inscripcion == null) {
+                Yii::$app->session->setFlash('warning', '<p style="margin:10px"> Usted no se puede acreditar, porque no se encuentra inscripto. </p>');
+                return $this->redirect(['eventos/ver-evento/' . $slug]);
+            }
             //Si la acreditacion se realiza por codigo qr se obtiene el codigo de acreditacion del url
             if ($codigo = Yii::$app->request->get('codigoAcreditacion')) {
                 //Se verifica que el codigo de acreditacion ingresado sea el correcto
@@ -114,10 +120,11 @@ class AcreditacionController extends Controller
 
     private function acreditar($inscripcion)
     {
-        //El usuario es acreditado
+        
+        //El usuario es acreditado        
         Yii::$app->session->setFlash('success', '<p> Usted ha registrado su asistencia al evento. </p>');
         $inscripcion->acreditacion = 1;
-        $seGuardo = $inscripcion->save();
+        $seGuardo = $inscripcion->save();       
 
         return $seGuardo ? true : false;
     }

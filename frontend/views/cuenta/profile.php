@@ -24,7 +24,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <a class="nav-link active" href="profile"> Información de la Cuenta </a>
                             </li>
                             <li class="nav-item profile-sidebar col-12">
-                                <?= Html::a('Cambiar Contraseña', ['cuenta/cambiar-password'], ['class' => 'nav-link']); ?>
+
+                                <!-- Implementacion WebLogin -->
+                                <?php /* Html::a('Cambiar Contraseña', ['cuenta/cambiar-password'], ['class' => 'nav-link']); */ ?>
                             </li>
                             <!-- a futuro -->
                             <!--                    <li class="nav-item profile-sidebar col-12">
@@ -35,11 +37,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             <!--                <li class="nav-item profile-sidebar col-12">
                             <a class="nav-link" href=""> Preferencias de Email </a>
                         </li>-->
-                            <li class="nav-item profile-sidebar col-12">
-                                <a class="nav-link bg-gray" href="<?= Url::toRoute(['cuenta/desactivar-cuenta']) ?>">
+                            <!-- Implementacion WebLogin -->
+
+                            <!-- <li class="nav-item profile-sidebar col-12">
+                                <a class="nav-link bg-gray" href="<?php echo Url::toRoute(['cuenta/desactivar-cuenta'])  ?>">
                                     Desactivar mi Cuenta </a>
                             </li>
-
+                            -->
                         </ul>
                     </div>
                     <!-- Profile Sidebar Menu-->
