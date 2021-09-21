@@ -7,7 +7,7 @@
 $nombreEvento = $evento->nombreEvento;
 $inicio = date('d-m-Y', strtotime($evento->fechaInicioEvento));
 $fin = date('d-m-Y', strtotime($evento->fechaFinEvento));
-if (!is_null($evento->horaInicioEvento) && !is_null($evento->horaFinEvento)) {
+if (!is_null($evento->horaInicioEvento) && !is_null($evento->horaFinEvento) && !empty($evento->horaInicioEvento) && !empty($evento->horaFinEvento)) {
     $horarios = " desde " . $evento->horaInicioEvento . " hasta " . $evento->horaFinEvento;
 } else {
     $horarios = "";
