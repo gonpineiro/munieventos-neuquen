@@ -57,17 +57,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <h4 class="col-md-9 col-sm-12 text_muni_azul_5">Perfil
                                         de <?= Html::encode($dataUser['nombre'] . ' ' . $dataUser['apellido']); ?> </h4>
                                     <?php $urlPencil = Url::base(true) . '/iconos/pencil.svg'; ?>
-                                    <?=
-                                    Html::a(
-                                        ' Editar Perfil '
-                                            . Html::img($urlPencil, [
-                                                "alt" => "Editar", "title" => "Editar", "width" => "18", "height" => "18", "role" => "img",
-                                                "class" => "ml-1 filter-white", "style" => "margin-top: -4px;", "data-id" => Url::toRoute(["editprofile"])
-                                            ]),
-                                        Url::toRoute(['editprofile']),
-                                        ['class' => 'col-md-3 col-sm-12 btn btn-primary editProfile', "data-id" => Url::toRoute(["editprofile"])]
-                                    );
-                                    ?>
                                 </div>
                             </div>
                             <!-- Profile Card Header -->
@@ -113,18 +102,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <div class="col-12 mb-3">
                                                 <h5> Email: </h5>
                                                 <?= Html::encode($dataUser['email']); ?>
-                                            </div>
-                                            <div class="col-12 col-md-4 mb-3">
-                                                <h5> País: </h5>
-                                                <?= Html::encode($dataUser['pais']); ?>
-                                            </div>
-                                            <div class="col-12 col-md-4 mb-3">
-                                                <h5> Provincia: </h5>
-                                                <?= Html::encode($dataUser['provincia']); ?>
-                                            </div>
-                                            <div class="col-12 col-md-4 mb-3">
-                                                <h5> Localidad: </h5>
-                                                <?= Html::encode($dataUser['localidad']); ?>
                                             </div>
 
                                         </div>
