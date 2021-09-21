@@ -95,10 +95,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <h5>Nombre:</h5>
                                                 <?= Html::encode($dataUser['nombre']) . ' ' . Html::encode($dataUser['apellido']); ?>
                                             </div>
-                                            <div class="col-12 col-md-4 mb-3">
-                                                <h5> DNI: </h5>
-                                                <?= Html::encode($dataUser['dni']); ?>
-                                            </div>
                                             <div class="col-12 mb-3">
                                                 <h5> Email: </h5>
                                                 <?= Html::encode($dataUser['email']); ?>
