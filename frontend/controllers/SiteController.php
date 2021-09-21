@@ -173,6 +173,10 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
+        /* Implementacion WebLogin */
+        header('Location: https://weblogin.muninqn.gov.ar');
+        exit();
+
         return $this->goHome();
     }
 
