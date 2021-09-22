@@ -93,3 +93,11 @@ Se debe modificar el siguente archivo de la librearia de yii2: `\vendor\yiisoft\
     }
 }
  ```
+
+#### Instalación de CURL y reinicio del servidores
+
+```sh
+  sudo apt-get install curl -y
+  sudo apt-get install php[tu-version]-curl -y
+  sudo service nginx restart
+```
