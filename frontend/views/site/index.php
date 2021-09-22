@@ -38,7 +38,6 @@ $this->title = 'Muni Eventos';
             <div class="center-content">
                 <h1 class="text-white my-5"><span class="text-mask">Muni Eventos</span></h1>
                 <!-- <?= Html::img('@web/images/icono-muni-evento.png', ['class' => 'img-fluid mt-3 ', 'style' => 'width:300px']);  ?> -->
-                <a href="#events" class="btn btn-primary btn-lg mb-5">Empezar</a>
             </div>
         </header>
         <div class="bg_muni_azul_5" style="padding: 45px 15px 30px;" id="events">
