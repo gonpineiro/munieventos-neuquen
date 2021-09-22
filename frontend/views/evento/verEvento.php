@@ -94,15 +94,17 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
         <div class="container-fluid center-content text-center padding_hero text-white">
             <h1 class="text-white text-uppercase"><span class="text-mask"><?= $evento->nombreEvento ?></span></h1>
             <div class="row">
-                <div class="col text-center text-mask">
-                    <h4 class="font-weight-light"><i class="material-icons large align-middle text-white">date_range</i> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></h4>
+                <div class="col text-center">
+
+                    <h4 class="font-weight-light"><span class="text-mask"><i class="material-icons large align-middle text-white">date_range</i> <?= date("d-m-Y", strtotime($evento->fechaInicioEvento)) ?></span></h4>
+
                     <?PHP
                     if (!is_null($horaInicioEvento)) { ?>
-                        <h4 class="font-weight-light"><i class='material-icons large align-middle text-white'>access_time</i> <?= $horaInicioEvento . " - " . $horaFinEvento ?></h4>
+                        <h4 class="font-weight-light"><span class="text-mask"><i class='material-icons large align-middle text-white'>access_time</i> <?= $horaInicioEvento . " - " . $horaFinEvento ?></span></h4>
                     <?PHP } ?>
 
 
-                    <h4 class="font-weight-light"><i class="material-icons large align-middle text-white">location_on</i> <?= $evento->lugar ?></h4>
+                    <h4 class="font-weight-light"><span class="text-mask"><i class="material-icons large align-middle text-white">location_on</i> <?= $evento->lugar ?></span></h4>
                 </div>
             </div>
         </div>
