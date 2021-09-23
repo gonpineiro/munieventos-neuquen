@@ -29,6 +29,7 @@ use yii\db\ActiveRecord;
  * @property string|null $imgLogo
  * @property int $capacidad
  * @property int $preInscripcion
+ * @property int $req_incripcion
  * @property string $fechaLimiteInscripcion
  * @property string|null $codigoAcreditacion
  * @property string $fechaCreacionEvento
@@ -72,7 +73,7 @@ class Evento extends ActiveRecord
     {
         return [
             [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento', 'secretariaEvento', 'nombreEvento', 'nombreCortoEvento', 'descripcionEvento', 'lugar', 'fechaInicioEvento', 'fechaFinEvento', 'preInscripcion'], 'required'],
-            [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento', 'capacidad', 'preInscripcion'], 'integer'],
+            [['idUsuario', 'idCategoriaEvento', 'idEstadoEvento', 'idModalidadEvento', 'capacidad', 'preInscripcion', 'req_incripcion'], 'integer'],
             [['fechaInicioEvento', 'fechaFinEvento', 'fechaLimiteInscripcion', 'fechaCreacionEvento', 'idSecretariaEvento'], 'safe'],
             [['nombreEvento', 'lugar', 'imgFlyer', 'imgLogo'], 'string', 'max' => 200],
             ['fechaFinEvento', 'compare', 'compareAttribute' => 'fechaInicioEvento', 'operator' => '>='],
@@ -115,6 +116,7 @@ class Evento extends ActiveRecord
             'imgLogo' => 'Img Logo',
             'capacidad' => 'Capacidad',
             'preInscripcion' => 'Preinscripción',
+            'req_incripcion' => 'Require Incripción',
             'fechaLimiteInscripcion' => 'Fecha Limite de Preinscripción',
             'codigoAcreditacion' => 'Código Asistencia',
             'fechaCreacionEvento' => 'Fecha Creación Evento',

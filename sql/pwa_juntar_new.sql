@@ -56,6 +56,7 @@ CREATE TABLE evento (
   imgLogo varchar(200) DEFAULT NULL,
   capacidad smallint(6) NULL,
   preInscripcion tinyint(1) NOT NULL,
+  req_incripcion tinyint(1) NOT NULL,
   fechaLimiteInscripcion date DEFAULT NULL,
   codigoAcreditacion varchar(100) DEFAULT NULL,
   fechaCreacionEvento date DEFAULT NULL
