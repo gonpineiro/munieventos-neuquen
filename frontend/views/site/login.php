@@ -15,29 +15,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1 class="text-center mb-2"><?= Html::encode($this->title) ?></h1>
     <div class="row">
         <div class="col-lg-5 m-auto">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-            <?= $form->field($model, 'email')->input('email')->textInput(['autofocus' => true, 'placeholder' => 'Ingrese su dirección de correo']) ?>
-
-            <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Ingrese su contraseña']) ?>
-            <?= $form->field($model, 'showpw', ['options' => ['class' => 'showpw']])->checkBox()->label("Mostrar Contraseña") ?>
-
-            <?= $form->field($model, 'rememberMe')->checkbox()->label("Recordarme") ?>
-
-            <div class="form-advice">
-                ¿No tenés cuenta? <?= Html::a('registrarse', ['site/signup']) ?>.
-                <br>
-                Si olvidaste tu contraseña podés <?= Html::a('restablecerla', ['site/request-password-reset']) ?>.
-                <br>
-                ¿Necesitás activar tu
-                cuenta? <?= Html::a('Solicitar correo de Activación', ['site/resend-verification-email']) ?>
-            </div>
-
-            <div class="form-group">
-                <?= Html::submitButton('Ingresar', ['class' => 'btn btn-primary mt-2', 'name' => 'login-button']) ?>
-            </div>
-
-            <?php ActiveForm::end(); ?>
+            <form action="">
+                <div class="form-group">
+                    <label for="dniOrEmail">DNI o Correo Electrónico</label>
+                    <input type="text" class="form-control" id="dniOrEmail">
+                </div>
+                <div class="form-group">
+                    <label for="password">Clave</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+            </form>
         </div>
     </div>
 </div>
