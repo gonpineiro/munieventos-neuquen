@@ -13,6 +13,7 @@ class LoginForm extends Model
     public $email;
     public $password;
     public $showpw;
+    public $externalLogin;
     public $rememberMe = true;
 
     private $_user;

@@ -154,7 +154,20 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->login()) {
+        if ($model->load(Yii::$app->request->post()) /* && $model->validate()  *//* &&  */) {
+            echo "<pre>";
+            print_r($model);
+            echo "</pre>";
+            if ($model->externalLogin == 'externalLogin') {
+                die('externalLogin');
+            } else {
+                if ($model->login()) {
+                    die('login');
+                    return $this->goBack(Url::previous());
+                }
+            }
+            die('ninguno');
+
             return $this->goBack(Url::previous());
         } else {
             $model->password = '';
@@ -448,5 +461,10 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+
+    public function actionExternalLog()
+    {
+        die('hola');
     }
 }

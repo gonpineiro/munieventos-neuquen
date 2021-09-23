@@ -104,6 +104,7 @@ return [
                 "inscripcion/inscribir-a-usuario/<slug>/<id:\d+>" => "inscripcion/inscribir-a-usuario",
                 "inscripcion/anular-inscripcion/<slug>/<id:\d+>" => "inscripcion/anular-inscripcion",
                 'defaultRoute' => '/site/index',
+                'externalLogin' => '/site/external-log',
             ],
         ],
     ],
