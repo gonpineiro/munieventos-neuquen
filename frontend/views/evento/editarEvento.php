@@ -144,6 +144,8 @@ $this->title = "Editar Evento - " . $model->nombreCortoEvento;
                             <div id="fechaLimite">
                                 <?= $form->field($model, 'fechaLimiteInscripcion')->input('date', ['style' => 'width:auto'])->label('Fecha límite de preinscripción *') ?>
                             </div>
+                            <?= $form->field($model, 'req_incripcion')->radioList([0 => 'No', 1 => 'Si'])->label('¿Requiere inscripción? *') ?>
+
                             <?= $form->field($model, 'codigoAcreditacion')->textInput(['placeholder' => 'Ingrese código de acreditación'], ['maxlength' => true]) ?>
 
 
