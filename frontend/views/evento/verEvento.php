@@ -362,7 +362,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     if ($evento->fechaFinEvento >= date("Y-m-d") && $evento->idEstadoEvento != 3) {
                                         switch ($estadoEventoInscripcion) {
                                             case "puedeInscripcion":
-                                                if (!Yii::$app->user->isGuest && $evento->req_incripcion == 1) {
+                                                if (/* !Yii::$app->user->isGuest && */ $evento->req_incripcion == 1) {
                                                     echo Html::a('Inscribirse', ['inscripcion/preinscripcion', "slug" => $evento->nombreCortoEvento], ['class' => 'btn btn-primary btn-lg full_width']);
                                                 }
                                                 break;
