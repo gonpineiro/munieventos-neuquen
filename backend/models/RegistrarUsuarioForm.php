@@ -121,7 +121,7 @@ class RegistrarUsuarioForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => 'No-reply @ ' . Yii::$app->name])
             ->setTo($this->email)
-            ->setSubject('Te han registrado en ' . Yii::$app->name)
+            ->setSubject('Ya estás registrado en ' . Yii::$app->name)
             ->send();
     }
 }
