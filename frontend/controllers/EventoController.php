@@ -671,7 +671,7 @@ class EventoController extends Controller
                 'Secretaría de Turismo y Desarrollo Social' => "Secretaría de Turismo y Desarrollo Social",
                 'Secretaría de Finanzas' => "Secretaría de Finanzas",
                 'Subsecretaría de Medio Ambiente y Protección Ciudadana' => "Subsecretaría de Medio Ambiente y Protección Ciudadana",
-                'Secretaría de Gobiern' => "Secretaría de Gobierno",
+                'Secretaría de Gobierno' => "Secretaría de Gobierno",
                 'Secretaría de Hacienda' => "Secretaría de Hacienda"
             ];
 
