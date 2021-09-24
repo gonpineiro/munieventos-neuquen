@@ -101,7 +101,7 @@ $this->title = "Cargar Evento";
 
                             <?= $form->field($model, 'idModalidadEvento')->dropdownList($modalidadEvento, ['prompt' => 'Selecciona una modalidad'])->label('Modalidad *'); ?>
 
-                            <?= $form->field($model, 'secretariaEvento')->dropdownList($secretariaEvento, ['prompt' => 'Selecciona una secretaría / Unicades de Gestión'])->label('Secretarías / Unidades de Gestión *'); ?>
+                            <?= $form->field($model, 'secretariaEvento')->dropdownList($secretariaEvento, ['prompt' => 'Selecciona una secretaría / Unidades de Gestión'])->label('Secretarías / Unidades de Gestión *'); ?>
 
                             <?= $form->field($model, 'fechaInicioEvento')->input('date', ['style' => 'width: auto'])->label('Fecha Inicio *') ?>
 
