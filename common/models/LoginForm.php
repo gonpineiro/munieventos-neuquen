@@ -26,7 +26,7 @@ class LoginForm extends Model
     {
         return [
             // username and password are both required
-            [['email', 'password'], 'required'],
+            [['email', 'password', 'externalLogin'], 'required'],
             [['email'], 'email'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
@@ -86,6 +86,7 @@ class LoginForm extends Model
         return [
             'email' => 'Dirección de Correo',
             'password' => 'Contraseña',
+            'externalLogin' => 'externalLogin',
         ];
     }
 }

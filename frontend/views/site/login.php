@@ -17,12 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
             <h4 class="text-center pb-3 text_muni_azul_5">Iniciar Sesión</h4>
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
             <div class="form-group col-12 col-md-6 mx-auto">
-                <label for="email">DNI o Correo Electrónico</label>
                 <?= $form->field($model, 'email')->input('email')->textInput(['autofocus' => true, 'placeholder' => 'Ingrese su dirección de correo']) ?>
 
             </div>
             <div class="form-group col-12 col-md-6 mx-auto">
-                <label for="password">Clave</label>
                 <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Ingrese su contraseña']) ?>
                 <?= $form->field($model, 'externalLogin')->hiddenInput(['value' => 'externalLogin']) ?>
             </div>

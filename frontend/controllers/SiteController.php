@@ -2,7 +2,11 @@
 
 namespace frontend\controllers;
 
+use backend\models\RegistrarUsuarioForm;
 use common\models\LoginForm;
+use common\models\User;
+use common\models\WSWebLogin;
+use Exception;
 use frontend\models\ContactForm;
 use frontend\models\Evento;
 use frontend\models\PasswordResetRequestForm;
@@ -155,25 +159,67 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) /* && $model->validate()  *//* &&  */) {
-            echo "<pre>";
-            print_r($model);
-            echo "</pre>";
+
             if ($model->externalLogin == 'externalLogin') {
-                die('externalLogin');
+                $token = $this->webLogin($model->email, $model->password);
+                $usuarioWsLogin = new WSWebLogin($token, 63);
+                if (!$usuarioWsLogin->error) {
+                    $usuario = User::findByEmail($usuarioWsLogin->email);                    
+                    if (!$usuario) {
+                        $usuarioModelo = new RegistrarUsuarioForm();
+                        $usuarioModelo->nombre = $usuarioWsLogin->nombreApellido[1];
+                        $usuarioModelo->apellido = $usuarioWsLogin->nombreApellido[0];
+                        $usuarioModelo->pais = $usuarioWsLogin->pais;
+                        $usuarioModelo->email = $usuarioWsLogin->email;
+                        $usuarioModelo->registrar($usuarioWsLogin->password);
+                    }
+                    $model->email = $usuarioWsLogin->email;
+                    $model->password = $usuarioWsLogin->password;
+                    $model->login();
+                } else {
+                    header('Location: https://weblogin.muninqn.gov.ar');
+                    exit();
+                }
             } else {
                 if ($model->login()) {
-                    die('login');
                     return $this->goBack(Url::previous());
                 }
             }
-            die('ninguno');
-
             return $this->goBack(Url::previous());
         } else {
             $model->password = '';
             return $this->render('login', [
                 'model' => $model,
             ]);
+        }
+    }
+
+    private function webLogin($user, $pass)
+    {
+        $params = ["userName" => $user, 'userPass' => $pass];
+        $url = 'https://weblogin.muninqn.gov.ar/api_v1/getToken';
+        $headers = array(
+            "Content-Type: application/json",
+        );
+        try {
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => $url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_HTTPHEADER => $headers,
+                CURLOPT_POSTFIELDS => json_encode($params),
+                CURLOPT_CUSTOMREQUEST => "POST",
+            ));
+            $response = curl_exec($curl);
+            curl_close($curl);
+            $usuario = json_decode($response, true);
+            return $usuario['securityToken'];
+        } catch (Exception $e) {
         }
     }
 
