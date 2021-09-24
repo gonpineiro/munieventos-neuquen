@@ -27,7 +27,7 @@ class LoginForm extends Model
         return [
             // username and password are both required
             [['email', 'password', 'externalLogin'], 'required'],
-            [['email'], 'email'],
+            [['email'], 'string'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
@@ -60,7 +60,7 @@ class LoginForm extends Model
     protected function getUser()
     {
         if ($this->_user === null) {
-//            $this->_user = User::findByUsername($this->username);
+            //            $this->_user = User::findByUsername($this->username);
             $this->_user = User::findByEmail($this->email);
         }
 
@@ -84,9 +84,9 @@ class LoginForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => 'Dirección de Correo',
+            'email' => 'DNI o dirección de correo electrónico',
             'password' => 'Contraseña',
-            'externalLogin' => 'externalLogin',
+            'externalLogin' => '',
         ];
     }
 }
