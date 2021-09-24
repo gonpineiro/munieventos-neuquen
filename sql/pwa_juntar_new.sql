@@ -773,15 +773,22 @@ INSERT INTO `permiso_rol` (`parent`, `child`) VALUES
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nombre`, `apellido`, `dni`, `pais`, `provincia`, `localidad`, `email`, `auth_key`, `password_hash`, `password_reset_token`, `status`, `created_at`, `updated_at`, `verification_token`) VALUES
-(1, 'Administrador', 'Administrador', 30639251663, '', NULL, 'Neuquén', 'munieventosnqn@gmail.com', 'OmzVKGUJExEJuN4e_yJnso6tNabdoF09', '$2y$13$hkfdaAZgIQEaZTrHRNsnje0otnGEzHo.BIoaXbsWqEbb51si.PR3e', NULL, 10, 1590994328, 1590994328, 'FAcDt5Ki0rSn5JLg9aMtCaV4F-LeTGUY_1590994328'),
-;
+(1, 'Administrador', 'Administrador', 20332183, '', NULL, 'Neuquén', 'admin01@test.com', 'OmzVKGUJExEJuN4e_yJnso6tNabdoF09', '$2y$13$hkfdaAZgIQEaZTrHRNsnje0otnGEzHo.BIoaXbsWqEbb51si.PR3e', NULL, 10, 1590994328, 1590994328, 'FAcDt5Ki0rSn5JLg9aMtCaV4F-LeTGUY_1590994328'),
+(2, 'Rodrigo', 'Lazo', 20332183, '', NULL, 'Neuquén', 'organizador01@test.com', 'RfIaQzvchcC1zfRlAo2C7OpT04tNwcxF', '$2y$13$atb/agLp5ViXD20KG91yRefE0SN73JLrNOaJnD6UVcN64DQkTyrze', NULL, 10, 1590994729, 1590994729, '4i0PgyPBBD-1zt0DlQEVo8PP9MLtFAAN_1590994729'),
+(3, 'Sabrina', 'Casas', 18664055, '', NULL, 'Centenario', 'organizador02@test.com', 'o546IVKZ0Vc1tnzfYruu3jTq1AEQl5XY', '$2y$13$OdLxghAQtDLB4WS7aIpWrOd7WR12ZuzfPfu/g23E.T8l06e8ALuWq', NULL, 10, 1590994776, 1590994776, 'zBU1IGmB733ix97W1n4GwVWVXQZhNemm_1590994776'),
+(4, 'Alejandro', 'Medario', 32976700, '', NULL, 'Neuquén', 'registrado01@test.com', 'nE1auJs4ex8KmM7mo5UEtvrkFtSt94FI', '$2y$13$TkAsHr/QXEWKXR0OAxCm/.9ij2nod5iBibpk6ly0ZkTz9YeHmrEha', NULL, 10, 1590994878, 1590994878, 'vucICXx57O0zJv3LkAK7ueInqv9vrF1I_1590994878'),
+(5, 'Matias', 'Contreras', 31179842, '', NULL, 'Cipolletti', 'registrado02@test.com', '5pjZV8xixJkfcspDznsGCq3QuIbU05da', '$2y$13$gc42YUd7Qsp2vrJACHZYLOn3b.Mh9JmS1N/ZOLIf7ayyFhKre7rgW', NULL, 10, 1590994958, 1590994958, 'GApav7SolKFCdriU-_NNYnTleAfenZyz_1590994958');
 
 --
 -- Volcado de datos para la tabla `usuario_rol`
 --
 
 INSERT INTO `usuario_rol` (`item_name`, `user_id`, `created_at`) VALUES 
-('Administrador', 1, NULL);
+('Administrador', 1, NULL),
+('Organizador', 2, NULL),
+('Organizador', 3, NULL),
+('Registrado', 4, NULL),
+('Registrado', 5, NULL);
 
 
 --
