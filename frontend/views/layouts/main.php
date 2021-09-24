@@ -49,8 +49,8 @@ AppAsset::register($this);
         ];
         if (Yii::$app->user->isGuest) {
             /* Se comenta para implementar el Acceso por weblogin */
-            /* $menuItems[] = ['label' => 'Registrarse', 'url' => ['/site/signup']];
-            $menuItems[] = ['label' => 'Ingresar', 'url' => ['/site/login']]; */
+            /* $menuItems[] = ['label' => 'Registrarse', 'url' => ['/site/signup']];*/
+            $menuItems[] = ['label' => 'Ingresar', 'url' => ['/site/login']];
         } else {
             // Opciones solo para usuario con rol organizador 
             if (Yii::$app->user->can('Organizador')) {
