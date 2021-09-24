@@ -152,8 +152,8 @@ class EventoController extends Controller
             'Secretaría de Hacienda' => "Secretaría de Hacienda",
             'Secretaría de Modernización' => "Secretaría de Modernización",
             'Secretaría de Movilidad y Servicios al Ciudadano' => "Secretaría de Movilidad y Servicios al Ciudadano",
-            'Unidad de gestión de planificación y proyectos urbanos' => "Unidad de gestión de planificación y proyectos urbanos",
-            'Unidad de promoción de actividades públicas y relaciones institucionales' => "Unidad de promoción de actividades públicas y relaciones institucionales",
+            'Unidad de Gestión de Planificación y Proyectos Urbanos' => "Unidad de Gestión de Planificación y Proyectos Urbanos",
+            'Unidad de Promoción de Actividades Públicas y Relaciones Institucionales' => "Unidad de Promoción de Actividades Públicas y Relaciones institucionales",
             'Unidad Gestión Municipal' => "Unidad Gestión Municipal"
         ];
         return $this->render('editarEvento', [
