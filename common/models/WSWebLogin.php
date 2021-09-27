@@ -12,6 +12,7 @@ class WSWebLogin
     public $nombreApellido;
     public $email;
     public $pais;
+    public $dni;
     public $password;
     public $error = null;
 
@@ -46,6 +47,7 @@ class WSWebLogin
             $this->nombreApellido = explode(',', $usuario['datosPersonales']['razonSocial']);
             $this->email = $usuario['userName'];
             $this->pais = $usuario['datosPersonales']['domicilioReal']['codigoPostal']['pais'];
+            $this->dni = $usuario['datosPersonales']['documento'];
             $this->password = $usuario['userPlainTextPass'];
 
             foreach ($usuario['apps'] as $apps) {

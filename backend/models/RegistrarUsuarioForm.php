@@ -15,7 +15,7 @@ class RegistrarUsuarioForm extends Model
     public $nombre;
     public $apellido;
     public $pais;
-    //    public $dni;
+    public $dni;
     //    public $telefono;
     public $email;
     //    public $provincia;
@@ -33,7 +33,7 @@ class RegistrarUsuarioForm extends Model
     {
         return [
             //Obligatorio
-            [['nombre', 'apellido', 'email', 'pais'], 'required'],
+            [['nombre', 'apellido', 'dni', 'email', 'pais'], 'required'],
             //Reglas nombre
             /* ['nombre', 'match', 'pattern' => '/^[a-zA-Z ]+$/', 'message' => 'El campo contiene caracteres inválidos'],
             ['nombre', 'string', 'min' => 2, 'max' => 14,
@@ -77,6 +77,7 @@ class RegistrarUsuarioForm extends Model
         $user->nombre = $this->nombre;
         $user->apellido = $this->apellido;
         $user->pais = $this->pais;
+        $user->dni = $this->dni;
         $user->email = $this->email;
         $user->setPassword($pass);
 
