@@ -47,10 +47,5 @@ Tener en cuenta que este proceso va a tardar un poco la primera vez que lo corra
 
 #### Conectarse a los servidores Docker de la municipalidad
 
-- Con VPN activada conetarse por ssh a la maquina de la siguiente forma: 
-    - ssh modernizacion@128.53.80.108
-    - ssh modernizacion@128.53.1.9
-    - Password: Moderna20
-
 #### Configuración del proyecto
  Dentro de `common/config/main-local.php` se debe configurar el acceso a la base de datos y la configuración del correo electronico del proyecto
