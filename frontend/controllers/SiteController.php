@@ -164,7 +164,7 @@ class SiteController extends Controller
                 $token = $this->webLogin($model->email, $model->password);
                 $usuarioWsLogin = new WSWebLogin($token, 63);
                 if (!$usuarioWsLogin->error) {
-                    $usuario = User::findByEmail($usuarioWsLogin->email);                    
+                    $usuario = User::findByEmail($usuarioWsLogin->email);
                     if (!$usuario) {
                         $usuarioModelo = new RegistrarUsuarioForm();
                         $usuarioModelo->nombre = $usuarioWsLogin->nombreApellido[1];
@@ -233,8 +233,9 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         /* Implementacion WebLogin */
-        header('Location: https://weblogin.muninqn.gov.ar');
-        exit();
+        /* Si se redirige al weblogin, no cierra sesión, yendo a goHome se termina. */
+        //header('Location: https://weblogin.muninqn.gov.ar');
+        //exit();
 
         return $this->goHome();
     }

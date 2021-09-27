@@ -116,10 +116,10 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
+        /* Si se redirige al weblogin, no cierra sesión, yendo a goHome se termina. */
         /* Implementacion para el WebLogin */
-        header('Location: https://weblogin.muninqn.gov.ar');
-        exit();
+        //header('Location: https://weblogin.muninqn.gov.ar');
+        //exit();
 
         return $this->goHome();
     }
