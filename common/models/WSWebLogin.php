@@ -12,7 +12,6 @@ class WSWebLogin
     public $nombreApellido;
     public $email;
     public $pais;
-    public $dni;
     public $password;
     public $error = null;
 
@@ -40,6 +39,7 @@ class WSWebLogin
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_SSL_VERIFYPEER => false,
             ));
             $response = curl_exec($curl);
             curl_close($curl);
@@ -47,7 +47,6 @@ class WSWebLogin
             $this->nombreApellido = explode(',', $usuario['datosPersonales']['razonSocial']);
             $this->email = $usuario['userName'];
             $this->pais = $usuario['datosPersonales']['domicilioReal']['codigoPostal']['pais'];
-            $this->dni = $usuario['datosPersonales']['documento'];
             $this->password = $usuario['userPlainTextPass'];
 
             foreach ($usuario['apps'] as $apps) {
