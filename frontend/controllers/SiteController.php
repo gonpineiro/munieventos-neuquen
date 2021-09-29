@@ -214,6 +214,8 @@ class SiteController extends Controller
                 CURLOPT_HTTPHEADER => $headers,
                 CURLOPT_POSTFIELDS => json_encode($params),
                 CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_SSL_VERIFYPEER => false,
+
             ));
             $response = curl_exec($curl);
             curl_close($curl);
