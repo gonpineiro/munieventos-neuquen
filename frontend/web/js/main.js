@@ -25,9 +25,14 @@ $(document).ready(function () {
       $("input[name='Evento[preInscripcion]']").prop("required", false);
     }
   });
-
-  //Verifica si el evento requeire preinscripcion para mostrar el campo fechalimite
+  if ($("input[name='Evento[req_incripcion]']:checked").val() != 0) {
+    $("#preInscricion").show();
+    $("input[name='Evento[preInscripcion]']").prop("required", true);
+  } else {
+    $("input[name='Evento[preInscripcion]']").prop("required", false);
+  }
   if ($("#evento-fechalimiteinscripcion").val() != 0) {
+    //Verifica si el evento requeire preinscripcion para mostrar el campo fechalimite
     $("#fechaLimite").show();
     $("#evento-fechalimiteinscripcion").attr("required", true);
     $("#i3").attr("checked", true);
