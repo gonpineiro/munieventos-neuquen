@@ -7,6 +7,7 @@ use common\models\LoginForm;
 use common\models\User;
 use common\models\WSWebLogin;
 use Exception;
+use frontend\models\CategoriaEvento;
 use frontend\models\ContactForm;
 use frontend\models\Evento;
 use frontend\models\PasswordResetRequestForm;
@@ -110,6 +111,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $categoriasEventos = CategoriaEvento::find()
+            ->select(['descripcionCategoria'])
+            ->indexBy('idCategoriaEvento')
+            ->column();
         $request = Yii::$app->request;
         $busqueda = $request->get("s", "");
         $orden = $request->get("orden", "");
@@ -148,7 +153,7 @@ class SiteController extends Controller
             ->all();
 
 
-        return $this->render('index', ["eventos" => $models, 'pages' => $pages]);
+        return $this->render('index', ["eventos" => $models, 'pages' => $pages, 'categoriasEventos' => $categoriasEventos]);
     }
 
     /**
