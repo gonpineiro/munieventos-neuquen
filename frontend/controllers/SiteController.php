@@ -121,7 +121,6 @@ class SiteController extends Controller
             $ordenSQL = "fechaInicioEvento DESC";
         }
 
-        $fechaInicio = '2021-10-28';
         if ($busqueda != "" && ($fechaInicio == "" || $fechaInicio == null)) {
             $eventos = Evento::find()
                 ->innerJoin('usuario', 'usuario.idUsuario=evento.idUsuario')
