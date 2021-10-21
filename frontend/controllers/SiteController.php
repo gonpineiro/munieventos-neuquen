@@ -113,14 +113,16 @@ class SiteController extends Controller
         $request = Yii::$app->request;
         $busqueda = $request->get("s", "");
         $orden = $request->get("orden", "");
+        $fechaInicio = $request->get("fechaInicioEvento", "");
 
         if ($orden != "") {
             $ordenSQL = $orden == "0" ? "fechaInicioEvento DESC" : "fechaCreacionEvento DESC";
         } else {
             $ordenSQL = "fechaInicioEvento DESC";
         }
-
-        if ($busqueda != "") {
+        
+        $fechaInicio = '2021-10-28';
+        if ($busqueda != "" && ($fechaInicio == "" || $fechaInicio == null)) {
             $eventos = Evento::find()
                 ->innerJoin('usuario', 'usuario.idUsuario=evento.idUsuario')
                 ->where(["idEstadoEvento" => 1])
@@ -130,7 +132,11 @@ class SiteController extends Controller
                 ->orwhere(["like", "nombreEvento", $busqueda])
                 ->orderBy($ordenSQL);
         } else {
-            $eventos = Evento::find()->orderBy($ordenSQL)->where(["idEstadoEvento" => 1])->orwhere(["idEstadoEvento" => 3]);
+            if ($fechaInicio != "" || $fechaInicio != null) {
+                $eventos = Evento::find()->orderBy($ordenSQL)->where([">=", "fechaInicioEvento", $fechaInicio]);
+            } else {
+                $eventos = Evento::find()->orderBy($ordenSQL)->where(["idEstadoEvento" => 1])->orwhere(["idEstadoEvento" => 3]);
+            }
         }
 
         //Paginación para 6 eventos por pagina
@@ -164,7 +170,7 @@ class SiteController extends Controller
                 $token = $this->webLogin($model->email, $model->password);
                 $usuarioWsLogin = new WSWebLogin($token, 63);
                 if (!$usuarioWsLogin->error) {
-                    $usuario = User::findByEmail($usuarioWsLogin->email);                    
+                    $usuario = User::findByEmail($usuarioWsLogin->email);
                     if (!$usuario) {
                         $usuarioModelo = new RegistrarUsuarioForm();
                         $usuarioModelo->nombre = $usuarioWsLogin->nombreApellido[1];
