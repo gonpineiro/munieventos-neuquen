@@ -127,7 +127,7 @@ class SiteController extends Controller
             $ordenSQL = "fechaInicioEvento DESC";
         }
 
-        if ($busqueda != "" && ($fechaInicio == "" || $fechaInicio == null)) {
+        if ($busqueda != "" && ($fechaInicio == "" || $fechaInicio == null) && ($categoriaId == "" || $categoriaId == null)) {
             $eventos = Evento::find()
                 ->innerJoin('usuario', 'usuario.idUsuario=evento.idUsuario')
                 ->where(["idEstadoEvento" => 1])
@@ -138,15 +138,23 @@ class SiteController extends Controller
                 ->orderBy($ordenSQL);
         } else {
             if ($fechaInicio != "" || $fechaInicio != null) {
-                $eventos = Evento::find()
-                    ->orderBy($ordenSQL)
-                    ->where([">=", "fechaInicioEvento", $fechaInicio])
-                    ->where(["idEstadoEvento" => 1])
-                    ->orwhere(["idEstadoEvento" => 3])
-                    ->andwhere(['idCategoriaEvento' => $categoriaId]);
+                if ($categoriaId != "" || $categoriaId != null) {
+                    $eventos = Evento::find()
+                        ->orderBy($ordenSQL)
+                        ->where(["idEstadoEvento" => 1])
+                        ->orwhere(["idEstadoEvento" => 3])
+                        ->where([">=", "fechaInicioEvento", $fechaInicio])
+                        ->andwhere(['idCategoriaEvento' => $categoriaId]);
+                } else {
+                    $eventos = Evento::find()
+                        ->orderBy($ordenSQL)
+                        ->where(["idEstadoEvento" => 1])
+                        ->orwhere(["idEstadoEvento" => 3])
+                        ->where([">=", "fechaInicioEvento", $fechaInicio]);
+                }
             } else {
                 if ($categoriaId != "" || $categoriaId != null) {
-                    $eventos = Evento::find()->orderBy($ordenSQL)->where(["idEstadoEvento" => 1])->orwhere(["idEstadoEvento" => 3])->andwhere(['idCategoriaEvento' => $categoriaId]);
+                    $eventos = Evento::find()->orderBy($ordenSQL)->where(['idCategoriaEvento' => $categoriaId])->andwhere(["idEstadoEvento" => 1])->orwhere(["idEstadoEvento" => 3]);
                 } else {
                     $eventos = Evento::find()->orderBy($ordenSQL)->where(["idEstadoEvento" => 1])->orwhere(["idEstadoEvento" => 3]);
                 }
