@@ -66,11 +66,11 @@ $this->title = 'Muni Eventos';
 
                         <div class="col-sm-12 col-md-2 mb-3">
                             <label class="text-white" style="visibility: hidden;;">Options</label>
-                            <button class="btn btn-secondary btn-lg full_width" type="submit">Buscar</button>
+                            <button class="btn btn-secondary btn-lg full_width" type="submit" style="margin-top:-5px">Buscar</button>
                         </div>
                         <div class="col-sm-12 col-md-2 mb-3">
                             <label class="text-white" style="visibility: hidden;;">Options</label>
-                            <?= Html::a('Restablecer', ["index#events"], ['class' => 'btn btn-secondary btn-lg full_width']); ?>
+                            <?= Html::a('Restablecer', ["index#events"], ['class' => 'btn btn-secondary btn-lg full_width', 'style' => 'margin-top:-5px']); ?>
                         </div>
 
                     </div>
