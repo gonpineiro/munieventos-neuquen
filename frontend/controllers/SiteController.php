@@ -119,6 +119,7 @@ class SiteController extends Controller
         $busqueda = $request->get("s", "");
         $orden = $request->get("orden", "");
         $fechaInicio = $request->get("fechaInicioEvento", "");
+        $categoriaId = $request->get('categoriasEventos');
 
         if ($orden != "") {
             $ordenSQL = $orden == "0" ? "fechaInicioEvento DESC" : "fechaCreacionEvento DESC";
@@ -137,9 +138,18 @@ class SiteController extends Controller
                 ->orderBy($ordenSQL);
         } else {
             if ($fechaInicio != "" || $fechaInicio != null) {
-                $eventos = Evento::find()->orderBy($ordenSQL)->where([">=", "fechaInicioEvento", $fechaInicio]);
+                $eventos = Evento::find()
+                    ->orderBy($ordenSQL)
+                    ->where([">=", "fechaInicioEvento", $fechaInicio])
+                    ->where(["idEstadoEvento" => 1])
+                    ->orwhere(["idEstadoEvento" => 3])
+                    ->andwhere(['idCategoriaEvento' => $categoriaId]);
             } else {
-                $eventos = Evento::find()->orderBy($ordenSQL)->where(["idEstadoEvento" => 1])->orwhere(["idEstadoEvento" => 3]);
+                if ($categoriaId != "" || $categoriaId != null) {
+                    $eventos = Evento::find()->orderBy($ordenSQL)->where(["idEstadoEvento" => 1])->orwhere(["idEstadoEvento" => 3])->andwhere(['idCategoriaEvento' => $categoriaId]);
+                } else {
+                    $eventos = Evento::find()->orderBy($ordenSQL)->where(["idEstadoEvento" => 1])->orwhere(["idEstadoEvento" => 3]);
+                }
             }
         }
 
