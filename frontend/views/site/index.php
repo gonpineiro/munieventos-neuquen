@@ -46,22 +46,28 @@ $this->title = 'Muni Eventos';
                     <div class="form-group row" style="margin-bottom: 0px;">
 
                         <div class="col-sm-12 col-md-4 mb-3">
-                            <select name="orden" class="custom-select custom-select-lg" onchange="this.form.submit()">
-                                <option <?= (isset($_GET["orden"]) && $_GET["orden"] == 0) ? "selected" : "" ?> value="0">Fecha de inicio del evento
-                                </option>
-                                <option <?= (isset($_GET["orden"]) && $_GET["orden"] == 1) ? "selected" : "" ?> value="1">Fecha de creación
-                                </option>
+                            <div class="form-group">
+                                <label class="text-white" for="fechaInicio">Fecha de inicio</label>
+                                <input type="date" class="form-control" id="fechaInicioEvento" name="fechaInicioEvento" placeholder="<?= date('yy-m-d'); ?>">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 mb-3">
+                            <label class="text-white" for="inputGroupSelect01">Options</label>
+
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Choose...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
                             </select>
                         </div>
 
-                        <div class="col-sm-12 col-md-4 mb-3">
-                            <input class="form-control-lg full_width" type="search" placeholder="Buscar" name="s" value="<?= isset($_GET["s"]) ? $_GET["s"] : "" ?>">
-                        </div>
-
                         <div class="col-sm-12 col-md-2 mb-3">
+                            <label class="text-white" style="visibility: hidden;;">Options</label>
                             <button class="btn btn-secondary btn-lg full_width" type="submit">Buscar</button>
                         </div>
                         <div class="col-sm-12 col-md-2 mb-3">
+                            <label class="text-white" style="visibility: hidden;;">Options</label>
                             <?= Html::a('Restablecer', ["index#events"], ['class' => 'btn btn-secondary btn-lg full_width']); ?>
                         </div>
 

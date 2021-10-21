@@ -120,7 +120,7 @@ class SiteController extends Controller
         } else {
             $ordenSQL = "fechaInicioEvento DESC";
         }
-        
+
         $fechaInicio = '2021-10-28';
         if ($busqueda != "" && ($fechaInicio == "" || $fechaInicio == null)) {
             $eventos = Evento::find()
