@@ -52,13 +52,15 @@ $this->title = 'Muni Eventos';
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 mb-3">
-                            <label class="text-white" for="inputGroupSelect01">Options</label>
+                            <label class="text-white" for="categoríasEventos">Options</label>
 
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select name="categoriasEventos" class="custom-select" id="categoriasEventos" onchange="this.form.submit()">
+                                <option selected>Elegir...</option>
+                                <?PHP
+                                foreach ($categoriasEventos as $unaCategoria) { ?>
+                                    <option value="<?= $unaCategoria ?>"><?= $unaCategoria ?></option>
+                                <?PHP }
+                                ?>
                             </select>
                         </div>
 
