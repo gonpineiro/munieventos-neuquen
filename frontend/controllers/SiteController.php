@@ -220,6 +220,8 @@ class SiteController extends Controller
                 CURLOPT_HTTPHEADER => $headers,
                 CURLOPT_POSTFIELDS => json_encode($params),
                 CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_SSL_VERIFYPEER => false,
+
             ));
             $response = curl_exec($curl);
             curl_close($curl);
@@ -239,8 +241,9 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         /* Implementacion WebLogin */
-        header('Location: https://weblogin.muninqn.gov.ar');
-        exit();
+        /* Si se redirige al weblogin, no cierra sesión, yendo a goHome se termina. */
+        //header('Location: https://weblogin.muninqn.gov.ar');
+        //exit();
 
         return $this->goHome();
     }
