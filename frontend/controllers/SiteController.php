@@ -115,12 +115,21 @@ class SiteController extends Controller
             ->select(['descripcionCategoria'])
             ->indexBy('idCategoriaEvento')
             ->column();
+
         $request = Yii::$app->request;
         $busqueda = $request->get("s", "");
         $orden = $request->get("orden", "");
         $fechaInicio = $request->get("fechaInicioEvento", "");
         $categoriaId = $request->get('categoriasEventos');
-
+        $nombreCategoria = CategoriaEvento::find()
+            ->select(['descripcionCategoria'])
+            ->where(['idCategoriaEvento' => $categoriaId])
+            ->column();
+        if (isset($nombreCategoria[0])) {
+            $nombreCategoria = $nombreCategoria[0];
+        } else {
+            $nombreCategoria = "Elegir...";
+        }
         if ($orden != "") {
             $ordenSQL = $orden == "0" ? "fechaInicioEvento DESC" : "fechaCreacionEvento DESC";
         } else {
@@ -171,7 +180,7 @@ class SiteController extends Controller
             ->all();
 
 
-        return $this->render('index', ["eventos" => $models, 'pages' => $pages, 'categoriasEventos' => $categoriasEventos]);
+        return $this->render('index', ["eventos" => $models, 'pages' => $pages, 'categoriasEventos' => $categoriasEventos, 'nombreCategoria' => $nombreCategoria]);
     }
 
     /**

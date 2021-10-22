@@ -54,8 +54,8 @@ $this->title = 'Muni Eventos';
                         <div class="col-sm-12 col-md-4 mb-3">
                             <label class="text-white" for="categoríasEventos">Categorías</label>
 
-                            <select name="categoriasEventos" class="custom-select" id="categoriasEventos" onchange="this.form.submit()">
-                                <option disabled selected>Elegir...</option>
+                            <select name="categoriasEventos" class="custom-select" id="categoriasEventos">
+                                <option disabled selected><?= $nombreCategoria; ?></option>
                                 <?PHP
                                 foreach ($categoriasEventos as $unaCategoria) { ?>
                                     <option value="<?= array_search($unaCategoria, $categoriasEventos) ?>"><?= $unaCategoria ?></option>
@@ -66,18 +66,17 @@ $this->title = 'Muni Eventos';
 
                         <div class="col-sm-12 col-md-2 mb-3">
                             <label class="text-white" style="visibility: hidden;;">Options</label>
-                            <button class="btn btn-secondary btn-lg full_width" type="submit">Buscar</button>
+                            <button class="btn btn-secondary btn-lg full_width" type="submit" style="margin-top:-5px">Buscar</button>
                         </div>
                         <div class="col-sm-12 col-md-2 mb-3">
                             <label class="text-white" style="visibility: hidden;;">Options</label>
-                            <?= Html::a('Restablecer', ["index#events"], ['class' => 'btn btn-secondary btn-lg full_width']); ?>
+                            <?= Html::a('Restablecer', ["index#events"], ['class' => 'btn btn-secondary btn-lg full_width', 'style' => 'margin-top:-5px']); ?>
                         </div>
 
                     </div>
                 </form>
             </div>
         </div>
-
 
         <div class="container padding_section pt-5">
             <?php if (count($eventos) != 0) : ?>
@@ -89,6 +88,7 @@ $this->title = 'Muni Eventos';
                                 <h4 class='card-title font-weight-bold text_muni_azul_5'><?= Html::encode($evento["nombreEvento"]) ?></h4>
                                 <p class='card-title text-dark'>Organiza:</p>
                                 <h5 class='card-title text-dark'><?= Html::encode($evento["secretariaEvento"]) ?></h5>
+                                <p class="text-muted">Categoría: <?= $evento->idCategoriaEvento0->descripcionCategoria; ?></p>
                                 <h5 class='card-title text-muted'><?= Html::encode(date('d/m/Y', strtotime($evento["fechaInicioEvento"]))) ?>
                                     <?PHP if ($evento["horaInicioEvento"] != null && $evento["horaFinEvento"] != null) {
                                         echo "de " . $evento["horaInicioEvento"] . " hasta " . $evento["horaFinEvento"];
