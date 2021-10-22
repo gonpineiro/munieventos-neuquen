@@ -323,7 +323,7 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                                     <h2 class="text_muni_azul_5"><strong><?= $evento->nombreEvento ?></strong>
                                     </h2>
                                     <br>
-                                    <p class="text-dark">Organizado por <?= $organizadorEvento ?></p>
+                                    <h5 class="text-dark">Categoría: <?= $categoriaEvento ?></h5>
                                     <br>
                                     <!--<span>-->
                                     <?PHP
@@ -451,7 +451,6 @@ $organizadorEmailEvento = $evento->idUsuario0->email;
                         <div class="row">
                             <div class="col-sm-12 col-md-8 padding_section">
                                 <h4 class="text-uppercase pt-5">SOBRE ESTE EVENTO</h4>
-                                <br>
                                 <?= $evento->descripcionEvento ?>
                                 <br>
                                 <hr>
