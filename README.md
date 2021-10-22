@@ -45,7 +45,7 @@ Tener en cuenta que este proceso va a tardar un poco la primera vez que lo corra
 <b>Frontend:</b> aplicacion principal en el cual los usuarios tiene acceso. [localhost:21008](http://localhost:21008/)
 <b>Backend:</b> aplicacion secundaria para la adminstración. [localhost:20080](http://localhost:20008/)
 
-#### Conectarse a los servidores Docker de la municipalidad
+#### Conectarse a los servidores de la municipalidad
 
 - Con VPN activada conetarse por ssh a la maquina de la siguiente forma: 
     - ssh modernizacion@128.53.80.108
@@ -54,7 +54,41 @@ Tener en cuenta que este proceso va a tardar un poco la primera vez que lo corra
 
 #### Configuración del proyecto
  Dentro de `common/config/main-local.php` se debe configurar el acceso a la base de datos y la configuración del correo electronico del proyecto
+ 
+#### Configuración Database Tool (MySQL Workbench o similar)
+- Se crea una nueva MySQL Connection
+- Connection Method: Standard TCP/IP over SSH
+- SSH Hostname: 128.53.1.9
+- SSH Username: modernizacion
+- SSH Password: Moderna20
+- MySQL Hostname: 127.0.0.1
+- MySQL Server Port: 3306
+- Username: usereventos
+- Password: Eventual.2020
 
+#### Habilitar modo debug de Yii2
+La línea importante es 'allowedIPs' => ['*']
+ ```php
+if (!YII_ENV_TEST) {
+    // configuration adjustments for 'dev' environment
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+        'allowedIPs' => ['*']
+    ];
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+    ];
+}
+ ```
+ 
+#### Actualizaciones en producción
+
+Ya dentro del servidor de la municipalidad se hacen los pull del repositorio main con super usuario. El proyecto se encuentra dentro de /var/www/eventos.
+ ```bash
+  modernizacion@eventosserver:/var/www/eventos$ sudo git pull origin main
+```
 
 #### Integracion con WebLogin Municipalidad
 
