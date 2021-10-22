@@ -143,14 +143,14 @@ class SiteController extends Controller
                         ->orderBy($ordenSQL)
                         ->where(["idEstadoEvento" => 1])
                         ->orwhere(["idEstadoEvento" => 3])
-                        ->where([">=", "fechaInicioEvento", $fechaInicio])
+                        ->where(["fechaInicioEvento" => $fechaInicio])
                         ->andwhere(['idCategoriaEvento' => $categoriaId]);
                 } else {
                     $eventos = Evento::find()
                         ->orderBy($ordenSQL)
                         ->where(["idEstadoEvento" => 1])
                         ->orwhere(["idEstadoEvento" => 3])
-                        ->where([">=", "fechaInicioEvento", $fechaInicio]);
+                        ->where(["fechaInicioEvento" => $fechaInicio]);
                 }
             } else {
                 if ($categoriaId != "" || $categoriaId != null) {
