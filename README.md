@@ -52,9 +52,6 @@ Tener en cuenta que este proceso va a tardar un poco la primera vez que lo corra
     - ssh modernizacion@128.53.1.9
     - Password: Moderna20
 
-#### Configuración del proyecto
- Dentro de `common/config/main-local.php` se debe configurar el acceso a la base de datos y la configuración del correo electronico del proyecto
- 
 #### Configuración Database Tool (MySQL Workbench o similar)
 - Se crea una nueva MySQL Connection
 - Connection Method: Standard TCP/IP over SSH
@@ -66,15 +63,19 @@ Tener en cuenta que este proceso va a tardar un poco la primera vez que lo corra
 - Username: usereventos
 - Password: Eventual.2020
 
+
+#### Configuración del proyecto
+ Dentro de `common/config/main-local.php` se debe configurar el acceso a la base de datos y la configuración del correo electronico del proyecto
+
 #### Habilitar modo debug de Yii2
-La línea importante es 'allowedIPs' => ['*']
+Dentro de `frontend/config/main-local.php` se agrega lo siguiente:
  ```php
 if (!YII_ENV_TEST) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
-        'allowedIPs' => ['*']
+        'allowedIPs' => ['*'] /* importante */
     ];
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
@@ -83,14 +84,17 @@ if (!YII_ENV_TEST) {
 }
  ```
  
-#### Actualizaciones en producción
+ #### Actualizaciones en producción
 
 Ya dentro del servidor de la municipalidad se hacen los pull del repositorio main con super usuario. El proyecto se encuentra dentro de /var/www/eventos.
  ```bash
   modernizacion@eventosserver:/var/www/eventos$ sudo git pull origin main
-```
+ ```
+ #### GitHub Access Token
+Al momento de hacer un pull, se pide la contraseña del servidor, nombre de usuario GitHub y "contraseña". Esta última es un Access Token, que se crea desde [GitHub](https://github.com/settings/tokens). 
+Para más información [GitHubDocs](https://docs.github.com/es/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-#### Integracion con WebLogin Municipalidad
+#### Integración con WebLogin Municipalidad
 
 Se debe modificar el siguente archivo de la librearia de yii2: `\vendor\yiisoft\yii2\base\Application.php`
  - Agregamos los siguentes `use` 
